@@ -4,7 +4,7 @@ import Link from 'next/link';
 const Header = () => {
     return (
         <header className="flex justify-between items-center p-4 bg-white shadow-md">
-            <div className="text-xl font-bold">EcoCampaign</div>
+            <div className="text-xl font-bold">EcoHero</div>
             <nav>
                 <ul className="flex space-x-4">
                     <li><Link href="/projects" className="hover:text-green-dark">  Projects</Link></li>
