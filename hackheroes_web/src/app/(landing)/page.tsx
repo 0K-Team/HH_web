@@ -17,6 +17,7 @@ export default function Home() {
                 <ContentSections />
                 <ProjectCards />
                 <GetInvolved />
+
             </main>
         </>
     );
