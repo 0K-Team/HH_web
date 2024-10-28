@@ -3,6 +3,7 @@ const adminPanel = () => {
         <>
             <div>Admin Panel</div>
             <p>na pozniej </p>
+            <p>skibidi</p>
         </>
     );
 };
