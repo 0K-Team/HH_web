@@ -21,11 +21,11 @@ const ContentSections = () => {
             </section>
             <section className="p-8 bg-white">
                 <div className="flex items-center p-8">
-                    <div className="w-1/2">
+                    <div className="w-[80vh]">
                         <h2 className="text-4xl font-bold text-green-600">Udowodnione naukowo</h2>
                         <p>Łączymy udowodnione naukowo metody nauczania oraz ciekawe, zabawne treści...</p>
                     </div>
-                    <img src="/duolingo-scientific.png" alt="Ikonki" className="w-1/2"/>
+                    <img src="/duolingo-scientific.png" alt="Ikonki" className="w-[60vh]"/>
                 </div>
             </section>
             <section className="p-8 bg-white">
