@@ -9,7 +9,7 @@ const ProjectCards = () => {
         <div className="p-4 border rounded-lg shadow-sm bg-white">
           <h3 className="font-bold text-xl">Cleaning up the Danube</h3>
           <p>Join us in our efforts to clean and protect the Danube River.</p>
-          <button className="mt-2 text-green-dark underline">Read More</button>
+          <button className="mt-2 text-green-dark underline">Trzeba dodać autmatyczne dodoawanie tego gówna na podstawie BD</button>
         </div>
       </div>
     </section>
