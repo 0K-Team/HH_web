@@ -1,5 +1,5 @@
 import {User} from "../types/user";
-const baseUrl = 'https://ecohero.q1000q.me/api/';
+const baseUrl = '/v1/';
 
 export const fetchLoggedUser = async () :Promise <User> =>{
     const response = await fetch(`${baseUrl}user/me`);
