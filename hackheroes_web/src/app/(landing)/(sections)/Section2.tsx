@@ -1,6 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
-import imageSection2 from './imageSection2.png';
+import imageSection2 from '../(content)/imageSection2.png';
 
 const Section2 = () => {
     return (
