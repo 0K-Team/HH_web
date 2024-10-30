@@ -15,7 +15,7 @@ const Dashboard: React.FC<DashboardProps> = () => {
     const [user, setUser] = useState<User | null>(null);
 
     useEffect(() => {
-        getServerSideProps()
+        fetchLoggedUser()
             .then((user) => setUser(user));
     }, []);
 
