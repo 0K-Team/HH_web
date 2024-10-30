@@ -12,7 +12,7 @@ const Header = () => {
                     <li><Link href="/campaigns" className="hover:text-green-dark">Campaigns</Link></li>
                 </ul>
             </nav>
-            <button className="bg-green text-white px-4 py-2 rounded">Get Involved</button>
+            <Link href ="/dashboard" className="bg-green text-white px-4 py-2 rounded">Get Started</Link>
         </header>
     );
 };

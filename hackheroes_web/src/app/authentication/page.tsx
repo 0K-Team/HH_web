@@ -1,10 +1,20 @@
 import Link from "next/link";
+import Image from 'next/image';
+import logoLightTransparent from './logoLightTransparent.png';
 
 const Login = () => {
     return (
         <>
-            <section className="flex justify-center items-center bg-green-500 h-[100vh]">
-                <div className="text-center bg-white px-[10vh] py-[15vh] rounded-2xl ">
+            <section className="flex justify-center items-center bg-white-200 h-[100vh]">
+                <div className="text-center bg-white-200 px-[15vh] py-[15vh] rounded-2xl ">
+                   <div className="flex justify-center items-center">
+                        <Image className="w-[15rem] h-[15rem] object-cover"
+                            src={logoLightTransparent}
+                            alt="Logo"
+                            width={200}
+                            height={200}
+                        />
+                    </div>
                     <Link href="/authentication/google-login" className="block text-lg font-bold bg-green-400 p-4 rounded shadow-lg mb-7 hover:bg-green-200 hover:scale-105 transition-transform duration-300">Login with Google</Link>
                     <Link href="/authentication/meta-login" className="block text-lg font-bold bg-green-400 p-4 rounded shadow-lg hover:bg-green-200 hover:scale-105 transition-transform duration-300">Login with Meta (Facebook)</Link>                </div>
             </section>

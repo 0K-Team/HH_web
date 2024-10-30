@@ -1,6 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
-import shrek from './shrek.gif';
+import imageSection2 from './imageSection2.png';
 
 const Section2 = () => {
     return (
@@ -12,8 +12,8 @@ const Section2 = () => {
                         <p>Łączymy udowodnione naukowo metody nauczania oraz ciekawe, zabawne treści...</p>
                     </div>
                     <Image
-                        src={shrek}
-                        alt="szrek"
+                        src={imageSection2}
+                        alt="Section 2 Image"
                         width={500}
                         height={500}
                     />

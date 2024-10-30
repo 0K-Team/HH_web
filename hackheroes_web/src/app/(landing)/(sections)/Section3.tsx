@@ -1,6 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
-import shrek from './shrek.gif'
+import imageSection3 from './imageSection3.png';
 const Section2 = () => {
     return (
         <>
@@ -8,8 +8,8 @@ const Section2 = () => {
                 <div className="flex items-center p-8 space-x-[10%]">
 
                     <Image
-                        src={shrek}
-                        alt="szrek"
+                        src={imageSection3}
+                        alt="Section 3 image"
                         width={500}
                         height={500}
                     />
