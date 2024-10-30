@@ -5,7 +5,7 @@ const nextConfig: NextConfig = {
     return [
       {
         source: '/api/:path*',
-        destination: 'https://localhost:8812/:path*'
+        destination: 'https://192.168.0.10:8812/:path*'
       },
     ]
   },
@@ -15,7 +15,7 @@ const nextConfig: NextConfig = {
         ...config.devServer,
         proxy: {
           '/api': {
-            target: 'https://localhost:8812/',
+            target: 'https://192.168.0.10:8812/',
             changeOrigin: true,
             pathRewrite: { '^/api': '/api' }
           }
