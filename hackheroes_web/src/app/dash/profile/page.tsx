@@ -1,9 +1,8 @@
 "use client"
 import React, {useEffect, useState} from "react";
-import Form from "next/form";
 import {changeFirstName, changeLastName, changeUsername, fetchLoggedUser} from "@/app/api/user";
 import {User} from "@/app/types/user";
-const profileOptions = () => {
+const ProfileOptions = () => {
     const [user, setUser] = useState<User | null>(null)
     useEffect(() => {
         fetchLoggedUser()
@@ -26,8 +25,9 @@ const profileOptions = () => {
             await changeUsername(username);
             await changeFirstName(firstName);
             await changeLastName(lastName);
-        } catch (e:any) {
-            setError(e.message);
+        } catch (e) {
+            const msg = (e as Error).message;
+            setError(msg);
         }
     }
     return (
@@ -64,4 +64,4 @@ const profileOptions = () => {
         </form>
     );
 };
-export default profileOptions;
+export default ProfileOptions;
