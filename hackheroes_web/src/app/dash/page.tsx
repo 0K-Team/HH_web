@@ -5,11 +5,7 @@ import Head from 'next/head';
 import { User } from '../types/user';
 import {fetchLoggedUser} from "@/app/api/user";
 
-interface DashboardProps {
-    user: User;
-}
-
-const Dashboard: React.FC<DashboardProps> = () => {
+const Dashboard = () => {
     const [user, setUser] = useState<User | null>(null);
 
     useEffect(() => {
