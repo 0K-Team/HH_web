@@ -4,6 +4,7 @@ import React, {useEffect, useState} from 'react';
 import Head from 'next/head';
 import { User } from '../types/user';
 import {fetchLoggedUser} from "@/app/api/user";
+import Link from "next/link";
 
 const Dashboard = () => {
     const [user, setUser] = useState<User | null>(null);
@@ -25,7 +26,7 @@ const Dashboard = () => {
             <main className="container mx-auto px-4 py-8">
                 <div className="bg-green-100 rounded-lg shadow-lg p-6 mb-8">
                     <div className="flex items-center mb-6">
-                        <div>ikonka</div>
+                        <div>tu bedzie ikonka</div>
                         <div>
                             <h1 className="text-3xl font-bold text-black">{user.fullName.givenName} {user.fullName.familyName}</h1>
                             <p className="text-gray-600">@{user.username}</p>
@@ -86,6 +87,10 @@ const Dashboard = () => {
                             ))}
                         </div>
                     </div>
+                </div>
+                <div className="bg-green-100 rounded-lg shadow-lg p-6">
+                    <Link href="../dash/profile/"  className="text-2xl font-bold mb-4 text-black">Profile options</Link>
+                    <div className="flex flex-wrap"></div>
                 </div>
             </main>
         </div>
