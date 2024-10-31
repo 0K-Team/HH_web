@@ -24,11 +24,11 @@ const Login = () => {
                     <h2 className="text-white font-semibold text-2xl mb-8">
                         Zaloguj się używając <br/> jednego ze sposobów:
                     </h2>
-                    <Link href="/auth/google-login" className="block text-lg font-semibold text-center text-black bg-[#29FF77] py-3 rounded-full mb-6 transition duration-300 ease-in-out transform hover:bg-[#22cc66] hover:scale-105 hover:text-white shadow-lg">
+                    <Link href="https://ecohero.q1000q.me/api/v1/user/auth/google" passHref={true} className="block text-lg font-semibold text-center text-black bg-[#29FF77] py-3 rounded-full mb-6 transition duration-300 ease-in-out transform hover:bg-[#22cc66] hover:scale-105 hover:text-white shadow-lg">
                         Google
                     </Link>
 
-                    <Link href="/auth/meta-login" className="block text-lg font-semibold text-center text-black bg-[#29FF77] py-3 rounded-full transition duration-300 ease-in-out transform hover:bg-[#22cc66] hover:scale-105 hover:text-white shadow-lg">
+                    <Link href="https://ecohero.q1000q.me/api/v1/user/auth/facebook" passHref={true} className="block text-lg font-semibold text-center text-black bg-[#29FF77] py-3 rounded-full transition duration-300 ease-in-out transform hover:bg-[#22cc66] hover:scale-105 hover:text-white shadow-lg">
                         Meta (Facebook)
                     </Link>
                 </div>
