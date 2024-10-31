@@ -15,8 +15,8 @@ const Login = () => {
                             height={200}
                         />
                     </div>
-                    <Link href="/authentication/google-login" className="block text-lg font-bold bg-green-400 p-4 rounded shadow-lg mb-7 hover:bg-green-200 hover:scale-105 transition-transform duration-300">Login with Google</Link>
-                    <Link href="/authentication/meta-login" className="block text-lg font-bold bg-green-400 p-4 rounded shadow-lg hover:bg-green-200 hover:scale-105 transition-transform duration-300">Login with Meta (Facebook)</Link>                </div>
+                    <Link href="/hackheroes_web/src/app/auth/(login)/google-login" className="block text-lg font-bold bg-green-400 p-4 rounded shadow-lg mb-7 hover:bg-green-200 hover:scale-105 transition-transform duration-300">Login with Google</Link>
+                    <Link href="/hackheroes_web/src/app/auth/(login)/meta-login" className="block text-lg font-bold bg-green-400 p-4 rounded shadow-lg hover:bg-green-200 hover:scale-105 transition-transform duration-300">Login with Meta (Facebook)</Link>                </div>
             </section>
         </>
     );
