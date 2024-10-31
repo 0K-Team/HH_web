@@ -30,6 +30,11 @@ const ProfileOptions = () => {
             await changeLastName(lastName);
 
             await redirect("../");
+            setSuccess("Profile updated successfully!");
+            setLoading(false);
+            setTimeout(() => {
+                window.location.href = "../";
+            }, 2000);
         } catch (e) {
             const msg = (e as Error).message;
             setError(msg);
