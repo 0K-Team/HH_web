@@ -1,6 +1,7 @@
 "use client"
 import React, {useEffect, useState} from "react";
 import {changeFirstName, changeLastName, changeUsername, fetchLoggedUser} from "@/app/api/user";
+import { redirect } from "next/navigation";
 const ProfileOptions = () => {
     useEffect(() => {
         fetchLoggedUser()
@@ -27,6 +28,8 @@ const ProfileOptions = () => {
             await changeUsername(username);
             await changeFirstName(firstName);
             await changeLastName(lastName);
+
+            await redirect("../");
         } catch (e) {
             const msg = (e as Error).message;
             setError(msg);
