@@ -1,17 +1,19 @@
 "use client"
 import React, {useEffect, useState} from "react";
 import {changeFirstName, changeLastName, changeUsername, fetchLoggedUser} from "@/app/api/user";
-import {User} from "@/app/types/user";
 const ProfileOptions = () => {
-    const [user, setUser] = useState<User | null>(null)
     useEffect(() => {
         fetchLoggedUser()
-            .then((user) => setUser(user));
+            .then((user) => {
+                setUsername(user?.username || "")
+                setFirstName(user?.fullName.givenName || "")
+                setLastName(user?.fullName.familyName || "")
+            });
     }, []);
 
-    const [username, setUsername] = useState<string>(user?.username || "");
-    const [firstName, setFirstName] = useState<string>(user?.fullName.givenName || "");
-    const [lastName, setLastName] = useState<string>(user?.fullName.familyName || "");
+    const [username, setUsername] = useState<string>("");
+    const [firstName, setFirstName] = useState<string>("");
+    const [lastName, setLastName] = useState<string>("");
     const [loading, setLoading] = useState<boolean>(false);
     const [error, setError] = useState<string>("");
     const [success, setSuccess] = useState<string>("");
