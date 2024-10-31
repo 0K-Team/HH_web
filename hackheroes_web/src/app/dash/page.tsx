@@ -5,7 +5,7 @@ import Head from 'next/head';
 import Image from 'next/image';
 import { GetServerSideProps } from 'next';
 import { User } from '../types/user';
-import {fetchLoggedUser} from "@/app/(api)/user";
+import {fetchLoggedUser} from "@/app/api/user";
 
 interface DashboardProps {
     user: User;
