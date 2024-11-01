@@ -24,7 +24,7 @@ const Dashboard = () => {
             </Head>
 
             <main className="container mx-auto px-4 py-8">
-                <div className="bg-green-100 rounded-lg shadow-lg p-6 mb-8">
+                <div className="bg-green-green rounded-lg shadow-lg p-6 mb-8">
                     <div className="flex items-center mb-6">
                         <div>tu bedzie ikonka</div>
                         <div>
@@ -36,18 +36,18 @@ const Dashboard = () => {
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <div className="bg-green-100 rounded-lg shadow-lg p-6">
+                    <div className="bg-green-green rounded-lg shadow-lg p-6">
                         <h2 className="text-2xl font-bold mb-4 text-black">Skills</h2>
                         <div className="flex flex-wrap">
                             {user.skills.map((skill, index) => (
-                                <span key={index} className="bg-green-200 text-black px-3 py-1 rounded-full text-sm mr-2 mb-2">
+                                <span key={index} className="bg-green-green text-black px-3 py-1 rounded-full text-sm mr-2 mb-2">
                   {skill}
                 </span>
                             ))}
                         </div>
                     </div>
 
-                    <div className="bg-green-100 rounded-lg shadow-lg p-6">
+                    <div className="bg-green-green rounded-lg shadow-lg p-6">
                         <h2 className="text-2xl font-bold mb-4 text-black">Achievements</h2>
                         <ul className="space-y-2">
                             {user.achievements.map((achievement, index) => (
@@ -62,7 +62,7 @@ const Dashboard = () => {
                         </ul>
                     </div>
 
-                    <div className="bg-green-100 rounded-lg shadow-lg p-6">
+                    <div className="bg-green-green rounded-lg shadow-lg p-6">
                         <h2 className="text-2xl font-bold mb-4 text-black">Notifications</h2>
                         <ul className="space-y-2">
                             {user.notifications.map((notification, index) => (
@@ -77,7 +77,7 @@ const Dashboard = () => {
                         </ul>
                     </div>
 
-                    <div className="bg-green-100 rounded-lg shadow-lg p-6">
+                    <div className="bg-green-green rounded-lg shadow-lg p-6">
                         <h2 className="text-2xl font-bold mb-4 text-black">Preferred Topics</h2>
                         <div className="flex flex-wrap">
                             {user.preferred_topics.map((topic, index) => (
@@ -88,7 +88,7 @@ const Dashboard = () => {
                         </div>
                     </div>
                 </div>
-                <div className="bg-green-100 rounded-lg shadow-lg p-6">
+                <div className="bg-green-green rounded-lg shadow-lg p-6">
                     <Link href="../dash/profile/"  className="text-2xl font-bold mb-4 text-black">Profile options</Link>
                     <div className="flex flex-wrap"></div>
                 </div>
