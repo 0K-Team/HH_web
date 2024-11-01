@@ -72,7 +72,7 @@ const Dashboard = () => {
                 {/* Options Section */}
                 <div className="grid grid-cols-1 gap-4 mb-6">
                     <button className="bg-gray-800 p-4 rounded-lg flex items-center justify-between">
-                        <span>akcja 1</span>
+                        <span className="text-white">akcja 1</span>
                     </button>
 
                     {/* New Game */}
