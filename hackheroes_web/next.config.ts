@@ -8,21 +8,6 @@ const nextConfig: NextConfig = {
         destination: 'http://192.168.0.10:8812/:path*'
       },
     ]
-  },
-  webpack: (config, { isServer }) => {
-    if (!isServer) {
-      config.devServer = {
-        ...config.devServer,
-        proxy: {
-          '/api': {
-            target: 'http://192.168.0.10:8812/',
-            changeOrigin: true,
-            pathRewrite: { '^/api(?!/api-docs)': '/api' }
-          }
-        }
-      };
-    }
-    return config;
   }
 };
 
