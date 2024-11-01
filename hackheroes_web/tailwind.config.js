@@ -6,15 +6,22 @@ module.exports = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        Raleway: ['Raleway', 'sans-serif'],
+      },
+      textColor: {
+        default: '#E0E0E0',
+      },
       colors: {
         green: {
           DEFAULT: '#6DBE45',
           light: '#A8E6A3',
           dark: '#4A8C34',
-          green: '#29FF77'
+          green: '#29FF77',
         },
         gray: {
-          light: '#F5F5F5',
+          light: '#303030',
+          dark: '#1E1E1E',
           DEFAULT: '#E0E0E0',
         },
       },
