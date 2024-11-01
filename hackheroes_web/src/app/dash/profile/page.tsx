@@ -29,7 +29,6 @@ const ProfileOptions = () => {
             await changeFirstName(firstName);
             await changeLastName(lastName);
 
-            await redirect("../");
             setSuccess("Profile updated successfully!");
             setLoading(false);
             setTimeout(() => {
