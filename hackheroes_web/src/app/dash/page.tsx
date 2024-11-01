@@ -32,68 +32,66 @@ const Dashboard = () => {
                     <span className="ml-2">🇵🇱</span>
                 </div>
 
-                {/* Stats Section */}
-                <div className="grid grid-cols-2 gap-4 mb-6">
-                    {/* Play Section */}
-                    <div className="bg-gray-light p-4 rounded-lg text-center">
-                        <div className="text-green-green text-2xl font-bold">#26</div>
-                        <p>Graj</p>
-                        <p className="text-xl font-bold">69</p>
-                    </div>
-
-                    {/* Tasks Section */}
-                    <div className="bg-gray-800 p-4 rounded-lg text-center">
-                        <div className="text-orange-500 text-2xl font-bold">tree_icon</div>
-                        <p>Wirtualny las</p>
-                        <p className="text-xl font-bold">1757 posadzonych drzew</p>
-                    </div>
-                </div>
-
                 {/* Action Buttons */}
-                <div className="grid grid-cols-3 gap-4 mb-6">
-                    <button className="bg-green-green text-black p-4 rounded-lg">
-                        Plant a tree
-                    </button>
+                <div className="grid grid-cols-2 gap-4 mb-6 w-1/2">
+                    <div>
+                        <button className="bg-green-green text-black p-4 rounded-lg">
+                            Plant a tree
+                        </button>
 
+                        <button className="bg-green-green text-black p-4 rounded-lg">
+                            EkoCalcualtor
+                        </button>
 
-                    <button className="bg-green-green text-black p-4 rounded-lg">
-                        EkoCalcualtor
-                    </button>
+                        <button className="bg-green-green text-black p-4 rounded-lg">
+                            EkoMaps
+                        </button>
 
-                    <button className="bg-green-green text-black p-4 rounded-lg">
-                        EkoMaps
-                    </button>
+                        <button className="bg-green-green text-black p-4 rounded-lg">
+                            Socials
+                        </button>
+                    </div>
 
-                    <button className="bg-green-green text-black p-4 rounded-lg">
-                        Socials
-                    </button>
+                    <div>
+                        <div className="bg-gray-light p-4 rounded-lg text-center">
+                            <div className="text-green-green text-2xl font-bold">#26</div>
+                            <p>Graj</p>
+                            <p className="text-xl font-bold">69</p>
+                        </div>
+
+                        <div className="bg-gray-dark p-4 rounded-lg text-center">
+                            <div className="text-orange-500 text-2xl font-bold">tree_icon</div>
+                            <p>Wirtualny las</p>
+                            <p className="text-xl font-bold">1757 posadzonych drzew</p>
+                        </div>
+                    </div>
                 </div>
 
                 {/* Options Section */}
                 <div className="grid grid-cols-1 gap-4 mb-6">
-                    <button className="bg-gray-800 p-4 rounded-lg flex items-center justify-between">
+                    <button className="bg-gray-dark p-4 rounded-lg flex items-center justify-between">
                         <span className="text-white">akcja 1</span>
                     </button>
 
-                    {/* New Game */}
-                    <button className="bg-gray-800 p-4 rounded-lg flex items-center justify-between">
+
+                    <button className="bg-gray-dark p-4 rounded-lg flex items-center justify-between">
                         <span>akcja 2</span>
                     </button>
 
-                    {/* Play with Bots */}
-                    <button className="bg-gray-800 p-4 rounded-lg flex items-center justify-between">
-                        <span>akcja 3</span>
+
+                    <button className="bg-gray-dark p-4 rounded-lg flex items-center justify-between">
+                    <span>akcja 3</span>
                     </button>
 
-                    {/* Play with Friends */}
-                    <button className="bg-gray-800 p-4 rounded-lg flex items-center justify-between">
+
+                    <button className="bg-gray-dark p-4 rounded-lg flex items-center justify-between">
                         <span>akcja 4</span>
                     </button>
                 </div>
 
-                {/* Profile Options Link */}
+
                 <div className="bg-gray-light rounded-lg shadow-lg p-6">
-                    <Link href="../dash/profile/"  className="text-xl font-bold text-black">Profile options</Link>
+                    <Link href="../dash/profile/"  className="text-xl font-bold">Profile options</Link>
                 </div>
             </main>
         </div>
