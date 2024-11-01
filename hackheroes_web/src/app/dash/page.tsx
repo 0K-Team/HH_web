@@ -22,11 +22,11 @@ const Dashboard = () => {
                 <title>{user.username}&apos;s Dashboard</title>
             </Head>
 
-            <main className="container mx-auto px-4 py-8">
+            <main className="container mx-auto px-4 py-8 bg-gray-dark">
                 {/* Profile Header */}
                 <div className="flex items-center mb-6">
                     {/* Avatar */}
-                    <div className="bg-gray-ligth w-16 h-16 rounded-full">avatar</div>
+                    <div className="bg-gray-dark w-16 h-16 rounded-full">avatar</div>
                     {/* Profile Name */}
                     <h1 className="ml-4 text-xl font-bold">{user.username}</h1>
                     <span className="ml-2">🇵🇱</span>
