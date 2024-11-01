@@ -22,7 +22,7 @@ const Dashboard = () => {
                 <title>{user.username}&apos;s Dashboard</title>
             </Head>
 
-            <main className="container mx-auto px-4 py-8 bg-gray-dark">
+            <main className="container bg-gray-dark">
                 {/* Profile Header */}
                 <div className="flex items-center mb-6">
                     {/* Avatar */}
