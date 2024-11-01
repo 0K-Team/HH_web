@@ -39,7 +39,7 @@ const Dashboard = () => {
 
                     {/* Action Buttons and Activities */}
                     <div className="grid grid-cols-2 gap-4 mb-6">
-                        <div>
+                        <div className="grid grid-cols-1 gap-3">
                             <button className="bg-green-green text-black p-4 rounded-lg mb-4">
                                 Plant a tree
                             </button>
