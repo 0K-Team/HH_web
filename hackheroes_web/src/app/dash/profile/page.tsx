@@ -1,7 +1,6 @@
 "use client"
 import React, {useEffect, useState} from "react";
 import {changeFirstName, changeLastName, changeUsername, fetchLoggedUser} from "@/app/api/user";
-import { redirect } from "next/navigation";
 const ProfileOptions = () => {
     useEffect(() => {
         fetchLoggedUser()
