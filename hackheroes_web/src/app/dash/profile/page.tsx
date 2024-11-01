@@ -31,8 +31,8 @@ const ProfileOptions = () => {
             setSuccess("Profile updated successfully!");
             setLoading(false);
             setTimeout(() => {
-                window.location.href = "../";
-            }, 2000);
+                window.location.href = "/dash";
+            }, 500);
         } catch (e) {
             const msg = (e as Error).message;
             setError(msg);
