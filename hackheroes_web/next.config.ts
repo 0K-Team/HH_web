@@ -17,7 +17,7 @@ const nextConfig: NextConfig = {
           '/api': {
             target: 'http://192.168.0.10:8812/',
             changeOrigin: true,
-            pathRewrite: { '^/api': '/api' }
+            pathRewrite: { '^/api(?!/api-docs)': '/api' }
           }
         }
       };
