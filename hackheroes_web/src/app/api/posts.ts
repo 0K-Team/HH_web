@@ -8,7 +8,6 @@ export const createPost = async (content: string) => {
         },
         body: JSON.stringify({ content })
     });
-    console.log(response.status);
     return await response.json();
 };
 
@@ -18,14 +17,24 @@ export const deletePost = async (id: string) => {
     });
 };
 
-export const likePost = async (id: string) => {
-    await fetch(`${baseUrl}/like/${id}`, {
-        method: 'POST'
-    });
+export const likePost = async (id: string, userId: string) => {
+    const postResponse = await fetch(`${baseUrl}/${id}`);
+    const post = await postResponse.json();
+
+    if (!post.likes.includes(userId)) {
+        await fetch(`${baseUrl}/like/${id}`, {
+            method: 'POST'
+        });
+    }
 };
 
-export const unlikePost = async (id: string) => {
-    await fetch(`${baseUrl}/like/${id}`, {
-        method: 'DELETE'
-    });
+export const unlikePost = async (id: string, userId: string) => {
+    const postResponse = await fetch(`${baseUrl}/${id}`);
+    const post = await postResponse.json();
+
+    if (post.likes.includes(userId)) {
+        await fetch(`${baseUrl}/like/${id}`, {
+            method: 'DELETE'
+        });
+    }
 };
