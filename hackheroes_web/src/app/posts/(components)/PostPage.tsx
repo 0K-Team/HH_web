@@ -1,10 +1,9 @@
-"use client";
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Header from './Header';
 import PostFeed from './PostFeed';
 import PostInput from './PostInput';
 import { Post } from '../../types/post';
-import { createPost, deletePost, likePost, unlikePost } from '../../api/posts';
+import { createPost, deletePost, likePost, unlikePost, fetchPosts } from '../../api/posts';
 import { User } from '@/app/types/user';
 
 interface PostPageProps {
@@ -13,6 +12,14 @@ interface PostPageProps {
 
 const PostPage: React.FC<PostPageProps> = ({ user }) => {
     const [posts, setPosts] = useState<Post[]>([]);
+
+    useEffect(() => {
+        const loadPosts = async () => {
+            const allPosts = await fetchPosts();
+            setPosts(allPosts);
+        };
+        loadPosts();
+    }, []);
 
     const handlePost = async (content: string) => {
         const newPost = await createPost(content);

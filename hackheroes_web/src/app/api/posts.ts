@@ -1,3 +1,5 @@
+import { Post } from '@/app/types/post';
+
 const baseUrl = 'https://ecohero.q1000q.me/api/v1/posts';
 
 export const createPost = async (content: string) => {
@@ -37,4 +39,8 @@ export const unlikePost = async (id: string, userId: string) => {
             method: 'DELETE'
         });
     }
+};
+export const fetchPosts = async (): Promise<Post[]> => {
+    const response = await fetch(baseUrl);
+    return await response.json();
 };
