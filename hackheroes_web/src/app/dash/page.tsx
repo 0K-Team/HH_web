@@ -19,15 +19,14 @@ const Dashboard = () => {
     return !user ? (
         <h1>Loading...</h1>
     ) : (
-        <div className="flex flex-col min-h-screen bg-gray-dark text-white">
+        <div className="flex flex-col min-h-screen bg-gray-dark text-white pt-[8vh]">
             <Head>
                 <title>{user.username}&apos;s Dashboard</title>
             </Head>
 
             <Sidebar />
 
-            <main className="flex flex-col flex-grow container mx-auto px-4 py-8">
-                {/* Profile Header */}
+            <main className="flex flex-col flex-grow container mx-auto px-4 py-8 pt-[2vh] bg-gray-light rounded-2xl">
                 <div className="flex items-center mb-8 bg-gray-dark p-4 rounded-lg">
                         <Image
                             src={image}
@@ -35,7 +34,6 @@ const Dashboard = () => {
                             width={16}
                             height={16}
                             className="w-16 h-16 bg-gray-light rounded-full flex items-center justify-center text-2xl font-bold">
-
                         </Image>
 
                     <h1 className="ml-4 text-2xl font-bold justify-end">{user.username}</h1>
@@ -43,26 +41,32 @@ const Dashboard = () => {
                     <span className="ml-2 text-lg">🇵🇱</span>
                 </div>
 
-                {/* Action Buttons and Activities */}
                 <div className="grid md:grid-cols-2 gap-6 mb-8">
-                    {/* Left Column: Action Buttons */}
-
-                    {/* Right Column: Activity Stats */}
-                    <div className="space-y-4">
-                        <Link href="../dash/daily_chall" className="p-6 rounded-lg text-center hover:shadow-md">
+                    <div className="space-y-4 bg-gray-dark rounded-lg">
+                        <Link href="../dash/daily_chall" className="p-6 rounded-lg text-center">
                             <div className="text-green-green text-3xl font-bold">15%</div>
                             <p className="text-xl font-bold ml-2"> Dzienne wyzwanie</p>
+                            <div className="text-center mt-2">Kontynuuj codzienne wyzwanie -&gt;</div>
                         </Link>
-
-                        <div className="bg-gray-dark p-6 rounded-lg text-center">
-                            <div className="text-orange-500 text-3xl font-bold">🌳</div>
-                            <p>Wirtualny las</p>
-                            <p className="text-xl font-bold"><span className="text-green-green">1757</span> posadzonych drzew</p>
-                        </div>
+                    </div>
+                    <div className="bg-gray-dark p-6 rounded-lg text-center">
+                        <div className="text-orange-500 text-3xl font-bold">🌳</div>
+                        <p>Wirtualny las</p>
+                        <p className="text-xl font-bold"><span className="text-green-green">1757</span> posadzonych drzew</p>
+                    </div>
+                    <div className="bg-gray-dark rounded-lg h-[50vh]">
+                        <Link href="../dash/do_kalkulatora" className="p-6 rounded-lg text-center">
+                            <p className="text-xl font-bold ml-2">Eco Kalculator</p>
+                        </Link>
+                    </div>
+                    <div className="bg-gray-dark rounded-lg h-[50vh]">
+                        <Link href="../dash/do_mapy" className="p-6 rounded-lg text-center">
+                            <p className="text-xl font-bold ml-2">Eco Mapy</p>
+                        </Link>
                     </div>
                 </div>
 
-                    <Link href="../dash/profile/" className="bg-gray-light p-6 rounded-lg shadow-md text-center text-xl font-bold hover:underline">
+                    <Link href="../dash/profile/" className="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-gray-dark p-6 rounded-lg shadow-md text-center text-xl font-bold hover:underline">
                         Profile options
                     </Link>
             </main>
