@@ -47,17 +47,7 @@ const ProfileOptions = () => {
             setLoading(false);
         }
     };
-    const handleLocationChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        const value = e.target.value;
-        const pattern = /^[a-zA-Z\s]*$/; // Example pattern: only letters and spaces
 
-        if (pattern.test(value)) {
-            setLocation(value);
-            setError("");
-        } else {
-            setError("The string did not match the expected pattern.");
-        }
-    };
     return (
         <form
             onSubmit={handleSubmit}
@@ -106,7 +96,7 @@ const ProfileOptions = () => {
                 <input
                     type="text"
                     value={location}
-                    onChange={handleLocationChange}
+                    onChange={(e) => setLocation(e.target.value)}
                     className="w-full p-2 bg-gray-light text-white border border-green-green rounded-lg focus:outline-none focus:ring-2 focus:ring-green-green"
                 />
             </div>
