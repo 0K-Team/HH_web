@@ -5,7 +5,8 @@ import {
     changeLastName,
     changeUsername,
     changeLocation,
-    fetchLoggedUser
+    fetchLoggedUser,
+    changeBio,
 } from "@/app/api/user";
 
 const ProfileOptions = () => {
@@ -15,6 +16,7 @@ const ProfileOptions = () => {
             setFirstName(user?.fullName.givenName || "");
             setLastName(user?.fullName.familyName || "");
             setLocation(user?.location || "");
+            setBio(user?.bio || "");
         });
     }, []);
 
@@ -22,9 +24,11 @@ const ProfileOptions = () => {
     const [firstName, setFirstName] = useState<string>("");
     const [lastName, setLastName] = useState<string>("");
     const [location, setLocation] = useState<string>("");
+    const [bio, setBio] = useState<string>("");
     const [loading, setLoading] = useState<boolean>(false);
     const [error, setError] = useState<string>("");
     const [success, setSuccess] = useState<string>("");
+
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
@@ -36,6 +40,7 @@ const ProfileOptions = () => {
             await changeFirstName(firstName);
             await changeLastName(lastName);
             await changeLocation(location);
+            await changeBio(bio);
             setSuccess("Profile updated successfully!");
             setLoading(false);
             setTimeout(() => {
