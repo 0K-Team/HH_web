@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import ProgressComponent from "../daily_chall/progress";
 
 const App: React.FC = () => {
-    const [itemsSorted, setItemsSorted] = useState(4);
+    const [itemsSorted] = useState(4);
     const totalItems = 15;
     const progress = Math.round((itemsSorted / totalItems) * 100);
 
