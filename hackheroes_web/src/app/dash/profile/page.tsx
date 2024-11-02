@@ -4,7 +4,8 @@ import {
     changeFirstName,
     changeLastName,
     changeUsername,
-    fetchLoggedUser,
+    changeLocation,
+    fetchLoggedUser
 } from "@/app/api/user";
 
 const ProfileOptions = () => {
@@ -36,6 +37,7 @@ const ProfileOptions = () => {
             await changeUsername(username);
             await changeFirstName(firstName);
             await changeLastName(lastName);
+            await changeLocation(location);
             setSuccess("Profile updated successfully!");
             setLoading(false);
             setTimeout(() => {
