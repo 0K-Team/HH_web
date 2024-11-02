@@ -12,6 +12,9 @@ module.exports = {
       textColor: {
         default: '#E0E0E0',
       },
+      backgroundColor: {
+        default: '#1E1E1E',
+        },
       colors: {
         green: {
           DEFAULT: '#6DBE45',

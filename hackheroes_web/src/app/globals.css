@@ -5,7 +5,9 @@
 
 body {
     @apply text-default;
+    @apply: background-default;
 }
+
 @media (prefers-color-scheme: dark) {
 }
 
