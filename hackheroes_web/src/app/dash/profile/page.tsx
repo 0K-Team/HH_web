@@ -14,7 +14,6 @@ const ProfileOptions = () => {
             setUsername(user?.username || "");
             setFirstName(user?.fullName.givenName || "");
             setLastName(user?.fullName.familyName || "");
-            setEmail(user?.email || "");
             setLocation(user?.location || "");
         });
     }, []);
@@ -22,7 +21,6 @@ const ProfileOptions = () => {
     const [username, setUsername] = useState<string>("");
     const [firstName, setFirstName] = useState<string>("");
     const [lastName, setLastName] = useState<string>("");
-    const [email, setEmail] = useState<string>("");
     const [location, setLocation] = useState<string>("");
     const [loading, setLoading] = useState<boolean>(false);
     const [error, setError] = useState<string>("");
@@ -49,7 +47,17 @@ const ProfileOptions = () => {
             setLoading(false);
         }
     };
+    const handleLocationChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const value = e.target.value;
+        const pattern = /^[a-zA-Z\s]*$/; // Example pattern: only letters and spaces
 
+        if (pattern.test(value)) {
+            setLocation(value);
+            setError("");
+        } else {
+            setError("The string did not match the expected pattern.");
+        }
+    };
     return (
         <form
             onSubmit={handleSubmit}
@@ -92,26 +100,13 @@ const ProfileOptions = () => {
                 />
             </div>
 
-            {/* Email Field */}
-            <div className="mb-4">
-                <label className="block text-sm font-medium mb-2">Adres e-mail:</label>
-                <div className="flex items-center">
-                    <input
-                        type="email"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                        className="w-full p-2 bg-gray-light text-white border border-green-green rounded-lg focus:outline-none focus:ring-2 focus:ring-green-green"
-                    />
-                </div>
-            </div>
-
             {/* Location Field */}
             <div className="mb-4">
                 <label className="block text-sm font-medium mb-2">Lokalizacja:</label>
                 <input
                     type="text"
                     value={location}
-                    onChange={(e) => setLocation(e.target.value)}
+                    onChange={handleLocationChange}
                     className="w-full p-2 bg-gray-light text-white border border-green-green rounded-lg focus:outline-none focus:ring-2 focus:ring-green-green"
                 />
             </div>

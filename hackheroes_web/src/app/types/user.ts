@@ -13,19 +13,19 @@ export interface User {
     title: string;
     notifications: Array<{
         title: string;
-        date: string; // ISO 8601 date format (e.g., "2023-01-01T00:00:00Z")
+        date: string;
     }>;
     friends: string[];
     bio: string;
     achievements: Array<{
         name: string;
-        date_awarded: string; // ISO 8601 date format (e.g., "2023-01-01T00:00:00Z")
+        date_awarded: string;
     }>;
     skills: string[];
     badges: string[];
-    location: string[];
+    location: string;
     preferredTopics: string[];
     points: number;
     admin: boolean;
-    createdAt: string; // ISO 8601 date format (e.g., "2023-01-01T00:00:00Z")
+    createdAt: string;
 }
