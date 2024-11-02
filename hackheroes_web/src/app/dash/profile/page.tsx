@@ -13,12 +13,16 @@ const ProfileOptions = () => {
             setUsername(user?.username || "");
             setFirstName(user?.fullName.givenName || "");
             setLastName(user?.fullName.familyName || "");
+            setEmail(user?.email || "");
+            setLocation(user?.location?.type || "");
         });
     }, []);
 
     const [username, setUsername] = useState<string>("");
     const [firstName, setFirstName] = useState<string>("");
     const [lastName, setLastName] = useState<string>("");
+    const [email, setEmail] = useState<string>("");
+    const [location, setLocation] = useState<string>("");
     const [loading, setLoading] = useState<boolean>(false);
     const [error, setError] = useState<string>("");
     const [success, setSuccess] = useState<string>("");
@@ -32,7 +36,6 @@ const ProfileOptions = () => {
             await changeUsername(username);
             await changeFirstName(firstName);
             await changeLastName(lastName);
-
             setSuccess("Profile updated successfully!");
             setLoading(false);
             setTimeout(() => {
@@ -48,41 +51,83 @@ const ProfileOptions = () => {
     return (
         <form
             onSubmit={handleSubmit}
-            className="bg-black text-white p-6 rounded-lg shadow-lg max-w-md mx-auto"
+            className="bg-gray-dark text-white p-6 rounded-lg shadow-lg max-w-md mx-auto"
         >
             <h1 className="text-2xl font-bold mb-4 text-green-green">Update Profile</h1>
 
             {/* Username Field */}
             <div className="mb-4">
-                <label className="block text-sm font-medium mb-2">Username:</label>
-                <input
-                    type="text"
-                    value={username}
-                    onChange={(e) => setUsername(e.target.value)}
-                    className="w-full p-2 bg-gray-800 text-white border border-green-green rounded-lg focus:outline-none focus:ring-2 focus:ring-green-green"
-                />
+                <label className="block text-sm font-medium mb-2">Nazwa użytkownika:</label>
+                <div className="flex items-center">
+                    <input
+                        type="text"
+                        value={username}
+                        onChange={(e) => setUsername(e.target.value)}
+                        className="w-full p-2 bg-gray-light text-white border border-green-green rounded-lg focus:outline-none focus:ring-2 focus:ring-green-green"
+                    />
+                    <span className="ml-2 text-green-green cursor-pointer">Zmień</span>
+                </div>
             </div>
 
             {/* First Name Field */}
             <div className="mb-4">
-                <label className="block text-sm font-medium mb-2">First name:</label>
+                <label className="block text-sm font-medium mb-2">Imię:</label>
                 <input
                     type="text"
                     value={firstName}
                     onChange={(e) => setFirstName(e.target.value)}
-                    className="w-full p-2 bg-gray-800 text-white border border-green-green rounded-lg focus:outline-none focus:ring-2 focus:ring-green-green"
+                    className="w-full p-2 bg-gray-light text-white border border-green-green rounded-lg focus:outline-none focus:ring-2 focus:ring-green-green"
                 />
             </div>
 
             {/* Last Name Field */}
             <div className="mb-4">
-                <label className="block text-sm font-medium mb-2">Last name:</label>
+                <label className="block text-sm font-medium mb-2">Nazwisko:</label>
                 <input
                     type="text"
                     value={lastName}
                     onChange={(e) => setLastName(e.target.value)}
-                    className="w-full p-2 bg-gray-800 text-white border border-green-green rounded-lg focus:outline-none focus:ring-2 focus:ring-green-green"
+                    className="w-full p-2 bg-gray-light text-white border border-green-green rounded-lg focus:outline-none focus:ring-2 focus:ring-green-green"
                 />
+            </div>
+
+            {/* Email Field */}
+            <div className="mb-4">
+                <label className="block text-sm font-medium mb-2">Adres e-mail:</label>
+                <div className="flex items-center">
+                    <input
+                        type="email"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        className="w-full p-2 bg-gray-light text-white border border-green-green rounded-lg focus:outline-none focus:ring-2 focus:ring-green-green"
+                    />
+                    <span className="ml-2 text-green-green cursor-pointer">Zmień</span>
+                </div>
+            </div>
+
+            {/* Location Field */}
+            <div className="mb-4">
+                <label className="block text-sm font-medium mb-2">Lokalizacja:</label>
+                <input
+                    type="text"
+                    value={location}
+                    onChange={(e) => setLocation(e.target.value)}
+                    className="w-full p-2 bg-gray-light text-white border border-green-green rounded-lg focus:outline-none focus:ring-2 focus:ring-green-green"
+                />
+            </div>
+
+            {/* Country Field */}
+            <div className="mb-4">
+                <label className="block text-sm font-medium mb-2">Kraj:</label>
+                <select
+                    className="w-full p-2 bg-gray-light text-white border border-green-green rounded-lg focus:outline-none focus:ring-2 focus:ring-green-green"
+                    defaultValue="Polska"
+                >
+                    <option>Polska</option>
+                    <option>Anglia</option>
+                    <option>Francja</option>
+                    {/* Dodaj inne kraje według potrzeby */}
+                </select>
             </div>
 
             {/* Submit Button */}
@@ -93,7 +138,7 @@ const ProfileOptions = () => {
                     loading ? "opacity-50 cursor-not-allowed" : "hover:bg-opacity-90"
                 }`}
             >
-                {loading ? "Updating..." : "Update Profile"}
+                {loading ? "Aktualizowanie..." : "Zaktualizuj Profil"}
             </button>
 
             {/* Error Message */}
