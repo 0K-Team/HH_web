@@ -19,7 +19,7 @@ const PostPage: React.FC = () => {
     };
 
     return (
-        <div className="min-h-screen bg-gray-100">
+        <div className="min-h-screen bg-gray-100 bg-gray-dark">
             <Header />
             <PostInput onPost={handlePost} />
             <PostFeed posts={posts} />

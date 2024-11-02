@@ -16,16 +16,16 @@ const PostInput: React.FC<PostInputProps> = ({ onPost }) => {
     };
 
     return (
-        <div className="p-4">
+        <div className="p-4 px-[20vh]">
             <textarea
-                className="w-full p-2 border border-gray-300 rounded"
+                className="w-full p-2 border border-green-green rounded bg-gray-light"
                 rows={3}
                 value={content}
                 onChange={(e) => setContent(e.target.value)}
                 placeholder="What's happening?"
             />
             <button
-                className="bg-blue-500 text-white p-2 rounded mt-2"
+                className="bg-green-green text-white p-2 rounded mt-2"
                 onClick={handlePost}
             >
                 Post
