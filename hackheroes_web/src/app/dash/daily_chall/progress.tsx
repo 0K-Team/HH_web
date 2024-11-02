@@ -1,4 +1,4 @@
-
+"use client";
 // ProgressComponent.tsx
 import React from "react";
 import Image from "next/image";
@@ -41,7 +41,7 @@ const ProgressComponent: React.FC<ProgressComponentProps> = ({
             <p className="mt-4 text-gray-300 text-lg">
                 Posegregowałeś {itemsSorted} na {totalItems} odpadów
             </p>
-            <button className="mt-6 bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-6 rounded-full">
+            <button className="mt-6 bg-green-green hover:bg-green-600 text-white font-bold py-2 px-6 rounded-full">
                 Segreguj dalej
             </button>
         </div>
