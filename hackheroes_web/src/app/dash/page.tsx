@@ -15,7 +15,7 @@ const Dashboard = () => {
     return !user ? (
         <h1>Loading...</h1>
     ) : (
-        <div className="flex flex-col min-h-screen bg-grey-dark text-white">
+        <div className="flex flex-col min-h-screen bg-gray-light text-white">
             <Head>
                 <title>{user.username}&apos;s Dashboard</title>
             </Head>
@@ -23,7 +23,7 @@ const Dashboard = () => {
             <main className="flex flex-col flex-grow container mx-auto px-4 py-8">
                 {/* Profile Header */}
                 <div className="flex items-center mb-8 bg-gray-light p-4 rounded-lg">
-                    <div className="w-16 h-16 bg-grey-dark rounded-full flex items-center justify-center text-2xl font-bold">
+                    <div className="w-16 h-16 bg-gray-light rounded-full flex items-center justify-center text-2xl font-bold">
                         {user.fullName.givenName.charAt(0)}{user.fullName.familyName.charAt(0)}
                     </div>
                     <h1 className="ml-4 text-2xl font-bold justify-end">{user.username}</h1>
@@ -50,7 +50,7 @@ const Dashboard = () => {
 
                     {/* Right Column: Activity Stats */}
                     <div className="space-y-4">
-                        <Link href="../dash/daily_chall" className="bg-gray-light p-6 rounded-lg text-center">
+                        <Link href="../dash/daily_chall" className="p-6 rounded-lg text-center">
                             <div className="text-green-green text-3xl font-bold">15%</div>
                             <p className="text-xl font-bold ml-2"> Dzienne wyzwanie</p>
                         </Link>
