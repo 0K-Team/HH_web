@@ -59,24 +59,24 @@ const Dashboard = () => {
                         <div className="bg-gray-dark p-6 rounded-lg text-center shadow-md">
                             <div className="text-orange-500 text-3xl font-bold">🌳</div>
                             <p>Wirtualny las</p>
-                            <p className="text-xl font-bold">1757 posadzonych drzew</p>
+                            <p className="text-xl font-bold"><span className="text-green-green">1757</span> posadzonych drzew</p>
                         </div>
                     </div>
                 </div>
 
                 {/* Options Section */}
-                <div className="grid gap-4 mb-8 bg-gray-light p-6 rounded-lg shadow-md">
-                    <button className="bg-gray-dark py-4 rounded-lg flex justify-between items-center hover:bg-grey-light transition-all">
+                <div className="grid gap-4 mb-8 bg-gray-dark p-6 rounded-lg shadow-md">
+                    <button className="bg-gray-light py-4 rounded-lg flex justify-between items-center hover:bg-grey-light transition-all">
                         <span>akcja 1</span>
                     </button>
-                    <button className="bg-gray-dark py-4 rounded-lg flex justify-between items-center hover:bg-grey-light transition-all">
+                    <button className="bg-gray-light py-4 rounded-lg flex justify-between items-center hover:bg-grey-light transition-all">
                         <span>akcja 2</span>
                     </button>
-                    <button className="bg-gray-dark py-4 rounded-lg flex justify-between items-center hover:bg-grey-light transition-all">
+                    <button className="bg-gray-light py-4 rounded-lg flex justify-between items-center hover:bg-grey-light transition-all">
                         <span>akcja 3</span>
                     </button>
-                    <button className="bg-gray-dark py-4 rounded-lg flex justify-between items-center hover:bg-grey-light transition-all">
-                        <span>akcja 4</span>
+                    <button className="bg-gray-light py-4 rounded-lg flex justify-between items-center hover:bg-grey-light transition-all">
+                        <span className="ml-3">akcja 4</span>
                     </button>
                 </div>
 

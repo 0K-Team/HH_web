@@ -6,6 +6,7 @@
 body {
     margin: 0;
     padding: 0;
+    background: #1E1E1E;
     @apply text-default;
     @apply: background-default;
 }
