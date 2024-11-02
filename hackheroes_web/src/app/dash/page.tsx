@@ -4,6 +4,7 @@ import Head from 'next/head';
 import { User } from '../types/user';
 import { fetchLoggedUser } from "@/app/api/user";
 import Link from "next/link";
+import Image from "next/image";
 
 const Dashboard = () => {
     const [user, setUser] = useState<User | null>(null);
@@ -23,10 +24,17 @@ const Dashboard = () => {
             <main className="flex flex-col flex-grow container mx-auto px-4 py-8">
                 {/* Profile Header */}
                 <div className="flex items-center mb-8 bg-gray-dark p-4 rounded-lg">
-                    <div
-                        className="w-16 h-16 bg-gray-light rounded-full flex items-center justify-center text-2xl font-bold">
-                        {user.fullName?.givenName?.charAt(0) ?? ""}{user.fullName?.familyName?.charAt(0) ?? ""}
-                    </div>
+
+
+                        <Image
+                            src={`https://ecohero.q1000q.me/api/v1/avatar/${user.id}/${user.avatarHash}`}
+                            alt={user.username}
+                            width={16}
+                            height={16}
+                            className="w-16 h-16 bg-gray-light rounded-full flex items-center justify-center text-2xl font-bold">
+
+                        </Image>
+
                     <h1 className="ml-4 text-2xl font-bold justify-end">{user.username}</h1>
                     <span className="ml-2 text-lg">{user.id}</span>
                     <span className="ml-2 text-lg">🇵🇱</span>
