@@ -5,6 +5,7 @@ import { User } from '../types/user';
 import { fetchLoggedUser } from "@/app/api/user";
 import Link from "next/link";
 import Image from "next/image";
+import Sidebar from "./Sidebar";
 
 const Dashboard = () => {
     const [user, setUser] = useState<User | null>(null);
@@ -20,6 +21,8 @@ const Dashboard = () => {
             <Head>
                 <title>{user.username}&apos;s Dashboard</title>
             </Head>
+
+            <Sidebar />
 
             <main className="flex flex-col flex-grow container mx-auto px-4 py-8">
                 {/* Profile Header */}
@@ -43,20 +46,6 @@ const Dashboard = () => {
                 {/* Action Buttons and Activities */}
                 <div className="grid md:grid-cols-2 gap-6 mb-8">
                     {/* Left Column: Action Buttons */}
-                    <div className="grid gap-4 font-bold">
-                        <button className="font-bold bg-gray-light text-green-green py-4 rounded-lg hover:shadow-2xl transition-all">
-                            Virtual Forest
-                        </button>
-                        <button className="font-bold bg-gray-light text-green-green py-4 rounded-lg hover:shadow-2xl transition-all">
-                            EcoCalculator
-                        </button>
-                        <button className="font-bold bg-gray-light text-green-green py-4 rounded-lg hover:shadow-2xl transition-all">
-                            EcoMaps
-                        </button>
-                        <button className="font-bold bg-gray-light text-green-green py-4 rounded-lg hover:shadow-2xl transition-all">
-                            Socials
-                        </button>
-                    </div>
 
                     {/* Right Column: Activity Stats */}
                     <div className="space-y-4">
@@ -72,23 +61,6 @@ const Dashboard = () => {
                         </div>
                     </div>
                 </div>
-
-                {/* Options Section */}
-                <div className="grid gap-4 mb-8 bg-gray-dark p-6 rounded-lg ">
-                    <button className="bg-gray-light py-4 rounded-lg flex justify-between items-center hover:shadow-2xl transition-all">
-                        <span className="ml-3">akcja 4</span>
-                    </button>
-                    <button className="bg-gray-light py-4 rounded-lg flex justify-between items-center hover:shadow-2xl transition-all">
-                        <span className="ml-3">akcja 4</span>
-                    </button>
-                    <button className="bg-gray-light py-4 rounded-lg flex justify-between items-center hover:shadow-2xl transition-all">
-                        <span className="ml-3">akcja 4</span>
-                    </button>
-                    <button className="bg-gray-light py-4 rounded-lg flex justify-between items-center hover:shadow-2xl transition-all">
-                        <span className="ml-3">akcja 4</span>
-                    </button>
-                </div>
-
 
                     <Link href="../dash/profile/" className="bg-gray-light p-6 rounded-lg shadow-md text-center text-xl font-bold hover:underline">
                         Profile options
