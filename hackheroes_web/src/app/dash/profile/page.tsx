@@ -65,7 +65,6 @@ const ProfileOptions = () => {
                         onChange={(e) => setUsername(e.target.value)}
                         className="w-full p-2 bg-gray-light text-white border border-green-green rounded-lg focus:outline-none focus:ring-2 focus:ring-green-green"
                     />
-                    <span className="ml-2 text-green-green cursor-pointer">Zmień</span>
                 </div>
             </div>
 
@@ -101,7 +100,6 @@ const ProfileOptions = () => {
                         onChange={(e) => setEmail(e.target.value)}
                         className="w-full p-2 bg-gray-light text-white border border-green-green rounded-lg focus:outline-none focus:ring-2 focus:ring-green-green"
                     />
-                    <span className="ml-2 text-green-green cursor-pointer">Zmień</span>
                 </div>
             </div>
 
@@ -116,19 +114,6 @@ const ProfileOptions = () => {
                 />
             </div>
 
-            {/* Country Field */}
-            <div className="mb-4">
-                <label className="block text-sm font-medium mb-2">Kraj:</label>
-                <select
-                    className="w-full p-2 bg-gray-light text-white border border-green-green rounded-lg focus:outline-none focus:ring-2 focus:ring-green-green"
-                    defaultValue="Polska"
-                >
-                    <option>Polska</option>
-                    <option>Anglia</option>
-                    <option>Francja</option>
-                    {/* Dodaj inne kraje według potrzeby */}
-                </select>
-            </div>
 
             {/* Submit Button */}
             <button

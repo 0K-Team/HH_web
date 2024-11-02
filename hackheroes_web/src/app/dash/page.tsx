@@ -24,7 +24,7 @@ const Dashboard = () => {
                 {/* Profile Header */}
                 <div className="flex items-center mb-8 bg-gray-light p-4 rounded-lg">
                     <div className="w-16 h-16 bg-grey-light rounded-full flex items-center justify-center text-2xl font-bold">
-                        {user.username.charAt(0)}{user.fullName.familyName.charAt(0)}
+                        {user.fullName.givenName.charAt(0)}{user.fullName.familyName.charAt(0)}
                     </div>
                     <h1 className="ml-4 text-2xl font-bold justify-end">{user.username}</h1>
                     <span className="ml-2 text-lg">🇵🇱</span>
@@ -35,13 +35,13 @@ const Dashboard = () => {
                     {/* Left Column: Action Buttons */}
                     <div className="grid gap-4 font-bold">
                         <button className="font-bold bg-gray-light text-green-green py-4 rounded-lg hover:shadow-2xl transition-all">
-                            Plant a tree
+                            Virtual Forest
                         </button>
                         <button className="font-bold bg-gray-light text-green-green py-4 rounded-lg hover:shadow-2xl transition-all">
-                            EkoCalculator
+                            EcoCalculator
                         </button>
                         <button className="font-bold bg-gray-light text-green-green py-4 rounded-lg hover:shadow-2xl transition-all">
-                            EkoMaps
+                            EcoMaps
                         </button>
                         <button className="font-bold bg-gray-light text-green-green py-4 rounded-lg hover:shadow-2xl transition-all">
                             Socials
@@ -51,8 +51,8 @@ const Dashboard = () => {
                     {/* Right Column: Activity Stats */}
                     <div className="space-y-4">
                         <div className="bg-gray-light p-6 rounded-lg text-center">
-                            <div className="text-green-green text-3xl font-bold">#1</div>
-                            <p className="text-xl font-bold ml-2"> Tydzień 69</p>
+                            <div className="text-green-green text-3xl font-bold">15%</div>
+                            <p className="text-xl font-bold ml-2"> Dzienne wyzwanie</p>
                         </div>
 
                         <div className="bg-gray-dark p-6 rounded-lg text-center">
