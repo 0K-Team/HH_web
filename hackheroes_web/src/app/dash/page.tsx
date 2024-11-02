@@ -28,7 +28,7 @@ const Dashboard = () => {
 
                         <Image
                             src={`https://ecohero.q1000q.me/api/v1/avatar/${user.id}/${user.avatarHash}`}
-                            alt={user.username}
+                            alt={user.username.charAt(0).toUpperCase()}
                             width={16}
                             height={16}
                             className="w-16 h-16 bg-gray-light rounded-full flex items-center justify-center text-2xl font-bold">
