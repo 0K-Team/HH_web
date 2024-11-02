@@ -23,10 +23,12 @@ const Dashboard = () => {
             <main className="flex flex-col flex-grow container mx-auto px-4 py-8">
                 {/* Profile Header */}
                 <div className="flex items-center mb-8 bg-gray-dark p-4 rounded-lg">
-                    <div className="w-16 h-16 bg-gray-light rounded-full flex items-center justify-center text-2xl font-bold">
+                    <div
+                        className="w-16 h-16 bg-gray-light rounded-full flex items-center justify-center text-2xl font-bold">
                         {user.fullName?.givenName?.charAt(0) ?? ""}{user.fullName?.familyName?.charAt(0) ?? ""}
                     </div>
                     <h1 className="ml-4 text-2xl font-bold justify-end">{user.username}</h1>
+                    <span className="ml-2 text-lg">{user.id}</span>
                     <span className="ml-2 text-lg">🇵🇱</span>
                 </div>
 
