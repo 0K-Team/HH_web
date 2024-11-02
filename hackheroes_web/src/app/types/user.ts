@@ -23,7 +23,7 @@ export interface User {
     }>;
     skills: string[];
     badges: string[];
-    location: string;
+    location: string[];
     preferredTopics: string[];
     points: number;
     admin: boolean;
