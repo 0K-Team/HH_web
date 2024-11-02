@@ -10,8 +10,7 @@ const Login = () => {
                 <div className="absolute w-[40vh] h-[40vh] bg-[#29FF77] opacity-10 rounded-full bottom-2 left-2 blur-3xl"></div>
                 <div className="absolute w-[55vh] h-[55vh] bg-[#29FF77] opacity-10 rounded-full bottom-[-5vh] right-2 blur-3xl"></div>
 
-                <div
-                    className="text-center bg-[#2A2A2A] px-12 py-16 rounded-2xl border-4 border-[#29FF77] shadow-lg w-full max-w-md">
+                <div className="text-center bg-[#2A2A2A] px-12 py-16 rounded-2xl border-4 border-[#29FF77] shadow-lg w-full max-w-md">
                     <div className="flex justify-center items-center mb-3">
                         <Image
                             className="w-[30vh] h-[25vh] object-cover"
