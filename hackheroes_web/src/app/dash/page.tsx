@@ -43,7 +43,7 @@ const Dashboard = () => {
                     <span className="ml-2 text-lg">🇵🇱</span>
 
                         <div className="flex right-[10vh]">
-                            <Link href="../dash/profile/" className="bg-gray-dark p-2 pl-[80vh] rounded-lg text-center text-xl font-bold hover:underline ml-4">
+                            <Link href="../dash/profile/" className="bg-gray-dark p-2 pl-[75vh] rounded-lg text-center text-xl font-bold hover:underline ml-4">
                                 Ustawienia profilu
                                 <FontAwesomeIcon className="pl-1" icon={faGear} style={{color: "#29ff77",}} />
                             </Link>
