@@ -6,7 +6,6 @@ import { fetchLoggedUser } from "@/app/api/user";
 import Link from "next/link";
 import Image from "next/image";
 import Sidebar from "./Sidebar";
-import image from '../(landing)/(content)/imageSection3.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGear } from '@fortawesome/free-solid-svg-icons'
 
@@ -31,7 +30,7 @@ const Dashboard = () => {
             <main className="flex flex-col flex-grow container mx-auto px-4 py-8 pt-[2vh] bg-gray-light rounded-2xl">
                 <div className="flex items-center mb-8 bg-gray-dark p-4 rounded-lg">
                         <Image
-                            src={image}
+                            src={`https://ecohero.q1000q.me/api/v1/avatar/${user.id}/${user.avatarHash}`}
                             alt={user.username.charAt(0).toUpperCase()}
                             width={16}
                             height={16}
