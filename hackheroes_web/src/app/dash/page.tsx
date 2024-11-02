@@ -50,7 +50,7 @@ const Dashboard = () => {
 
                     {/* Right Column: Activity Stats */}
                     <div className="space-y-4">
-                        <Link href="../dash/daily_chall" className="p-6 rounded-lg text-center">
+                        <Link href="../dash/daily_chall" className="p-6 rounded-lg text-center hover:shadow-md">
                             <div className="text-green-green text-3xl font-bold">15%</div>
                             <p className="text-xl font-bold ml-2"> Dzienne wyzwanie</p>
                         </Link>

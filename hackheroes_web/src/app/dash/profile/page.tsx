@@ -15,7 +15,7 @@ const ProfileOptions = () => {
             setFirstName(user?.fullName.givenName || "");
             setLastName(user?.fullName.familyName || "");
             setEmail(user?.email || "");
-            setLocation(user?.location?.type || "");
+            setLocation(user?.location || "");
         });
     }, []);
 

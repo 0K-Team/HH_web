@@ -1,38 +1,31 @@
-// types/user.ts
 export interface User {
     id: string;
     email: string;
     username: string;
-    fullName: {
+    fullName:{
         givenName: string;
         familyName: string;
-    };
+    }
     avatarHash: string;
-    provider: 'google' | 'facebook';
+    provider: "google" | "facebook";
     googleID?: string;
     facebookID?: string;
-    title?: {
-        name: string;
-    };
+    title: string;
     notifications: Array<{
         title: string;
-        date: Date;
+        date: string; // ISO 8601 date format (e.g., "2023-01-01T00:00:00Z")
     }>;
-    friends?: string[];
-    bio?: string;
+    friends: string[];
+    bio: string;
     achievements: Array<{
         name: string;
-        date_awarded: Date;
+        date_awarded: string; // ISO 8601 date format (e.g., "2023-01-01T00:00:00Z")
     }>;
     skills: string[];
-    badges?: Array<{
-        name: string;
-        description: string;
-    }>;
-    location?: {
-        type: string;
-        coordinates: [number, number];
-    };
-    preferred_topics: string[];
+    badges: string[];
+    location: string;
+    preferredTopics: string[];
     points: number;
+    admin: boolean;
+    createdAt: string; // ISO 8601 date format (e.g., "2023-01-01T00:00:00Z")
 }
