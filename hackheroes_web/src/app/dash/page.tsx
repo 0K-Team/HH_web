@@ -7,6 +7,8 @@ import Link from "next/link";
 import Image from "next/image";
 import Sidebar from "./Sidebar";
 import image from '../(landing)/(content)/imageSection3.png';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faGear } from '@fortawesome/free-solid-svg-icons'
 
 
 const Dashboard = () => {
@@ -39,36 +41,39 @@ const Dashboard = () => {
                     <h1 className="ml-4 text-2xl font-bold justify-end">{user.username}</h1>
                     <span className="ml-2 text-lg">{user.id}</span>
                     <span className="ml-2 text-lg">🇵🇱</span>
+
+                        <div className="flex right-[10vh]">
+                            <Link href="../dash/profile/" className="bg-gray-dark p-2 pl-[80vh] rounded-lg text-center text-xl font-bold hover:underline ml-4">
+                                Ustawienia profilu
+                                <FontAwesomeIcon className="pl-1" icon={faGear} style={{color: "#29ff77",}} />
+                            </Link>
+                        </div>
                 </div>
 
                 <div className="grid md:grid-cols-2 gap-6 mb-8">
-                    <div className="space-y-4 bg-gray-dark rounded-lg">
+                    <div className="space-y-4 bg-gray-dark rounded-lg h-[15vh]">
                         <Link href="../dash/daily_chall" className="p-6 rounded-lg text-center">
                             <div className="text-green-green text-3xl font-bold">15%</div>
                             <p className="text-xl font-bold ml-2"> Dzienne wyzwanie</p>
                             <div className="text-center mt-2">Kontynuuj codzienne wyzwanie -&gt;</div>
                         </Link>
                     </div>
-                    <div className="bg-gray-dark p-6 rounded-lg text-center">
+                    <div className="bg-gray-dark p-6 rounded-lg text-center h-[15vh]">
                         <div className="text-orange-500 text-3xl font-bold">🌳</div>
                         <p>Wirtualny las</p>
                         <p className="text-xl font-bold"><span className="text-green-green">1757</span> posadzonych drzew</p>
                     </div>
-                    <div className="bg-gray-dark rounded-lg h-[50vh]">
+                    <div className="bg-gray-dark rounded-lg h-[15vh]">
                         <Link href="../dash/do_kalkulatora" className="p-6 rounded-lg text-center">
                             <p className="text-xl font-bold ml-2">Eco Kalculator</p>
                         </Link>
                     </div>
-                    <div className="bg-gray-dark rounded-lg h-[50vh]">
+                    <div className="bg-gray-dark rounded-lg h-[15vh]">
                         <Link href="../dash/do_mapy" className="p-6 rounded-lg text-center">
                             <p className="text-xl font-bold ml-2">Eco Mapy</p>
                         </Link>
                     </div>
                 </div>
-
-                    <Link href="../dash/profile/" className="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-gray-dark p-6 rounded-lg shadow-md text-center text-xl font-bold hover:underline">
-                        Profile options
-                    </Link>
             </main>
         </div>
     );

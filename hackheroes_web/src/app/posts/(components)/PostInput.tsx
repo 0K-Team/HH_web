@@ -18,14 +18,14 @@ const PostInput: React.FC<PostInputProps> = ({ onPost }) => {
     return (
         <div className="p-4 px-[20vh]">
             <textarea
-                className="w-full p-2 border border-green-green rounded bg-gray-light"
+                className="w-full p-2 border border-green-green rounded bg-gray-light focus:outline-none focus:ring-2 focus:ring-green-green"
                 rows={3}
                 value={content}
                 onChange={(e) => setContent(e.target.value)}
                 placeholder="What's happening?"
             />
             <button
-                className="bg-green-green text-white p-2 rounded mt-2"
+                className="bg-green-green text-gray-dark font-bold p-2 rounded mt-2 transition duration-300 ease-in-out transform hover:bg-[#22cc66] shadow-lg"
                 onClick={handlePost}
             >
                 Post
