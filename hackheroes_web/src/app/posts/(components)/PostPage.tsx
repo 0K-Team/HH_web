@@ -5,8 +5,13 @@ import PostFeed from './PostFeed';
 import PostInput from './PostInput';
 import { Post } from '../../types/post';
 import { createPost, deletePost, likePost, unlikePost } from '../../api/posts';
+import { User } from '@/app/types/user';
 
-const PostPage: React.FC = () => {
+interface PostPageProps {
+    user: User;
+}
+
+const PostPage: React.FC<PostPageProps> = ({ user }) => {
     const [posts, setPosts] = useState<Post[]>([]);
 
     const handlePost = async (content: string) => {
@@ -20,12 +25,12 @@ const PostPage: React.FC = () => {
     };
 
     const handleLike = async (id: string) => {
-        await likePost(id);
+        await likePost(id, user.id);
         setPosts(posts.map(post => post._id === id ? { ...post, liked: true } : post));
     };
 
     const handleUnlike = async (id: string) => {
-        await unlikePost(id);
+        await unlikePost(id, user.id);
         setPosts(posts.map(post => post._id === id ? { ...post, liked: false } : post));
     };
 
@@ -33,7 +38,7 @@ const PostPage: React.FC = () => {
         <div className="min-h-screen bg-gray-dark">
             <Header />
             <PostInput onPost={handlePost} />
-            <PostFeed posts={posts} onDelete={handleDelete} onLike={handleLike} onUnlike={handleUnlike} />
+            <PostFeed posts={posts} userId={user.id} onDelete={handleDelete} onLike={handleLike} onUnlike={handleUnlike} />
         </div>
     );
 };
