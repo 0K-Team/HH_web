@@ -17,7 +17,7 @@ const Dashboard = () => {
     return !user ? (
         <h1>Loading...</h1>
     ) : (
-        <div className="min-h-screen bg-grey-dark">
+        <div className="min-h-screen w-[100vh] bg-grey-dark">
             <Head>
                 <title>{user.username}&apos;s Dashboard</title>
             </Head>
