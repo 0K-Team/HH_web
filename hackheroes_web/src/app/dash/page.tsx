@@ -6,6 +6,8 @@ import { fetchLoggedUser } from "@/app/api/user";
 import Link from "next/link";
 import Image from "next/image";
 import Sidebar from "./Sidebar";
+import image from '../(landing)/(content)/imageSection3.png';
+
 
 const Dashboard = () => {
     const [user, setUser] = useState<User | null>(null);
@@ -27,10 +29,8 @@ const Dashboard = () => {
             <main className="flex flex-col flex-grow container mx-auto px-4 py-8">
                 {/* Profile Header */}
                 <div className="flex items-center mb-8 bg-gray-dark p-4 rounded-lg">
-
-
                         <Image
-                            src={`https://ecohero.q1000q.me/api/v1/avatar/${user.id}/${user.avatarHash}`}
+                            src={image}
                             alt={user.username.charAt(0).toUpperCase()}
                             width={16}
                             height={16}
