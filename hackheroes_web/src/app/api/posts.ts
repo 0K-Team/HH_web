@@ -19,11 +19,7 @@ export const deletePost = async (id: string) => {
         method: 'DELETE'
     });
 };
-export const getUserData = async (id: string) => {
-    await fetch(`${baseUrl}/${id}`, {
-        method: 'GET'
-    });
-};
+
 
 export const likePost = async (id: string, userId: string) => {
     const postResponse = await fetch(`${baseUrl}/${id}`);

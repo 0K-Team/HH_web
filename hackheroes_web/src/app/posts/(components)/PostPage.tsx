@@ -4,6 +4,7 @@ import PostFeed from './PostFeed';
 import PostInput from './PostInput';
 import { Post } from '../../types/post';
 import { createPost, deletePost, likePost, unlikePost, fetchPosts } from '../../api/posts';
+import { getUserData } from '../../api/user';
 import { User } from '@/app/types/user';
 import Sidebar from '../../dash/Sidebar';
 
@@ -18,7 +19,14 @@ const PostPage: React.FC<PostPageProps> = ({ user }) => {
         const loadPosts = async () => {
             const allPosts = await fetchPosts();
             if (Array.isArray(allPosts)) {
-                setPosts(allPosts);
+                const userIds = allPosts.map(post => post.author);
+                const uniqueUserIds = [...new Set(userIds)];
+                const userData = await Promise.all(uniqueUserIds.map(id => getUserData(id)));
+                const updatedPosts = allPosts.map(post => {
+                    const user = userData.find((user: User) => user.id === post.author);
+                    return user ? { ...post, author: user.username } : post;
+                });
+                setPosts(updatedPosts);
             } else {
                 console.error('Fetched posts are not an array:', allPosts);
             }

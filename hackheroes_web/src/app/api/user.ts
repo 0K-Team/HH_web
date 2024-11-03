@@ -5,6 +5,12 @@ export const fetchLoggedUser = async (): Promise<User> => {
     const response = await fetch(`${baseUrl}user/me`);
     return await response.json() as User;
 };
+export const getUserData = async (id: string): Promise<User> => {
+    const response = await fetch(`${baseUrl}/${id}`, {
+        method: 'GET'
+    });
+    return await response.json() as User;
+};
 export const changeUsername = async (name: string): Promise<User> => {
     const response = await fetch(`${baseUrl}user/me/username`, {
         method: 'PATCH',
