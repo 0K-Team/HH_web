@@ -48,3 +48,9 @@ export const fetchPosts = async (): Promise<Post[]> => {
     const result = await response.json();
     return result.data; // Access the data array
 };
+
+export const getCurrentUserPosts = async (id: string) => {
+    await fetch(`${baseUrl}/user/${id}`, {
+        method: 'GET'
+    });
+};
