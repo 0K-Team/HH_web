@@ -12,7 +12,7 @@ const Slider = () => {
             const loggedUser = await fetchLoggedUser();
             if (loggedUser) {
                 const userPosts = await getCurrentUserPosts(loggedUser.id);
-                setPosts(userPosts.slice(-3));
+                setPosts(userPosts.slice(+3));
             }
         };
         fetchData();
