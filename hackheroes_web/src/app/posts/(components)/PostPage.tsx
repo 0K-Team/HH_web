@@ -20,8 +20,7 @@ const PostPage: React.FC<PostPageProps> = ({ user }) => {
             const allPosts = await fetchPosts();
             if (Array.isArray(allPosts)) {
                 const userIds = allPosts.map(post => post.author);
-                const uniqueUserIds = [...new Set(userIds)];
-                const userData = await Promise.all(uniqueUserIds.map(id => getUserData(id)));
+                const userData = await Promise.all(userIds.map(id => getUserData(id)));
                 const updatedPosts = allPosts.map(post => {
                     const user = userData.find((user: User) => user.id === post.author);
                     return user ? { ...post, author: user.username } : post;
