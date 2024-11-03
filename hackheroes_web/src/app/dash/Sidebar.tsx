@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHouse } from '@fortawesome/free-solid-svg-icons'
+import Link from "next/link";
 
 export default function Home() {
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -27,9 +28,9 @@ export default function Home() {
                     <button className="font-bold bg-gray-light text-green-green p-5 rounded-lg hover:shadow-2xl transition-all mb-2">
                         EcoMaps
                     </button>
-                    <button className="font-bold bg-gray-light text-green-green p-5 rounded-lg hover:shadow-2xl transition-all mb-2">
+                    <Link href="../posts" className="font-bold bg-gray-light text-green-green p-5 rounded-lg hover:shadow-2xl transition-all mb-2">
                         Socials
-                    </button>
+                    </Link>
                     <button className="font-bold bg-gray-light text-green-green p-5 rounded-lg hover:shadow-2xl transition-all mb-2">
                         akcja 4
                     </button>

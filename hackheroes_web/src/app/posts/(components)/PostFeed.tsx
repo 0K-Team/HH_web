@@ -11,7 +11,7 @@ interface PostFeedProps {
     onUnlike: (id: string) => void;
 }
 
-const PostFeed: React.FC<PostFeedProps> = ({ posts, userId, onDelete, onLike, onUnlike }) => {
+const PostFeed: React.FC<PostFeedProps> = ({ posts = [], userId, onDelete, onLike, onUnlike }) => {
     const handleDelete = async (id: string) => {
         await deletePost(id);
         onDelete(id);
@@ -26,6 +26,7 @@ const PostFeed: React.FC<PostFeedProps> = ({ posts, userId, onDelete, onLike, on
         await unlikePost(id, userId);
         onUnlike(id);
     };
+
 
     return (
         <div className="p-4 px-[20vh]">
