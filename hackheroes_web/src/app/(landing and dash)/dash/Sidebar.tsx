@@ -19,9 +19,9 @@ export default function Home() {
         <div className="flex">
             <div onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} className={`fixed left-0 top-0 h-full bg-gray-dark text-white transition-transform duration-300 max-w-xs w-full ${isSidebarOpen ? "translate-x-0" : "-translate-x-full"}`}>
                 <nav className="flex flex-col p-4 pt-[8vh]">
-                    <button className="font-bold bg-gray-light text-green-green p-5 rounded-lg hover:shadow-2xl transition-all mb-2">
+                    <Link href="../../garden" className="font-bold bg-gray-light text-green-green p-5 rounded-lg hover:shadow-2xl transition-all mb-2">
                         Virtual Forest
-                    </button>
+                    </Link>
                     <button className="font-bold bg-gray-light text-green-green p-5 rounded-lg hover:shadow-2xl transition-all mb-2">
                         EcoCalculator
                     </button>
