@@ -45,12 +45,12 @@ const PostPage: React.FC<PostPageProps> = ({ user }) => {
         await unlikePost(id, user.id);
         setPosts(posts.map(post => post._id === id ? { ...post, liked: false } : post));
     };
-    <Sidebar />
     return (
         <div className="min-h-screen bg-gray-dark">
             <Header />
             <PostInput onPost={handlePost} />
             <PostFeed posts={posts} userId={user.id} onDelete={handleDelete} onLike={handleLike} onUnlike={handleUnlike} />
+            <Sidebar />
         </div>
     );
 };
