@@ -1,4 +1,4 @@
-// types/user.ts
+// types/gardener.ts
 export interface User {
     id: string;
     email: string;

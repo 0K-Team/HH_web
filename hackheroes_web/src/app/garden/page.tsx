@@ -1,5 +1,5 @@
 import React from 'react';
-import Garden from '../(components)/(Garden)/Garden';
+import Garden from './(components)/(Garden)/Garden';
 import { UserProvider } from '@/app/garden/(context)/UserContext';
 
 const GardenPage: React.FC = () => {

@@ -17,7 +17,7 @@ const Slider = () => {
                 const sortedPosts = userPosts.sort((a: Post, b: Post) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
                 const latestPosts = sortedPosts.slice(0, 3);
 
-                // Fetch user data for each post to get the username
+                // Fetch gardener data for each post to get the username
                 const userData = await Promise.all(latestPosts.map((post: Post) => getUserData(post.author)));
                 const updatedPosts = latestPosts.map((post: Post) => {
                     const user = userData.find((user: User) => user.id === post.author);
