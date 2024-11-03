@@ -35,6 +35,7 @@ const PostPage: React.FC<PostPageProps> = ({ user }) => {
 
     const handlePost = async (content: string) => {
         const newPost = await createPost(content);
+        newPost.author = user.username;
         setPosts([newPost, ...posts]);
     };
 
