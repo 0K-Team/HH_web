@@ -1,14 +1,24 @@
 "use client";
-import React, {useEffect, useState} from 'react';
-import {fetchPosts} from "@/app/api/posts";
-import {Post} from '../types/post';
+import React, { useEffect, useState } from 'react';
+import { fetchPosts } from "@/app/api/posts";
+import { Post } from '../types/post';
+import { fetchLoggedUser } from "@/app/api/user";
+import { User } from '../types/user';
 
 const Slider = () => {
     const [posts, setPosts] = useState<Post[]>([]);
+    const [user, setUser] = useState<User | null>(null);
 
     useEffect(() => {
-        fetchPosts().then((posts) => setPosts(posts));
-    }, []);
+        const fetchData = async () => {
+            const loggedUser = await fetchLoggedUser();
+            setUser(loggedUser);
+            const allPosts = await fetchPosts();
+            const userPosts = allPosts.filter(post => post.author === loggedUser.id);
+            setPosts(userPosts.slice(-3));
+        };
+        fetchData();
+    }, [user]);
 
     const sliderSettings = {
         dots: true,
