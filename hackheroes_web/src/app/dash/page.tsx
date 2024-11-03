@@ -27,8 +27,7 @@ const Dashboard = () => {
 
             <Sidebar />
 
-            <main
-                className="flex flex-col flex-grow container mx-auto px-4 py-8 pt-[2vh] bg-gray-light rounded-2xl w-[60%]">
+            <main className="flex flex-col flex-grow container mx-auto px-4 py-8 pt-[2vh] bg-gray-light rounded-2xl w-[60%]">
                 <div className="flex items-center justify-between mb-8 bg-gray-dark p-4 rounded-lg">
                     <div className="flex items-center">
                         <Image
@@ -38,18 +37,19 @@ const Dashboard = () => {
                             height={16}
                             className="w-16 h-16 bg-gray-light rounded-full flex items-center justify-center text-2xl font-bold">
                         </Image>
-                        <h1 className="ml-4 text-2xl font-bold">{user.username}</h1>
-                        <span className="ml-2 text-lg">{user.id}</span>
-                        <span className="ml-2 text-lg">🇵🇱</span>
+                        <div className="ml-4">
+                            <h1 className="text-2xl font-bold">{user.username}</h1>
+                            <div className="flex items-center">
+                                <span className="text-lg">{user.id}</span>
+                                <span className="ml-2 text-lg">🇵🇱</span>
+                            </div>
+                            <p className="mt-1 text-base">Jakieś tam fajne przykładowe bio</p>
+                        </div>
                     </div>
-                    <Link href="../dash/profile/"
-                          className="bg-gray-dark p-2 rounded-lg text-center text-xl font-bold hover:underline ml-auto">
+                    <Link href="../dash/profile/" className="bg-gray-dark p-2 rounded-lg text-center text-xl font-bold hover:underline ml-auto">
                         Ustawienia profilu
                         <FontAwesomeIcon className="pl-1" icon={faGear} style={{color: "#29ff77",}}/>
                     </Link>
-                </div>
-                <div>
-                    <p className="mt-2">Jakieś tam fajne przykładowe bio</p>
                 </div>
 
                 <div className="grid md:grid-cols-2 gap-6 mb-8">
