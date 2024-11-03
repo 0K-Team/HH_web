@@ -17,7 +17,7 @@ export default function Home() {
 
     return (
         <div className="flex">
-            <div onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} className={`fixed left-0 top-0 h-full bg-gray-dark text-white transition-transform duration-300 max-w-xs w-full ${isSidebarOpen ? "translate-x-0" : "-translate-x-full"}`}>
+            <div onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} className={`fixed left-0 top-0 h-full bg-gray-dark text-white transition-transform duration-300 max-w-[8vh] w-full ${isSidebarOpen ? "translate-x-0" : "-translate-x-full"}`}>
                 <nav className="flex flex-col p-4 pt-[8vh]">
                     <button className="font-bold bg-gray-light text-green-green p-5 rounded-lg hover:shadow-2xl transition-all mb-2">
                         Virtual Forest
@@ -48,7 +48,7 @@ export default function Home() {
 
             <Link href="../dash" className="absolute top-4 left-[4vh] font-bold bg-gray-light text-green-green py-2 px-4 rounded-lg hover:shadow-2xl transition-all" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
                 <FontAwesomeIcon className="pr-2" icon={faHouse} style={{color: "#29ff77",}} />
-                Sidebar
+                Strona główna
             </Link>
         </div>
     );
