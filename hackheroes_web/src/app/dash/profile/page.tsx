@@ -62,7 +62,7 @@ const ProfileOptions = () => {
             <form
                 onSubmit={handleSubmit}
                 className="bg-gray-light text-white p-6 rounded-lg shadow-lg max-w-md mx-auto">
-                <h1 className="text-2xl font-bold mb-4 text-green-green">Update Profile</h1>
+                <h1 className="text-2xl font-bold mb-4 text-green-green">Zaktualizuj informacje</h1>
 
                 {/* Username Field */}
                 <div className="mb-4">
