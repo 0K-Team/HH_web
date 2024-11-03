@@ -5,6 +5,7 @@ import PostInput from './PostInput';
 import { Post } from '../../types/post';
 import { createPost, deletePost, likePost, unlikePost, fetchPosts } from '../../api/posts';
 import { User } from '@/app/types/user';
+import Sidebar from '@/app/dash/Sidebar';
 
 interface PostPageProps {
     user: User;
@@ -44,7 +45,7 @@ const PostPage: React.FC<PostPageProps> = ({ user }) => {
         await unlikePost(id, user.id);
         setPosts(posts.map(post => post._id === id ? { ...post, liked: false } : post));
     };
-
+    <Sidebar />
     return (
         <div className="min-h-screen bg-gray-dark">
             <Header />
