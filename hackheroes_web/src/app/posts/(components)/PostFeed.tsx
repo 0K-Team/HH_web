@@ -2,7 +2,7 @@
 "use client";
 import React from 'react';
 import { Post } from '../../types/post';
-import { deletePost, likePost, unlikePost } from '../../api/posts';
+import { deletePost, likePost, unlikePost} from '../../api/posts';
 
 interface PostFeedProps {
     posts: Post[];
@@ -30,7 +30,7 @@ const PostFeed: React.FC<PostFeedProps> = ({ posts = [], userId, onDelete, onLik
 
     return (
         <div className="p-4 px-[20vh]">
-            {Array.isArray(posts) && posts.map((post:Post) => (
+            {posts.map((post) => (
                 <div key={post._id} className="border border-green-green p-4 py-[2vh]">
                     <h2 className="font-bold">{post.author}</h2>
                     <p>{post.content}</p>

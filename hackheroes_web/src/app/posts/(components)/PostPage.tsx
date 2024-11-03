@@ -1,5 +1,3 @@
-// PostPage.tsx
-"use client";
 import React, { useState, useEffect } from 'react';
 import Header from './Header';
 import PostFeed from './PostFeed';
@@ -18,7 +16,11 @@ const PostPage: React.FC<PostPageProps> = ({ user }) => {
     useEffect(() => {
         const loadPosts = async () => {
             const allPosts = await fetchPosts();
-            setPosts(allPosts);
+            if (Array.isArray(allPosts)) {
+                setPosts(allPosts);
+            } else {
+                console.error('Fetched posts are not an array:', allPosts);
+            }
         };
         loadPosts();
     }, []);
