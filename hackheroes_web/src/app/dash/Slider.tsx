@@ -40,7 +40,7 @@ const Slider = () => {
 
     return (
         <div className="bg-gray-dark p-6 rounded-lg">
-            <h2 className="text-2xl font-bold mb-4">Recent Posts</h2>
+            <h2 className="text-2xl font-bold mb-4">Twoje ostatnie posty:</h2>
             <div {...sliderSettings}>
                 {posts.map((post) => (
                     <div key={post._id} className="p-4">

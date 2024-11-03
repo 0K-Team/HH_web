@@ -54,7 +54,7 @@ const ProfileOptions = () => {
     };
 
     return (
-        <div className="pt-[15%] h-90%">
+        <div className="pt-[8%] h-90%">
             <div className="absolute w-[55vh] h-[55vh] bg-[#29FF77] opacity-10 rounded-full top-[-20vh] right-[13%] blur-3xl"></div>
             <div className="absolute w-[45vh] h-[45vh] bg-[#29FF77] opacity-10 rounded-full top-[-25vh] left-[8%] blur-3xl"></div>
             <div className="absolute w-[40vh] h-[40vh] bg-[#29FF77] opacity-10 rounded-full bottom-2 left-2 blur-3xl"></div>
@@ -62,7 +62,7 @@ const ProfileOptions = () => {
             <form
                 onSubmit={handleSubmit}
                 className="bg-gray-light text-white p-6 rounded-lg shadow-lg max-w-md mx-auto">
-                <h1 className="text-2xl font-bold mb-4 text-green-green">Update Profile</h1>
+                <h1 className="text-2xl font-bold mb-4 text-green-green">Zaktualizuj informacje</h1>
 
                 {/* Username Field */}
                 <div className="mb-4">
@@ -108,6 +108,18 @@ const ProfileOptions = () => {
                         onChange={(e) => setLocation(e.target.value)}
                         className="w-full p-2 bg-gray-light text-white border border-green-green rounded-lg focus:outline-none focus:ring-2 focus:ring-green-green"
                     />
+                </div>
+
+                {/* Bio Field */}
+                <div className="mb-4">
+                    <label className="block text-sm font-medium mb-2">Bio:</label>
+                    <textarea
+                        value={bio}
+                        onChange={(e) => setBio(e.target.value)}
+                        maxLength={100}
+                        className="w-full p-2 bg-gray-light text-white border border-green-green rounded-lg focus:outline-none focus:ring-2 focus:ring-green-green h-32"
+                    />
+                    <div className="text-sm text-gray-400">{100 - bio.length} characters remaining</div>
                 </div>
 
 
