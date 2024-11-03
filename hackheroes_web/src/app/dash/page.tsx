@@ -8,6 +8,7 @@ import Image from "next/image";
 import Sidebar from "./Sidebar";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGear } from '@fortawesome/free-solid-svg-icons'
+import Slider from "./Slider";
 
 const Dashboard = () => {
     const [user, setUser] = useState<User | null>(null);
@@ -26,7 +27,8 @@ const Dashboard = () => {
 
             <Sidebar />
 
-            <main className="flex flex-col flex-grow container mx-auto px-4 py-8 pt-[2vh] bg-gray-light rounded-2xl w-[60%]">
+            <main
+                className="flex flex-col flex-grow container mx-auto px-4 py-8 pt-[2vh] bg-gray-light rounded-2xl w-[60%]">
                 <div className="flex items-center justify-between mb-8 bg-gray-dark p-4 rounded-lg">
                     <div className="flex items-center">
                         <Image
@@ -40,9 +42,10 @@ const Dashboard = () => {
                         <span className="ml-2 text-lg">{user.id}</span>
                         <span className="ml-2 text-lg">🇵🇱</span>
                     </div>
-                    <Link href="../dash/profile/" className="bg-gray-dark p-2 rounded-lg text-center text-xl font-bold hover:underline ml-auto">
+                    <Link href="../dash/profile/"
+                          className="bg-gray-dark p-2 rounded-lg text-center text-xl font-bold hover:underline ml-auto">
                         Ustawienia profilu
-                        <FontAwesomeIcon className="pl-1" icon={faGear} style={{color: "#29ff77",}} />
+                        <FontAwesomeIcon className="pl-1" icon={faGear} style={{color: "#29ff77",}}/>
                     </Link>
                 </div>
 
@@ -57,7 +60,8 @@ const Dashboard = () => {
                     <div className="bg-gray-dark p-6 rounded-lg text-center h-[15vh]">
                         <div className="text-orange-500 text-3xl font-bold">🌳</div>
                         <p>Wirtualny las</p>
-                        <p className="text-xl font-bold"><span className="text-green-green">1757</span> posadzonych drzew</p>
+                        <p className="text-xl font-bold"><span className="text-green-green">1757</span> posadzonych
+                            drzew</p>
                     </div>
                     <div className="bg-gray-dark rounded-lg h-[15vh]">
                         <Link href="../dash/do_kalkulatora" className="p-6 rounded-lg text-center">
@@ -70,6 +74,7 @@ const Dashboard = () => {
                         </Link>
                     </div>
                 </div>
+                <Slider />
             </main>
         </div>
     );
