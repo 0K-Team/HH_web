@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import { Plant } from '../../types/types';
 import PlantCard from './PlantCard';
-import { fetchPlants } from '@/app/game/api/garden';
+import { fetchPlants } from '@/app/garden/api/garden';
 
 const Garden: React.FC = () => {
     const [plants, setPlants] = useState<Plant[]>([]);

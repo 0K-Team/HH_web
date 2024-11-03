@@ -1,6 +1,6 @@
 import React from 'react';
 import SeedShop from '../(components)/(SeedShop)/SeedShop';
-import { UserProvider } from '@/app/game/(context)/UserContext';
+import { UserProvider } from '@/app/garden/(context)/UserContext';
 
 const SeedShopPage: React.FC = () => {
     return (

@@ -1,6 +1,6 @@
 import React from 'react';
 import UserStats from '../(components)/(User)/UserStats';
-import { UserProvider } from '@/app/game/(context)/UserContext';
+import { UserProvider } from '@/app/garden/(context)/UserContext';
 
 const UserPage: React.FC = () => {
     return (
