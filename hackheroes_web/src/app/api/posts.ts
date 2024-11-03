@@ -44,5 +44,6 @@ export const unlikePost = async (id: string, userId: string) => {
 
 export const fetchPosts = async (): Promise<Post[]> => {
     const response = await fetch(baseUrl);
-    return await response.json();
+    const result = await response.json();
+    return result.data; // Access the data array
 };
