@@ -2,19 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
-body {
-    margin: 0;
-    padding: 0;
-    background: #1E1E1E;
-    @apply text-default;
-    @apply: background-default;
-}
-html {
-    margin: 0;
-    padding: 0;
-}
-
 @media (prefers-color-scheme: dark) {
 }
 
