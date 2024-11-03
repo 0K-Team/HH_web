@@ -54,7 +54,7 @@ const ProfileOptions = () => {
     };
 
     return (
-        <div className="pt-[15%] h-90%">
+        <div className="pt-[8%] h-90%">
             <div className="absolute w-[55vh] h-[55vh] bg-[#29FF77] opacity-10 rounded-full top-[-20vh] right-[13%] blur-3xl"></div>
             <div className="absolute w-[45vh] h-[45vh] bg-[#29FF77] opacity-10 rounded-full top-[-25vh] left-[8%] blur-3xl"></div>
             <div className="absolute w-[40vh] h-[40vh] bg-[#29FF77] opacity-10 rounded-full bottom-2 left-2 blur-3xl"></div>
