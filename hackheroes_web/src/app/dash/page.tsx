@@ -27,7 +27,7 @@ const Dashboard = () => {
 
             <Sidebar />
 
-            <main className="flex flex-col flex-grow container mx-auto px-4 py-8 pt-[2vh] bg-gray-light rounded-2xl">
+            <main className="flex flex-col flex-grow container mx-auto px-4 py-8 pt-[2vh] bg-gray-light rounded-2xl w-[60%]">
                 <div className="flex items-center mb-8 bg-gray-dark p-4 rounded-lg">
                         <Image
                             src={`https://ecohero.q1000q.me/api/v1/avatar/${user.id}/${user.avatarHash}`}
