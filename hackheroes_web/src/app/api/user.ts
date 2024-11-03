@@ -6,7 +6,7 @@ export const fetchLoggedUser = async (): Promise<User> => {
     return await response.json() as User;
 };
 export const getUserData = async (id: string): Promise<User> => {
-    const response = await fetch(`${baseUrl}/${id}`, {
+    const response = await fetch(`${baseUrl}/user/${id}`, {
         method: 'GET'
     });
     return await response.json() as User;
