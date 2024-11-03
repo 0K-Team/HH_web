@@ -58,10 +58,10 @@ const PostPage: React.FC<PostPageProps> = ({ user }) => {
 
     return (
         <div className="min-h-screen bg-gray-dark flex justify-center">
-            <div className="w-[80%]">
+            <div className="w-[80%] text-[#E0E0E0]">
                 <Header />
                 <PostInput onPost={handlePost} />
-                <PostFeed posts={posts} userId={user.id} onDelete={handleDelete} onLike={handleLike} onUnlike={handleUnlike} />
+                <PostFeed posts={posts} userId={user.id} onDelete={handleDelete} onLike={handleLike} onUnlike={handleUnlike}/>
                 <Sidebar />
             </div>
         </div>
