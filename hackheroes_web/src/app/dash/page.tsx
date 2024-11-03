@@ -47,11 +47,13 @@ const Dashboard = () => {
                         Ustawienia profilu
                         <FontAwesomeIcon className="pl-1" icon={faGear} style={{color: "#29ff77",}}/>
                     </Link>
+                </div>
+                <div>
                     <p className="mt-2">Jakieś tam fajne przykładowe bio</p>
                 </div>
 
                 <div className="grid md:grid-cols-2 gap-6 mb-8">
-                    <div className="space-y-4 bg-gray-dark rounded-lg h-[15vh]">
+                <div className="space-y-4 bg-gray-dark rounded-lg h-[15vh]">
                         <Link href="../dash/daily_chall" className="p-6 rounded-lg text-center">
                             <div className="text-green-green text-3xl font-bold">15%</div>
                             <p className="text-xl font-bold ml-2"> Dzienne wyzwanie</p>
