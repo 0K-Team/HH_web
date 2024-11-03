@@ -5,7 +5,7 @@ import PostInput from './PostInput';
 import { Post } from '../../types/post';
 import { createPost, deletePost, likePost, unlikePost, fetchPosts } from '../../api/posts';
 import { User } from '@/app/types/user';
-import Sidebar from '.../dash/Sidebar';
+import Sidebar from '../../dash/Sidebar';
 
 interface PostPageProps {
     user: User;
