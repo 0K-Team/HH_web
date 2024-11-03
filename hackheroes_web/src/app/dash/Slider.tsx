@@ -12,7 +12,9 @@ const Slider = () => {
             const loggedUser = await fetchLoggedUser();
             if (loggedUser) {
                 const userPosts = await getCurrentUserPosts(loggedUser.id);
-                setPosts(userPosts.slice(-3)); // Corrected to get the last 3 posts
+                // Sort posts by creation date in descending order and get the last 3 posts
+                const sortedPosts = userPosts.sort((a: Post, b: Post) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
+                setPosts(sortedPosts.slice(0, 3));
             }
         };
         fetchData();
