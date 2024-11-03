@@ -29,7 +29,7 @@ const PostFeed: React.FC<PostFeedProps> = ({ posts, userId, onDelete, onLike, on
 
     return (
         <div className="p-4 px-[20vh]">
-            {posts.map((post) => (
+            {posts.map((post:Post) => (
                 <div key={post._id} className="border border-green-green p-4 py-[2vh]">
                     <h2 className="font-bold">{post.author}</h2>
                     <p>{post.content}</p>
