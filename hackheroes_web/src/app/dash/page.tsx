@@ -38,10 +38,10 @@ const Dashboard = () => {
                             height={16}
                             className="w-16 h-16 bg-gray-light rounded-full flex items-center justify-center text-2xl font-bold">
                         </Image>
+                        <p className="mt-2">Jakieś tam fajne przykładowe bio</p>
                         <h1 className="ml-4 text-2xl font-bold">{user.username}</h1>
                         <span className="ml-2 text-lg">{user.id}</span>
                         <span className="ml-2 text-lg">🇵🇱</span>
-                        <p>Jakieś tam fajne przykładowe bio</p>
                     </div>
                     <Link href="../dash/profile/"
                           className="bg-gray-dark p-2 rounded-lg text-center text-xl font-bold hover:underline ml-auto">
