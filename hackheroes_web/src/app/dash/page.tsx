@@ -48,7 +48,7 @@ const Dashboard = () => {
                     </div>
                     <Link href="../dash/profile/" className="bg-gray-dark p-2 rounded-lg text-center text-xl font-bold hover:underline ml-auto">
                         Ustawienia profilu
-                        <FontAwesomeIcon className="pl-1" icon={faGear} style={{color: "#29ff77",}}/>
+                        <FontAwesomeIcon className="pl-1 rotate-icon" icon={faGear} style={{color: "#29ff77",}}/>
                     </Link>
                 </div>
 
