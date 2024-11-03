@@ -2,7 +2,8 @@
 import React, { useEffect, useState } from 'react';
 import { getCurrentUserPosts } from "@/app/api/posts";
 import { Post } from '../types/post';
-import { fetchLoggedUser } from "@/app/api/user";
+import { fetchLoggedUser, getUserData } from "@/app/api/user";
+import { User } from '../types/user';
 
 const Slider = () => {
     const [posts, setPosts] = useState<Post[]>([]);
@@ -14,7 +15,16 @@ const Slider = () => {
                 const userPosts = await getCurrentUserPosts(loggedUser.id);
                 // Sort posts by creation date in descending order and get the last 3 posts
                 const sortedPosts = userPosts.sort((a: Post, b: Post) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
-                setPosts(sortedPosts.slice(0, 3));
+                const latestPosts = sortedPosts.slice(0, 3);
+
+                // Fetch user data for each post to get the username
+                const userData = await Promise.all(latestPosts.map((post: Post) => getUserData(post.author)));
+                const updatedPosts = latestPosts.map((post: Post) => {
+                    const user = userData.find((user: User) => user.id === post.author);
+                    return user ? { ...post, author: user.username } : post;
+                });
+
+                setPosts(updatedPosts);
             }
         };
         fetchData();
