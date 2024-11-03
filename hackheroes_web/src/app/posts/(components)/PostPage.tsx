@@ -45,6 +45,7 @@ const PostPage: React.FC<PostPageProps> = ({ user }) => {
         await unlikePost(id, user.id);
         setPosts(posts.map(post => post._id === id ? { ...post, liked: false } : post));
     };
+
     return (
         <div className="min-h-screen bg-gray-dark">
             <Header />
