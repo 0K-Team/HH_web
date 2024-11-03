@@ -6,7 +6,7 @@ const GardenPage: React.FC = () => {
     return (
         <UserProvider>
             <div className="container mx-auto p-4">
-                <h1 className="text-2xl font-bold mb-4">Mój Wirtualny Ogródek</h1>
+                <h1 className="text-2xl font-bold mb-4 text-center">Mój Wirtualny Ogródek</h1>
                 <Garden />
             </div>
         </UserProvider>
