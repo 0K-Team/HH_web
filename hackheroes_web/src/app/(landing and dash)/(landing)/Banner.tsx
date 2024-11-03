@@ -1,6 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
-import headerContent from '../(landing)/(content)/headerContent.png';
+import headerContent from './(content)/headerContent.png';
 
 
 const Banner = () => {

@@ -46,7 +46,7 @@ export default function Home() {
                 </nav>
             </div>
 
-            <Link href="../dash" className="absolute top-4 left-[4vh] font-bold bg-gray-light text-green-green py-2 px-4 rounded-lg hover:shadow-2xl transition-all" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+            <Link href="" className="absolute top-4 left-[4vh] font-bold bg-gray-light text-green-green py-2 px-4 rounded-lg hover:shadow-2xl transition-all" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
                 <FontAwesomeIcon className="pr-2" icon={faHouse} style={{color: "#29ff77",}} />
                 Panel użytkownika
             </Link>

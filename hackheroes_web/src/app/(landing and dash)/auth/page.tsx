@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from 'next/image';
-import logoTransparent from '../auth/(content)/logoTransparent.svg';
+import logoTransparent from './(content)/logoTransparent.svg';
 import React from "react";
 
 const Login = () => {

@@ -1,8 +1,8 @@
 // PostFeed.tsx
 "use client";
 import React from 'react';
-import { Post } from '../../types/post';
-import { deletePost, likePost, unlikePost} from '../../api/posts';
+import { Post } from '../../../types/post';
+import { deletePost, likePost, unlikePost} from '../../../api/posts';
 
 interface PostFeedProps {
     posts: Post[];

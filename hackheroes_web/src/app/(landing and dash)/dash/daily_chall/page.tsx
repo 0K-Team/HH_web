@@ -1,7 +1,7 @@
 "use client"
 // App.tsx
 import React, { useState } from "react";
-import ProgressComponent from "../daily_chall/progress";
+import ProgressComponent from "./progress";
 
 const App: React.FC = () => {
     const [itemsSorted] = useState(5);

@@ -1,10 +1,12 @@
+"use client";
+
 import React, { useState, useEffect } from 'react';
 import Header from './Header';
 import PostFeed from './PostFeed';
 import PostInput from './PostInput';
-import { Post } from '../../types/post';
-import { createPost, deletePost, likePost, unlikePost, fetchPosts } from '../../api/posts';
-import { getUserData } from '../../api/user';
+import { Post } from '../../../types/post';
+import { createPost, deletePost, likePost, unlikePost, fetchPosts } from '../../../api/posts';
+import { getUserData } from '../../../api/user';
 import { User } from '@/app/types/user';
 import Sidebar from '../../dash/Sidebar';
 
