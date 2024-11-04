@@ -20,7 +20,10 @@ export default function Home() {
             <div onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} className={`fixed left-0 top-0 h-full bg-gray-dark text-white transition-transform duration-300 max-w-xs w-full ${isSidebarOpen ? "translate-x-0" : "-translate-x-full"}`}>
                 <nav className="flex flex-col p-4 pt-[8vh]">
                     <Link href="../../garden" className="font-bold bg-gray-light text-green-green p-5 rounded-lg hover:shadow-2xl transition-all mb-2 text-center">
-                        Virtual Forest
+                        Wirtualny ogródek
+                    </Link>
+                    <Link href="../posts" className="font-bold bg-gray-light text-green-green p-5 rounded-lg hover:shadow-2xl transition-all mb-2 text-center">
+                        Sociale
                     </Link>
                     <button className="font-bold bg-gray-light text-green-green p-5 rounded-lg hover:shadow-2xl transition-all mb-2">
                         EcoCalculator
@@ -28,9 +31,6 @@ export default function Home() {
                     <button className="font-bold bg-gray-light text-green-green p-5 rounded-lg hover:shadow-2xl transition-all mb-2">
                         EcoMaps
                     </button>
-                    <Link href="../posts" className="font-bold bg-gray-light text-green-green p-5 rounded-lg hover:shadow-2xl transition-all mb-2 text-center">
-                        Socials
-                    </Link>
                     <button className="font-bold bg-gray-light text-green-green p-5 rounded-lg hover:shadow-2xl transition-all mb-2">
                         akcja 4
                     </button>
