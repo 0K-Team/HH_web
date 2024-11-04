@@ -3,8 +3,9 @@ import React, { useState } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHouse, faSeedling, faUser } from '@fortawesome/free-solid-svg-icons';
 import Link from "next/link";
+import "../globals.css"; // Importing the globals.css file
 
-export default function Home() {
+export default function Sidebar() {
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
     const handleMouseEnter = () => {
@@ -16,27 +17,25 @@ export default function Home() {
     };
 
     return (
-        <div className="flex h-screen w-[20vh] bg-[#fdfbf9]">
-            <div className={`fixed top-0 left-0 flex flex-col justify-between p-4 space-y-6 bg-black h-screen transition-width duration-300 ${isSidebarOpen ? 'w-[200px]' : 'w-[80px]'}`} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+        <div className="flex h-screen">
+            <div
+                className={`fixed top-0 left-0 flex flex-col justify-between p-4 space-y-6 bg-black h-screen transition-width duration-300 ${isSidebarOpen ? 'w-[200px]' : 'w-[80px]'}`}
+                onMouseEnter={handleMouseEnter}
+                onMouseLeave={handleMouseLeave}
+            >
                 <nav className="flex flex-col p-4 pt-[8vh]">
-                    <Link href="../dash" className="absolute top-4 left-[4vh] font-bold bg-gray-light text-green-green py-2 px-4 rounded-lg hover:shadow-2xl transition-all" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
-                        <FontAwesomeIcon className="pr-2" icon={faHouse} style={{color: "#29ff77",}} />
-                        Panel użytkownika
+                    <Link href="../dash" className="flex items-center space-x-2 p-2 rounded-lg hover:bg-gray-700 transition-all">
+                        <FontAwesomeIcon icon={faHouse} className="text-2xl text-white" />
+                        {isSidebarOpen && <span className="text-white">Panel użytkownika</span>}
                     </Link>
-                    <Link href="../../garden" className="font-bold bg-gray-light text-green-green p-5 rounded-lg hover:shadow-2xl transition-all mb-2 text-center">
-                        <FontAwesomeIcon className="pr-2" icon={faSeedling} style={{color: "#29ff77",}} />
-                        Wirtualny ogródek
+                    <Link href="../../garden" className="flex items-center space-x-2 p-2 rounded-lg hover:bg-gray-700 transition-all">
+                        <FontAwesomeIcon icon={faSeedling} className="text-2xl text-white" />
+                        {isSidebarOpen && <span className="text-white">Wirtualny ogródek</span>}
                     </Link>
-                    <Link href="../posts" className="font-bold bg-gray-light text-green-green p-5 rounded-lg hover:shadow-2xl transition-all mb-2 text-center">
-                        <FontAwesomeIcon className="pr-2" icon={faUser} style={{color: "#29ff77",}} />
-                        Sociale
+                    <Link href="../posts" className="flex items-center space-x-2 p-2 rounded-lg hover:bg-gray-700 transition-all">
+                        <FontAwesomeIcon icon={faUser} className="text-2xl text-white" />
+                        {isSidebarOpen && <span className="text-white">Sociale</span>}
                     </Link>
-                    <button className="font-bold bg-gray-light text-green-green p-5 rounded-lg hover:shadow-2xl transition-all mb-2">
-                        EcoCalculator
-                    </button>
-                    <button className="font-bold bg-gray-light text-green-green p-5 rounded-lg hover:shadow-2xl transition-all mb-2">
-                        EcoMaps
-                    </button>
                 </nav>
             </div>
         </div>
