@@ -3,6 +3,7 @@ import React from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHouse, faSeedling, faUser } from '@fortawesome/free-solid-svg-icons';
 import Link from "next/link";
+import "../globals.css";
 
 export default function Sidebar() {
     const handleMouseEnter = () => {
