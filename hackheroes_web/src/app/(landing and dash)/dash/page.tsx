@@ -46,7 +46,7 @@ const Dashboard = () => {
                             <p className="mt-1 text-base">Jakieś tam fajne przykładowe bio</p>
                         </div>
                     </div>
-                    <Link href="profile" className="bg-gray-dark p-2 rounded-lg text-center text-xl font-bold hover:underline ml-auto">
+                    <Link href="/dash/profile" className="bg-gray-dark p-2 rounded-lg text-center text-xl font-bold hover:underline ml-auto">
                         Ustawienia profilu
                         <FontAwesomeIcon className="pl-1" icon={faGear} style={{color: "#29ff77",}}/>
                     </Link>
