@@ -1,4 +1,3 @@
-import { redirect } from "next/navigation";
 import { User } from "../types/user";
 const baseUrl = '/api/v1/';
 
@@ -70,7 +69,7 @@ export const changeLocation = async (name: string): Promise<User> => {
 export const logout = async () => {
     try {
         document.cookie = 'jwt=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
-        redirect("/");
+        window.location.href = "/";
     } catch (error) {
         console.error(error);
     }
