@@ -16,14 +16,18 @@ export default function Sidebar() {
     };
 
     return (
-        <div onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} className={`fixed top-0 left-0 h-full bg-gray-dark text-white transition-all duration-500 ${isSidebarOpen ? "w-64" : "w-20"} flex flex-col items-start p-4 z-50 shadow-lg`}>
+        <div
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+            className={`fixed top-0 left-0 h-full bg-gray-dark text-white transition-all duration-500 ${isSidebarOpen ? "w-64" : "w-20"} flex flex-col items-start p-4 z-50 shadow-lg`}
+        >
             <nav className="flex flex-col space-y-4 mt-10">
                 <Link href="../dash">
                     <button
-                        className={`flex items-center rounded-lg transition-all duration-300 ${isSidebarOpen ? "p-3 bg-gray-light w-full" : "p-0 w-10 justify-center"} text-green-green hover:bg-gray-light hover:shadow-lg`}
+                        className={`relative flex items-center rounded-lg transition-all duration-300 ${isSidebarOpen ? "pl-10 pr-4 py-3 bg-gray-light w-full" : "justify-center w-10 h-10"} text-green-green hover:bg-gray-light hover:shadow-lg`}
                     >
-                        <FontAwesomeIcon icon={faHouse} className="text-2xl text-green-green" />
-                        <span className={`ml-4 font-bold transition-opacity duration-500 delay-200 ${isSidebarOpen ? "opacity-100" : "opacity-0"} whitespace-nowrap`}>
+                        <FontAwesomeIcon icon={faHouse} className="absolute left-4 text-2xl text-green-green" />
+                        <span className={`ml-12 font-bold transition-opacity duration-500 delay-200 ${isSidebarOpen ? "opacity-100" : "opacity-0"} whitespace-nowrap`}>
                             Panel użytkownika
                         </span>
                     </button>
@@ -31,10 +35,10 @@ export default function Sidebar() {
 
                 <Link href="../../garden">
                     <button
-                        className={`flex items-center rounded-lg transition-all duration-300 ${isSidebarOpen ? "p-3 bg-gray-light w-full" : "p-0 w-10 justify-center"} text-green-green hover:bg-gray-light hover:shadow-lg`}
+                        className={`relative flex items-center rounded-lg transition-all duration-300 ${isSidebarOpen ? "pl-10 pr-4 py-3 bg-gray-light w-full" : "justify-center w-10 h-10"} text-green-green hover:bg-gray-light hover:shadow-lg`}
                     >
-                        <FontAwesomeIcon icon={faSeedling} className="text-2xl text-green-green" />
-                        <span className={`ml-4 font-bold transition-opacity duration-500 delay-200 ${isSidebarOpen ? "opacity-100" : "opacity-0"} whitespace-nowrap`}>
+                        <FontAwesomeIcon icon={faSeedling} className="absolute left-4 text-2xl text-green-green" />
+                        <span className={`ml-12 font-bold transition-opacity duration-500 delay-200 ${isSidebarOpen ? "opacity-100" : "opacity-0"} whitespace-nowrap`}>
                             Wirtualny ogródek
                         </span>
                     </button>
@@ -42,29 +46,29 @@ export default function Sidebar() {
 
                 <Link href="../posts">
                     <button
-                        className={`flex items-center rounded-lg transition-all duration-300 ${isSidebarOpen ? "p-3 bg-gray-light w-full" : "p-0 w-10 justify-center"} text-green-green hover:bg-gray-light hover:shadow-lg`}
+                        className={`relative flex items-center rounded-lg transition-all duration-300 ${isSidebarOpen ? "pl-10 pr-4 py-3 bg-gray-light w-full" : "justify-center w-10 h-10"} text-green-green hover:bg-gray-light hover:shadow-lg`}
                     >
-                        <FontAwesomeIcon icon={faUser} className="text-2xl text-green-green" />
-                        <span className={`ml-4 font-bold transition-opacity duration-500 delay-200 ${isSidebarOpen ? "opacity-100" : "opacity-0"} whitespace-nowrap`}>
+                        <FontAwesomeIcon icon={faUser} className="absolute left-4 text-2xl text-green-green" />
+                        <span className={`ml-12 font-bold transition-opacity duration-500 delay-200 ${isSidebarOpen ? "opacity-100" : "opacity-0"} whitespace-nowrap`}>
                             Sociale
                         </span>
                     </button>
                 </Link>
 
                 <button
-                    className={`flex items-center rounded-lg transition-all duration-300 ${isSidebarOpen ? "p-3 bg-gray-light w-full" : "p-0 w-10 justify-center"} text-green-green hover:bg-gray-light hover:shadow-lg`}
+                    className={`relative flex items-center rounded-lg transition-all duration-300 ${isSidebarOpen ? "pl-10 pr-4 py-3 bg-gray-light w-full" : "justify-center w-10 h-10"} text-green-green hover:bg-gray-light hover:shadow-lg`}
                 >
-                    <FontAwesomeIcon icon={faCalculator} className="text-2xl text-green-green" />
-                    <span className={`ml-4 font-bold transition-opacity duration-500 delay-200 ${isSidebarOpen ? "opacity-100" : "opacity-0"} whitespace-nowrap`}>
+                    <FontAwesomeIcon icon={faCalculator} className="absolute left-4 text-2xl text-green-green" />
+                    <span className={`ml-12 font-bold transition-opacity duration-500 delay-200 ${isSidebarOpen ? "opacity-100" : "opacity-0"} whitespace-nowrap`}>
                         EcoCalculator
                     </span>
                 </button>
 
                 <button
-                    className={`flex items-center rounded-lg transition-all duration-300 ${isSidebarOpen ? "p-3 bg-gray-light w-full" : "p-0 w-10 justify-center"} text-green-green hover:bg-gray-light hover:shadow-lg`}
+                    className={`relative flex items-center rounded-lg transition-all duration-300 ${isSidebarOpen ? "pl-10 pr-4 py-3 bg-gray-light w-full" : "justify-center w-10 h-10"} text-green-green hover:bg-gray-light hover:shadow-lg`}
                 >
-                    <FontAwesomeIcon icon={faMap} className="text-2xl text-green-green" />
-                    <span className={`ml-4 font-bold transition-opacity duration-500 delay-200 ${isSidebarOpen ? "opacity-100" : "opacity-0"} whitespace-nowrap`}>
+                    <FontAwesomeIcon icon={faMap} className="absolute left-4 text-2xl text-green-green" />
+                    <span className={`ml-12 font-bold transition-opacity duration-500 delay-200 ${isSidebarOpen ? "opacity-100" : "opacity-0"} whitespace-nowrap`}>
                         EcoMaps
                     </span>
                 </button>
