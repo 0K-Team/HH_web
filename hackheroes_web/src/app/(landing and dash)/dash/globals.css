@@ -18,7 +18,7 @@ html {
 
 @media (prefers-color-scheme: dark) {
 }
-.sidebar-icon {
+.slim-sidebar {
     position: fixed;
     left: 0;
     top: 50%;
@@ -27,24 +27,32 @@ html {
     background-color: #333;
     padding: 10px;
     border-radius: 0 5px 5px 0;
-    transition: left 0.3s;
+    transition: width 0.3s, left 0.3s;
+    width: 50px; /* Slim width */
+    overflow: hidden;
 }
 
-.sidebar-icon:hover {
-    left: 150px;
+.slim-sidebar:hover {
+    width: 200px;
 }
 
-.sidebar-content {
-    position: fixed;
-    left: -150px;
-    top: 0;
-    height: 100%;
-    width: 150px;
-    background-color: #333;
-    transition: left 0.3s;
+.slim-sidebar .icon {
+    display: block;
+    margin: 10px 0;
+    text-align: center;
 }
 
-.sidebar-content:hover {
-    left: 0;
+.slim-sidebar .icon:hover {
+    background-color: #444;
+    border-radius: 5px;
+}
+
+.slim-sidebar .text {
+    display: none;
+    margin-left: 10px;
+}
+
+.slim-sidebar:hover .text {
+    display: inline;
 }
 
