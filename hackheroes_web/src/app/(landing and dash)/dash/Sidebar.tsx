@@ -16,7 +16,7 @@ export default function Home() {
     };
 
     return (
-        <div className="flex h-screen w-full bg-[#fdfbf9]">
+        <div className="flex h-screen w-[20vh] bg-[#fdfbf9]">
             <div className={`fixed top-0 left-0 flex flex-col justify-between p-4 space-y-6 bg-black h-screen transition-width duration-300 ${isSidebarOpen ? 'w-[200px]' : 'w-[80px]'}`} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
                 <nav className="flex flex-col p-4 pt-[8vh]">
                     <Link href="../dash" className="absolute top-4 left-[4vh] font-bold bg-gray-light text-green-green py-2 px-4 rounded-lg hover:shadow-2xl transition-all" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
