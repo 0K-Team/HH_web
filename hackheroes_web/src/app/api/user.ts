@@ -1,3 +1,4 @@
+import { redirect } from "next/navigation";
 import { User } from "../types/user";
 const baseUrl = '/api/v1/';
 
@@ -64,4 +65,13 @@ export const changeLocation = async (name: string): Promise<User> => {
         body: JSON.stringify({ location: name })
     });
     return await response.json() as User;
+}
+
+export const logout = async () => {
+    try {
+        document.cookie = 'jwt=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+        redirect("/");
+    } catch (error) {
+        console.error(error);
+    }
 }
