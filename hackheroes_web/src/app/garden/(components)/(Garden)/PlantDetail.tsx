@@ -1,22 +1,23 @@
 "use client";
 
 import React, { useEffect, useState } from 'react';
-import { PlantDetails } from '../../types/types';
-import { fetchPlantDetails } from '../../api/garden';
+import { Plant } from '../../types/types';
+import { fetchPlantsData } from '../../api/garden';
 
 interface PlantDetailProps {
     plantId: string;
 }
 
 const PlantDetail: React.FC<PlantDetailProps> = ({ plantId }) => {
-    const [plantDetails, setPlantDetails] = useState<PlantDetails | null>(null);
+    const [plantDetails, setPlantDetails] = useState<Plant | null>(null);
 
     useEffect(() => {
-        const loadPlantDetails = async () => {
-            const data = await fetchPlantDetails(plantId);
-            setPlantDetails(data);
+        const fetchData = async () => {
+            const plants = await fetchPlantsData();
+            const plant = plants.find(p => p._id === plantId);
+            setPlantDetails(plant || null);
         };
-        loadPlantDetails();
+        fetchData();
     }, [plantId]);
 
     if (!plantDetails) return <p>Ładowanie...</p>;
@@ -24,8 +25,9 @@ const PlantDetail: React.FC<PlantDetailProps> = ({ plantId }) => {
     return (
         <div>
             <h2>{plantDetails.name}</h2>
-            <p>{plantDetails.description}</p>
-            <p>Etap wzrostu: {plantDetails.growth_stage}</p>
+            <p>{plantDetails.type}</p>
+            <p>Etap wzrostu: {plantDetails.growthStage}</p>
+            <p>Można zebrać? : {plantDetails.harvestable}</p>
             {/* Można dodać więcej szczegółów */}
         </div>
     );

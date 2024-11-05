@@ -1,35 +1,11 @@
-"use client";
+import React from 'react';
 
-import React, { useEffect, useState } from 'react';
-import { fetchFriendGardens } from '../../api/garden';
-import { FriendGarden } from '../../types/types';
-
-const FriendsGarden: React.FC = () => {
-    const [friendsGardens, setFriendsGardens] = useState<FriendGarden[]>([]);
-
-    useEffect(() => {
-        const loadFriendGardens = async () => {
-            const data = await fetchFriendGardens();
-            setFriendsGardens(data);
-        };
-        loadFriendGardens();
-    }, []);
-
+const Achievements: React.FC = () => {
     return (
-        <div>
-            <h2>Ogród Znajomych</h2>
-            {friendsGardens.map((garden) => (
-                <div key={garden.user_id}>
-                    <h3>Ogród {garden.user_id}</h3>
-                    <ul>
-                        {garden.plants.map((plant) => (
-                            <li key={plant._id}>{plant.name}</li>
-                        ))}
-                    </ul>
-                </div>
-            ))}
+        <div className="border p-4 rounded shadow">
+            <h2 className="text-lg font-semibold">friends garden</h2>
         </div>
     );
 };
 
-export default FriendsGarden;
+export default Achievements;

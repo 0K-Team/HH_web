@@ -1,51 +1,47 @@
 "use client";
-import React, { useEffect, useState } from 'react';
-import PlantCard from './PlantCard';
-import { Plant, UserActions } from '../../types/types';
-import { fetchGardenData } from '../../api/garden'; // Importowanie funkcji z `api.ts`
+// Importing types from types.ts
+import { Plant, UserGardenData } from '../../types/types';
+import { fetchGardenData } from '../../api/garden';
+import { useEffect, useState } from "react";
 
+// Example function using the imported types
+const exampleFunction = (data: UserGardenData) => {
+    console.log(data.user); // Accessing user property
+    data.plants.forEach((plant: Plant) => {
+        console.log(plant.name); // Accessing plant name
+    });
+    console.log(data.userActions.wateringCount); // Accessing user actions
+};
+
+// Example usage in a React component
 const Garden: React.FC = () => {
-    const [plants, setPlants] = useState<Plant[]>([]);
-    const [userActions, setUserActions] = useState<UserActions | null>(null);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState<string | null>(null);
+    const [gardenData, setGardenData] = useState<UserGardenData | null>(null);
 
     useEffect(() => {
-        // Wywołanie funkcji do pobrania danych z API
-        const loadGardenData = async () => {
-            try {
-                const data = await fetchGardenData(); // Pobieranie danych za pomocą funkcji z `api.ts`
-                setPlants(data.plants);
-                setUserActions(data.userActions);
-                setError(null);
-            } catch (err) {
-                setError('Failed to fetch garden data');
-                console.error(err);
-            } finally {
-                setLoading(false);
-            }
+        const fetchData = async () => {
+            const data = await fetchGardenData();
+            setGardenData(data);
+            exampleFunction(data); // Using the example function here
         };
-
-        loadGardenData();
+        fetchData();
     }, []);
 
-    // Renderowanie stanu ładowania lub błędu
-    if (loading) return <p>Loading...</p>;
-    if (error) return <p>{error}</p>;
+    if (!gardenData) return <p>Loading...</p>;
 
     return (
-        <div className="ml-86">
-            <h1>Your Garden</h1>
-            <div className="plants-grid">
-                {plants.map((plant) => (
-                    <PlantCard key={plant._id} plant_id={plant._id} growth_stage={plant.growthStage} name={plant.name}/>
+        <div>
+            <h1>User: {gardenData.user}</h1>
+            <div>
+                {gardenData.plants.map((plant: Plant) => (
+                    <div key={plant._id}>
+                        <h2>{plant.name}</h2>
+                        <p>Growth Stage: {plant.growthStage}</p>
+                    </div>
                 ))}
             </div>
-            <div className="user-actions">
-                <h2>Actions Available</h2>
-                <p>Watering: {userActions?.wateringCount}/{userActions?.wateringMaxCount}</p>
-                <p>Fertilizing: {userActions?.fertilizingCount}/{userActions?.fertilizingMaxCount}</p>
-                <p>Weed Removal: {userActions?.weedsRemoved}/{userActions?.weedsMaxRemoved}</p>
+            <div>
+                <h2>User Actions</h2>
+                <p>Watering Count: {gardenData.userActions.wateringCount}</p>
             </div>
         </div>
     );
