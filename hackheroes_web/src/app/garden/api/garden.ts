@@ -1,5 +1,5 @@
-import { Plant, PlantDetails, Seed, Achievement, LeaderboardEntry, FriendGarden, UserStats } from '../types/types';
-import { UserGardenData } from '../types';
+import {PlantDetails, Seed, Achievement, LeaderboardEntry, FriendGarden, UserStats } from '../types/types';
+import { UserGardenData } from '../types/types';
 
 const baseUrl = '/api/v1/';
 
@@ -7,6 +7,7 @@ export const fetchUserStats = async (): Promise<UserStats[]> => {
     const response = await fetch(`${baseUrl}/garden/me`);
     return await response.json() as UserStats[];
 };
+
 export const fetchAchievements = async (): Promise<Achievement[]> => {
     const response = await fetch(`${baseUrl}user/achievements`);
     return await response.json() as Achievement[];

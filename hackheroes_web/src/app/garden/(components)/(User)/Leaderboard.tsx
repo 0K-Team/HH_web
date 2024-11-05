@@ -27,9 +27,9 @@ const Leaderboard: React.FC = () => {
                 </thead>
                 <tbody>
                 {leaderboard.map((entry) => (
-                    <tr key={entry.id}>
-                        <td>{entry.name}</td>
-                        <td>{entry.points}</td>
+                    <tr key={entry.user_id}>
+                        <td>{entry.username}</td>
+                        <td>{entry.score}</td>
                     </tr>
                 ))}
                 </tbody>

@@ -19,11 +19,11 @@ const FriendsGarden: React.FC = () => {
         <div>
             <h2>Ogród Znajomych</h2>
             {friendsGardens.map((garden) => (
-                <div key={garden.friend_id}>
-                    <h3>Ogród {garden.friend_id}</h3>
+                <div key={garden.user_id}>
+                    <h3>Ogród {garden.user_id}</h3>
                     <ul>
                         {garden.plants.map((plant) => (
-                            <li key={plant.id}>{plant.name}</li>
+                            <li key={plant._id}>{plant.name}</li>
                         ))}
                     </ul>
                 </div>

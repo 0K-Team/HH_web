@@ -1,7 +1,7 @@
-// Garden.tsx
+"use client";
 import React, { useEffect, useState } from 'react';
 import PlantCard from './PlantCard';
-import { Plant, UserActions, UserGardenData } from '../types';
+import { Plant, UserActions } from '../../types/types';
 import { fetchGardenData } from '../../api/garden'; // Importowanie funkcji z `api.ts`
 
 const Garden: React.FC = () => {
@@ -38,7 +38,7 @@ const Garden: React.FC = () => {
             <h1>Your Garden</h1>
             <div className="plants-grid">
                 {plants.map((plant) => (
-                    <PlantCard key={plant._id} plant={plant} />
+                    <PlantCard key={plant._id} plant_id={plant._id} growth_stage={plant.growthStage} name={plant.name}/>
                 ))}
             </div>
             <div className="user-actions">

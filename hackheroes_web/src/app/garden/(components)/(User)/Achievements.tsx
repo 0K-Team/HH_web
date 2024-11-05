@@ -20,7 +20,7 @@ const Achievements: React.FC = () => {
             <h2>Osiągnięcia</h2>
             <ul>
                 {achievements.map((achievement) => (
-                    <li key={achievement.id}>{achievement.title}: {achievement.description}</li>
+                    <li key={achievement.id}>{achievement.name}: {achievement.description}</li>
                 ))}
             </ul>
         </div>
