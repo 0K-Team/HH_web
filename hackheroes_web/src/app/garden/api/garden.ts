@@ -17,7 +17,7 @@ export const fetchPlantsData = async (): Promise<Plant[]> => {
     return data.plants;
 };
 export const fetchUserActions = async (): Promise<UserActions> => {
-    const response = await fetch('/api/v1/user/actions');
+    const response = await fetch('/api/v1/garden/me');
     if (!response.ok) {
         throw new Error('Failed to fetch user actions');
     }
