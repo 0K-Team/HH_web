@@ -1,9 +1,10 @@
 import { Plant, PlantDetails, Seed, Achievement, LeaderboardEntry, FriendGarden, UserStats } from '../types/types';
+import { UserGardenData } from '../types';
 
 const baseUrl = '/api/v1/';
 
 export const fetchUserStats = async (): Promise<UserStats[]> => {
-    const response = await fetch(`${baseUrl}user/stats`);
+    const response = await fetch(`${baseUrl}/garden/me`);
     return await response.json() as UserStats[];
 };
 export const fetchAchievements = async (): Promise<Achievement[]> => {
@@ -11,10 +12,21 @@ export const fetchAchievements = async (): Promise<Achievement[]> => {
     return await response.json() as Achievement[];
 };
 
-export const fetchPlants = async () => {
-    const response = await fetch('/api/plants');
-    const data = await response.json();
-    return data as Plant[];};
+export const fetchGardenData = async (): Promise<UserGardenData> => {
+    const response = await fetch('/garden/me', {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+    });
+
+    if (!response.ok) {
+        throw new Error('Failed to fetch garden data');
+    }
+
+    const data: UserGardenData = await response.json();
+    return data;
+};
 
 export const fetchPlantDetails = async (id: string): Promise<PlantDetails> => {
     const response = await fetch(`${baseUrl}plants/${id}`);
