@@ -1,5 +1,3 @@
-// types.ts
-
 export interface Plant {
     _id: string;
     name: string;
@@ -30,13 +28,13 @@ export interface UserGardenData {
     plants: Plant[];
     userActions: UserActions;
 }
-// In types.ts
+
 export interface PlantCardProps {
     name: string;
     growth_stage: string;
     plant_id: string;
 }
-// types.ts
+
 export interface PlantDetails {
     id: string;
     name: string;
@@ -74,9 +72,4 @@ export interface UserStats {
     level: number;
     experience: number;
     ecoPoints: number;
-}
-export interface PlantCardProps {
-    name: string;
-    growth_stage: string;
-    plant_id: string;
 }

@@ -34,7 +34,7 @@ const Garden: React.FC = () => {
     if (error) return <p>{error}</p>;
 
     return (
-        <div>
+        <div className="ml-86">
             <h1>Your Garden</h1>
             <div className="plants-grid">
                 {plants.map((plant) => (

@@ -1,7 +1,7 @@
 import {PlantDetails, Seed, Achievement, LeaderboardEntry, FriendGarden, UserStats } from '../types/types';
 import { UserGardenData } from '../types/types';
 
-const baseUrl = '/api/v1/';
+const baseUrl = 'https://ecohero.q1000q.me/api/v1/';
 
 export const fetchUserStats = async (): Promise<UserStats[]> => {
     const response = await fetch(`${baseUrl}/garden/me`);
