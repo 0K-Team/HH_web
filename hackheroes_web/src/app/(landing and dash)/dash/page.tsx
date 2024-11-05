@@ -18,9 +18,13 @@ const Dashboard = () => {
         fetchLoggedUser().then((user) => setUser(user));
     }, []);
 
-    return !user ? (
-        redirect("/auth")
-    ) : (
+    useEffect(() => {
+        if (!user) {
+            redirect("/auth");
+        }
+    }, [user]);
+
+    return !user ? null : (
         <div className="flex flex-col min-h-screen bg-gray-dark text-white pt-[8vh]">
             <Head>
                 <title>{user.username}&apos;s Dashboard</title>
