@@ -40,7 +40,9 @@ const ProfileOptions = () => {
             await changeFirstName(firstName);
             await changeLastName(lastName);
             await changeLocation(location);
+            console.log("Bio:", bio); // Add this line to debug
             await changeBio(bio);
+            console.log("Bio:", bio); // Add this line to debug
             setSuccess("Profile updated successfully!");
             setLoading(false);
             setTimeout(() => {
