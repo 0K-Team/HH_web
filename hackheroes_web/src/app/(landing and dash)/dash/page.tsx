@@ -19,7 +19,8 @@ const Dashboard = () => {
     }, []);
 
     useEffect(() => {
-        if (!user || Object.keys(user).length === 0) {
+        const jwt = document.cookie.split('; ').find(row => row.startsWith('jwt='));
+        if (!jwt) {
             redirect("/auth");
         }
     }, [user]);
