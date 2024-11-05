@@ -19,7 +19,7 @@ const Dashboard = () => {
     }, []);
 
     useEffect(() => {
-        if (!user) {
+        if (!user || Object.keys(user).length === 0) {
             redirect("/auth");
         }
     }, [user]);
