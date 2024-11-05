@@ -118,10 +118,10 @@ const ProfileOptions = () => {
                     <textarea
                         value={bio}
                         onChange={(e) => setBio(e.target.value)}
-                        maxLength={100}
+                        maxLength={60}
                         className="w-full p-2 bg-gray-light text-white border border-green-green rounded-lg focus:outline-none focus:ring-2 focus:ring-green-green h-32"
                     />
-                    <div className="text-sm text-gray-400">{100 - bio.length} characters remaining</div>
+                    <div className="text-sm text-gray-400">{60 - bio.length} characters remaining</div>
                 </div>
 
 
