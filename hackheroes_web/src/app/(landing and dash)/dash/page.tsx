@@ -9,6 +9,7 @@ import Sidebar from "./Sidebar";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGear } from '@fortawesome/free-solid-svg-icons'
 import Slider from "./Slider";
+import { redirect } from 'next/navigation';
 
 const Dashboard = () => {
     const [user, setUser] = useState<User | null>(null);
@@ -18,7 +19,7 @@ const Dashboard = () => {
     }, []);
 
     return !user ? (
-        <h1>Loading...</h1>
+        redirect("/auth")
     ) : (
         <div className="flex flex-col min-h-screen bg-gray-dark text-white pt-[8vh]">
             <Head>
@@ -53,7 +54,7 @@ const Dashboard = () => {
                 </div>
 
                 <div className="grid md:grid-cols-2 gap-6 mb-8">
-                <div className="space-y-4 bg-gray-dark rounded-lg h-[15vh]">
+                    <div className="space-y-4 bg-gray-dark rounded-lg h-[15vh]">
                         <Link href="hall" className="p-6 rounded-lg text-center">
                             <div className="text-green-green text-3xl font-bold">15%</div>
                             <p className="text-xl font-bold ml-2"> Dzienne wyzwanie</p>
