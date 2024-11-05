@@ -43,7 +43,7 @@ const Dashboard = () => {
                                 <span className="text-lg">{user.id}</span>
                                 <span className="ml-2 text-lg">🇵🇱</span>
                             </div>
-                            <p className="mt-1 text-base">Jakieś tam fajne przykładowe bio</p>
+                            <p className="mt-1 text-base">{user.bio}</p>
                         </div>
                     </div>
                     <Link href="/dash/profile" className="bg-gray-dark p-2 rounded-lg text-center text-xl font-bold hover:underline ml-auto">
