@@ -5,6 +5,7 @@ const Quiz = () => {
         <>
             <h2>main quiz page</h2>
             <Topics />
+
         </>
     );
 };
