@@ -31,7 +31,7 @@ const Topics = () => {
         <div className="flex grid-cols-2 space-x-3">
             <h2>Topics</h2>
             {quizzes.map((quiz) => (
-                <Link href={`/quiz/${quiz.category}`} key={quiz._id} className="quiz-card">
+                <Link href={`/quiz/page_components/${quiz.category}`} key={quiz._id} className="quiz-card">
                     <h3><span className="text-red-500">{quiz.topic}</span></h3>
                     <h2>id<span className="text-red-500">{quiz._id}</span></h2>
                     <p>Category:<span className="text-red-500">{quiz.category}</span></p>
