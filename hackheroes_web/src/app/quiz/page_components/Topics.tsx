@@ -2,7 +2,6 @@
 import React, { useEffect, useState } from 'react';
 import { fetchQuizBoxes } from '../api/quiz';
 import { Quiz } from '../types/types';
-import Link from 'next/link';
 
 const Topics = () => {
     const [quizzes, setQuizzes] = useState<Quiz[]>([]);
@@ -30,13 +29,11 @@ const Topics = () => {
         <div>
             <h2>Topics</h2>
             {quizzes.map((quiz) => (
-                <Link key={quiz._id} href={`/quiz/questions?quizId=${quiz._id}`}>
-                    <div className="quiz-card">
-                        <h3><span className="text-red-500">{quiz.topic}</span></h3>
-                        <h2>id<span className="text-red-500">{quiz._id}</span></h2>
-                        <p>Category:<span className="text-red-500">{quiz.category}</span></p>
-                    </div>
-                </Link>
+                <div key={quiz._id} className="quiz-card">
+                    <h3><span className="text-red-500">{quiz.topic}</span></h3>
+                    <h2>id<span className="text-red-500">{quiz._id}</span></h2>
+                    <p>Category:<span className="text-red-500">{quiz.category}</span></p>
+                </div>
             ))}
         </div>
     );
