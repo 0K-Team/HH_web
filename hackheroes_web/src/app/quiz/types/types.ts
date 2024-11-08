@@ -8,7 +8,8 @@ export interface QuizQuestion {
         B: string;
         C: string;
         D: string;
-    }
+    };
+    category: string;
 }
 
 export interface Quiz {

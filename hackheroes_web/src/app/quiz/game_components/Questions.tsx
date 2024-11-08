@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { fetchQuizData } from '../api/quiz';
 import { QuizQuestion } from '../types/types';
 
-const Questions = ({ quizId }: { quizId: string }) => {
+const Questions = ({ quizId, category }: { quizId: string, category: string }) => {
     const [quizQuestions, setQuizQuestions] = useState<QuizQuestion[]>([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
@@ -12,7 +12,8 @@ const Questions = ({ quizId }: { quizId: string }) => {
         const loadQuizQuestions = async () => {
             try {
                 const data = await fetchQuizData(quizId);
-                setQuizQuestions(data);
+                const filteredQuestions = data.filter((question: QuizQuestion) => question.category === category);
+                setQuizQuestions(filteredQuestions);
             } catch {
                 setError('Failed to fetch quiz questions');
             } finally {
@@ -20,7 +21,7 @@ const Questions = ({ quizId }: { quizId: string }) => {
             }
         };
         loadQuizQuestions();
-    }, [quizId]);
+    }, [quizId, category]);
 
     if (loading) return <p>Loading...</p>;
     if (error) return <p>{error}</p>;
@@ -35,13 +36,9 @@ const Questions = ({ quizId }: { quizId: string }) => {
                     <p>B <span className="text-red-500">{question.answers.B}</span></p>
                     <p>C <span className="text-red-500">{question.answers.C}</span></p>
                     <p>D <span className="text-red-500">{question.answers.D}</span></p>
-                    <p> . </p>
-
                 </div>
             ))}
-
         </div>
-
     );
 };
 

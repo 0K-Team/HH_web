@@ -27,7 +27,7 @@ const Topics = () => {
     if (error) return <p>{error}</p>;
 
     return (
-        <div className=" flex grid-cols-2 space-x-3">
+        <div className="flex grid-cols-2 space-x-3">
             <h2>Topics</h2>
             {quizzes.map((quiz) => (
                 <div key={quiz._id} className="quiz-card">
@@ -36,12 +36,11 @@ const Topics = () => {
                     <p>Category:<span className="text-red-500">{quiz.category}</span></p>
                 </div>
             ))}
-                <div>
-                    {quizzes.map((quiz) => (
-                        <Questions key={quiz._id} quizId={quiz._id} />
-                    ))}
-
-                </div>
+            <div>
+                {quizzes.map((quiz) => (
+                    <Questions key={quiz._id} quizId={quiz._id} category={quiz.category} />
+                ))}
+            </div>
         </div>
     );
 };
