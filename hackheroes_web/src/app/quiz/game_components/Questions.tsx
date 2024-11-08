@@ -31,12 +31,13 @@ const Questions = ({ quizId }: { quizId: string }) => {
             {quizQuestions.map((question) => (
                 <div key={question.id} className="quiz-card">
                     <h3><span className="text-red-500">{question.text}</span></h3>
-                    <p>Difficulty: <span className="text-red-500">{question.difficulty_level}</span></p>
                     <p>Time Limit: <span className="text-red-500">{question.time_limit}</span> seconds</p>
                     <p>Points Reward: <span className="text-red-500">{question.points_reward}</span></p>
                     <p>Description: <span className="text-red-500">{question.description}</span></p>
+
                 </div>
             ))}
+
         </div>
 
     );
