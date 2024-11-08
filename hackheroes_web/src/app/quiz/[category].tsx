@@ -1,8 +1,8 @@
 "use client";
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
-import { fetchQuizData } from '../../api/quiz';
-import { QuizQuestion } from '../../types/types';
+import { fetchQuizData } from './api/quiz';
+import { QuizQuestion } from './types/types';
 
 const CategoryPage = () => {
     const router = useRouter();
