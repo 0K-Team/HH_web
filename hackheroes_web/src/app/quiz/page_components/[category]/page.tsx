@@ -1,12 +1,11 @@
 "use client";
 import React, { useEffect, useState } from 'react';
-import { useRouter } from 'next/router';
+import { useParams } from 'next/navigation';
 import { fetchQuizData } from '../../api/quiz';
 import { QuizQuestion } from '../../types/types';
 
 const CategoryPage = () => {
-    const router = useRouter();
-    const { category } = router.query;
+    const { category } = useParams();
     const [quizQuestions, setQuizQuestions] = useState<QuizQuestion[]>([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
