@@ -31,9 +31,10 @@ const Questions = ({ quizId }: { quizId: string }) => {
             {quizQuestions.map((question) => (
                 <div key={question.id} className="quiz-card">
                     <h3><span className="text-red-500">{question.text}</span></h3>
-                    <p>Time Limit: <span className="text-red-500">{question.time_limit}</span> seconds</p>
-                    <p>Points Reward: <span className="text-red-500">{question.points_reward}</span></p>
-                    <p>Description: <span className="text-red-500">{question.description}</span></p>
+                    <p>A<span className="text-red-500">{question.answers.A}</span> seconds</p>
+                    <p>B<span className="text-red-500">{question.answers.B}</span></p>
+                    <p>C <span className="text-red-500">{question.answers.C}</span></p>
+                    <p>D<span className="text-red-500">{question.answers.D}</span></p>
 
                 </div>
             ))}
