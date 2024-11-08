@@ -30,7 +30,7 @@ const Questions = ({ quizId }: { quizId: string }) => {
             <h2>Questions</h2>
             {quizQuestions.map((question) => (
                 <div key={question.id} className="quiz-card">
-                    <h3><span className="text-red-500">{question.text}</span></h3>
+                    <h3><span className="text-red-500">{question.question}</span></h3>
                     <p>A <span className="text-red-500">{question.answers.A}</span></p>
                     <p>B <span className="text-red-500">{question.answers.B}</span></p>
                     <p>C <span className="text-red-500">{question.answers.C}</span></p>

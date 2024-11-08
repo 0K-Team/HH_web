@@ -2,6 +2,7 @@
 export interface QuizQuestion {
     id: string;
     text: string;
+    question: string;
     answers: {
         A: string;
         B: string;
