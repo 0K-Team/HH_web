@@ -38,6 +38,7 @@ const Questions = ({ quizId }: { quizId: string }) => {
                 </div>
             ))}
         </div>
+
     );
 };
 
