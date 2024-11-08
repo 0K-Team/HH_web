@@ -30,12 +30,12 @@ const Topics = () => {
             <h2>Topics</h2>
             {quizzes.map((quiz) => (
                 <div key={quiz.topic} className="quiz-card">
-                    <h3>{quiz.topic}</h3>
-                    <p>{quiz.description}</p>
-                    <p>Difficulty: {quiz.difficulty_level}</p>
-                    <p>Category: {quiz.category}</p>
-                    <p>Time Limit: {quiz.time_limit} seconds</p>
-                    <p>Points Reward: {quiz.points_reward}</p>
+                    <h3><span className="text-red-500">{quiz.topic}</span> </h3>
+                    <p><span className="text-red-500">{quiz.description}</span> </p>
+                    <p>Difficulty: <span className="text-red-500">{quiz.difficulty_level}</span></p>
+                    <p>Category:<span className="text-red-500">{quiz.category}</span> </p>
+                    <p>Time Limit: <span className="text-red-500">{quiz.time_limit}</span>  seconds</p>
+                    <p>Points Reward: <span className="text-red-500">{quiz.points_reward}</span> </p>
                 </div>
             ))}
         </div>
