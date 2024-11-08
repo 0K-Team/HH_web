@@ -1,17 +1,22 @@
 "use client";
 import React, { useEffect, useState } from 'react';
+import { useRouter } from 'next/router';
 import { fetchQuizData } from '../api/quiz';
 import { QuizQuestion } from '../types/types';
 
 const Questions = () => {
+    const router = useRouter();
+    const { quizId } = router.query;
     const [quizQuestions, setQuizQuestions] = useState<QuizQuestion[]>([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
 
     useEffect(() => {
+        if (!quizId) return;
+
         const loadQuizQuestions = async () => {
             try {
-                const data = await fetchQuizData('quizId'); // Replace 'quizId' with the actual quiz ID
+                const data = await fetchQuizData(quizId as string);
                 setQuizQuestions(data);
             } catch {
                 setError('Failed to fetch quiz questions');
@@ -20,7 +25,7 @@ const Questions = () => {
             }
         };
         loadQuizQuestions();
-    }, []);
+    }, [quizId]);
 
     if (loading) return <p>Loading...</p>;
     if (error) return <p>{error}</p>;

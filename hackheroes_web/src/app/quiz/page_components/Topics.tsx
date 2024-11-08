@@ -2,8 +2,9 @@
 import React, { useEffect, useState } from 'react';
 import { fetchQuizBoxes } from '../api/quiz';
 import { Quiz } from '../types/types';
+import Link from 'next/link';
 
-const Questions = () => {
+const Topics = () => {
     const [quizzes, setQuizzes] = useState<Quiz[]>([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
@@ -29,17 +30,16 @@ const Questions = () => {
         <div>
             <h2>Topics</h2>
             {quizzes.map((quiz) => (
-                <div key={quiz.topic} className="quiz-card">
-                    <h3><span className="text-red-500">{quiz.topic}</span></h3>
-                    <h2>id<span className="text-red-500">{quiz._id}</span></h2>
-                    <p>Category:<span className="text-red-500">{quiz.category}</span></p>
-                    <p>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p>
-                </div>
-
+                <Link key={quiz._id} href={`/quiz/questions?quizId=${quiz._id}`}>
+                    <div className="quiz-card">
+                        <h3><span className="text-red-500">{quiz.topic}</span></h3>
+                        <h2>id<span className="text-red-500">{quiz._id}</span></h2>
+                        <p>Category:<span className="text-red-500">{quiz.category}</span></p>
+                    </div>
+                </Link>
             ))}
-
         </div>
     );
 };
 
-export default Questions;
+export default Topics;
