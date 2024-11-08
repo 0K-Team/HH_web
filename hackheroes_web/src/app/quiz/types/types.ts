@@ -6,17 +6,20 @@ export interface QuizAnswer {
 }
 
 export interface QuizQuestion {
+    id: string;
     text: string;
     answers: QuizAnswer;
     correct_answer: string;
+    time_limit: number;
+    points_reward: number;
+    difficulty_level: string;
+    description: string;
 }
 
 export interface Quiz {
+    _id: string;
     topic: string;
-    description: string;
     questions: QuizQuestion[];
-    difficulty_level: string;
     category: string;
-    time_limit: number;
-    points_reward: number;
+
 }

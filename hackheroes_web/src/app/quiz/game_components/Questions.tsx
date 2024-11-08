@@ -1,25 +1,25 @@
 "use client";
 import React, { useEffect, useState } from 'react';
-import { fetchAllQuizzes } from '../api/quiz';
-import { Quiz } from '../types/types';
+import { fetchQuizData } from '../api/quiz';
+import { QuizQuestion } from '../types/types';
 
 const Questions = () => {
-    const [quizzes, setQuizzes] = useState<Quiz[]>([]);
+    const [quizQuestions, setQuizQuestions] = useState<QuizQuestion[]>([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
 
     useEffect(() => {
-        const loadQuizzes = async () => {
+        const loadQuizQuestions = async () => {
             try {
-                const data = await fetchAllQuizzes();
-                setQuizzes(data);
+                const data = await fetchQuizData('quizId'); // Replace 'quizId' with the actual quiz ID
+                setQuizQuestions(data);
             } catch {
-                setError('Failed to fetch quizzes');
+                setError('Failed to fetch quiz questions');
             } finally {
                 setLoading(false);
             }
         };
-        loadQuizzes();
+        loadQuizQuestions();
     }, []);
 
     if (loading) return <p>Loading...</p>;
@@ -27,20 +27,16 @@ const Questions = () => {
 
     return (
         <div>
-            <h2>Topics</h2>
-            {quizzes.map((quiz) => (
-                <div key={quiz.topic} className="quiz-card">
-                    <h3><span className="text-red-500">{quiz.topic}</span> </h3>
-                    <p><span className="text-red-500">{quiz.description}</span> </p>
-                    <p>Difficulty: <span className="text-red-500">{quiz.difficulty_level}</span></p>
-                    <p>Category:<span className="text-red-500">{quiz.category}</span> </p>
-                    <p>Time Limit: <span className="text-red-500">{quiz.time_limit}</span>  seconds</p>
-                    <p>Points Reward: <span className="text-red-500">{quiz.points_reward}</span> </p>
-                    <p>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p>
+            <h2>Questions</h2>
+            {quizQuestions.map((question) => (
+                <div key={question.id} className="quiz-card">
+                    <h3><span className="text-red-500">{question.text}</span></h3>
+                    <p>Difficulty: <span className="text-red-500">{question.difficulty_level}</span></p>
+                    <p>Time Limit: <span className="text-red-500">{question.time_limit}</span> seconds</p>
+                    <p>Points Reward: <span className="text-red-500">{question.points_reward}</span></p>
+                    <p>Description: <span className="text-red-500">{question.description}</span></p>
                 </div>
-
             ))}
-
         </div>
     );
 };
