@@ -36,8 +36,11 @@ const Topics = () => {
                     <p>Category:<span className="text-red-500">{quiz.category}</span> </p>
                     <p>Time Limit: <span className="text-red-500">{quiz.time_limit}</span>  seconds</p>
                     <p>Points Reward: <span className="text-red-500">{quiz.points_reward}</span> </p>
+                    <p>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p>
                 </div>
+
             ))}
+
         </div>
     );
 };
