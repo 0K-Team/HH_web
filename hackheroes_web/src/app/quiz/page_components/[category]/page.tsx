@@ -16,6 +16,7 @@ const CategoryPage = () => {
         const loadQuizQuestions = async () => {
             try {
                 const data = await fetchQuizData(category as string);
+                console.log("data", data);
                 const filteredQuestions = data.filter((question: QuizQuestion) => question.category === category);
                 setQuizQuestions(filteredQuestions);
             } catch {
