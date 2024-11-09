@@ -2,7 +2,6 @@
 import React, { useEffect, useState } from 'react';
 import { fetchQuizBoxes } from '../api/quiz';
 import { Quiz } from '../types/types';
-import Questions from "../game_components/Questions";
 import Link from "next/link";
 
 const Topics = () => {
@@ -31,17 +30,12 @@ const Topics = () => {
         <div className="flex grid-cols-2 space-x-3">
             <h2>Topics</h2>
             {quizzes.map((quiz) => (
-                <Link href={`/${quiz._id}/`} key={quiz._id} className="quiz-card">
+                <Link href={`/quiz/${quiz._id}/`} key={quiz._id} className="quiz-card">
                     <h3><span className="text-red-500">{quiz.topic}</span></h3>
                     <h2>id<span className="text-red-500">{quiz._id}</span></h2>
                     <p>Category:<span className="text-red-500">{quiz.category}</span></p>
                 </Link>
             ))}
-            <div>
-                {quizzes.map((quiz) => (
-                    <Questions key={quiz._id} quizId={quiz._id} category={quiz.category} />
-                ))}
-            </div>
         </div>
     );
 };
