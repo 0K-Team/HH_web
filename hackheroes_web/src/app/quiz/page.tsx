@@ -1,4 +1,4 @@
-import Topics from "@/app/quiz/page_components/Topics";
+import Topics from "@/app/quiz/(page_components)/Topics";
 
 const Quiz = () => {
     return (
