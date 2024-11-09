@@ -5,20 +5,18 @@ import { fetchQuizData } from '../../api/quiz';
 import { QuizQuestion } from '../../types/types';
 
 const CategoryPage = () => {
-    const { category } = useParams();
+    const { id } = useParams();
     const [quizQuestions, setQuizQuestions] = useState<QuizQuestion[]>([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
 
     useEffect(() => {
-        if (!category) return;
+        if (!id) return;
 
         const loadQuizQuestions = async () => {
             try {
-                const data = await fetchQuizData(category as string);
-                console.log("data", data);
-                const filteredQuestions = data.filter((question: QuizQuestion) => question.category === category);
-                setQuizQuestions(filteredQuestions);
+                const data = await fetchQuizData(id as string);
+                setQuizQuestions(data);
             } catch {
                 setError('Failed to fetch quiz questions');
             } finally {
@@ -26,14 +24,14 @@ const CategoryPage = () => {
             }
         };
         loadQuizQuestions();
-    }, [category]);
+    }, [id]);
 
     if (loading) return <p>Loading...</p>;
     if (error) return <p>{error}</p>;
 
     return (
         <div>
-            <h2>Questions for category: {category}</h2>
+            <h2>Questions for quiz ID: {id}</h2>
             {quizQuestions.map((question) => (
                 <div key={question.id} className="quiz-card">
                     <h3><span className="text-red-500">{question.text}</span></h3>
