@@ -39,8 +39,8 @@ const Dashboard = () => {
                         <Image
                             src={`https://ecohero.q1000q.me/api/v1/avatar/${user.id}/${user.avatarHash}`}
                             alt={user.username.charAt(0).toUpperCase()}
-                            width={16}
-                            height={16}
+                            width={256}
+                            height={256}
                             className="w-16 h-16 bg-gray-light rounded-full flex items-center justify-center text-2xl font-bold">
                         </Image>
                         <div className="ml-4">
@@ -54,7 +54,7 @@ const Dashboard = () => {
                     </div>
                     <Link href="/dash/profile" className="bg-gray-dark p-2 rounded-lg text-center text-xl font-bold hover:underline ml-auto">
                         Ustawienia profilu
-                        <FontAwesomeIcon className="pl-1" icon={faGear} style={{color: "#29ff77",}}/>
+                        <FontAwesomeIcon className="pl-1" icon={faGear} style={{ color: "#29ff77" }}/>
                     </Link>
                 </div>
 

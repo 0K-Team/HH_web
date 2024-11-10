@@ -21,6 +21,7 @@ module.exports = {
           light: '#A8E6A3',
           dark: '#4A8C34',
           green: '#29FF77',
+          hover: "#19c257"
         },
         gray: {
           light: '#303030',
@@ -28,6 +29,10 @@ module.exports = {
           dark: '#171717',
           DEFAULT: '#E0E0E0',
         },
+        red: {
+          DEFAULT: "#FF3336",
+          hover: "#d62225"
+        }
       },
     },
   },

@@ -1,18 +1,18 @@
 import { User } from "../types/user";
-const baseUrl = '/api/v1/';
+const baseUrl = '/api/v1/user';
 
 export const fetchLoggedUser = async (): Promise<User> => {
-    const response = await fetch(`${baseUrl}user/me`);
+    const response = await fetch(`${baseUrl}/me`);
     return await response.json() as User;
 };
 export const getUserData = async (id: string): Promise<User> => {
-    const response = await fetch(`${baseUrl}/user/${id}`, {
+    const response = await fetch(`${baseUrl}/${id}`, {
         method: 'GET'
     });
     return await response.json() as User;
 };
 export const changeUsername = async (name: string): Promise<User> => {
-    const response = await fetch(`${baseUrl}user/me/username`, {
+    const response = await fetch(`${baseUrl}/me/username`, {
         method: 'PATCH',
         headers: {
             'Content-Type': 'application/json'
@@ -23,7 +23,7 @@ export const changeUsername = async (name: string): Promise<User> => {
 }
 
 export const changeFirstName = async (name: string): Promise<User> => {
-    const response = await fetch(`${baseUrl}user/me/firstName`, {
+    const response = await fetch(`${baseUrl}/me/firstName`, {
         method: 'PATCH',
         headers: {
             'Content-Type': 'application/json'
@@ -34,7 +34,7 @@ export const changeFirstName = async (name: string): Promise<User> => {
 }
 
 export const changeLastName = async (name: string): Promise<User> => {
-    const response = await fetch(`${baseUrl}user/me/lastName`, {
+    const response = await fetch(`${baseUrl}/me/lastName`, {
         method: 'PATCH',
         headers: {
             'Content-Type': 'application/json'
@@ -45,7 +45,7 @@ export const changeLastName = async (name: string): Promise<User> => {
 }
 
 export const changeBio = async (name: string): Promise<User> => {
-    const response = await fetch(`${baseUrl}user/me/bio`, {
+    const response = await fetch(`${baseUrl}/me/bio`, {
         method: 'PATCH',
         headers: {
             'Content-Type': 'application/json'
@@ -56,7 +56,7 @@ export const changeBio = async (name: string): Promise<User> => {
 }
 
 export const changeLocation = async (name: string): Promise<User> => {
-    const response = await fetch(`${baseUrl}user/me/location`, {
+    const response = await fetch(`${baseUrl}/me/location`, {
         method: 'PATCH',
         headers: {
             'Content-Type': 'application/json'

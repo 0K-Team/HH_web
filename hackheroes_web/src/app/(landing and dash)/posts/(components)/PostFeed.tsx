@@ -2,7 +2,10 @@
 "use client";
 import React from 'react';
 import { Post } from '../../../types/post';
-import { deletePost, likePost, unlikePost} from '../../../api/posts';
+import Image from "next/image"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHeart, faRecycle } from '@fortawesome/free-solid-svg-icons';
+import { faHeart as faHeartRegular } from '@fortawesome/free-regular-svg-icons';
 
 interface PostFeedProps {
     posts: Post[];
@@ -12,36 +15,53 @@ interface PostFeedProps {
     onUnlike: (id: string) => void;
 }
 
+const formatDate = (dateString: string) => {
+    const date = new Date(dateString);
+    const today = new Date();
+    const time = date.toLocaleTimeString(undefined, {minute: "2-digit", hour: "2-digit"});
+    if (date.getDate() == today.getDate()) return `Today at ${time}`;
+    if (date.getDate() == today.getDate() - 1) return `Yesterday at ${time}`;
+    return `${date.toLocaleDateString()} ${time}`;
+}
+
 const PostFeed: React.FC<PostFeedProps> = ({ posts = [], userId, onDelete, onLike, onUnlike }) => {
-    const handleDelete = async (id: string) => {
-        await deletePost(id);
-        onDelete(id);
-    };
-
-    const handleLike = async (id: string) => {
-        await likePost(id, userId);
-        onLike(id);
-    };
-
-    const handleUnlike = async (id: string) => {
-        await unlikePost(id, userId);
-        onUnlike(id);
-    };
-
     return (
         <div className="p-4 px-[20vh]">
             {posts.map((post) => (
-                <div key={post._id} className="border border-green-green p-4 py-[2vh]">
-                    <h2 className="font-bold">{post.author}</h2>
-                    <p>{post.content}</p>
-                    <span className="text-gray-500 text-sm">{post.createdAt}</span>
-                    <div>
-                        <button onClick={() => handleDelete(post._id)}>Delete</button>
-                        {(post.likes ?? []).includes(userId) ? (
-                            <button onClick={() => handleUnlike(post._id)}>Unlike</button>
-                        ) : (
-                            <button onClick={() => handleLike(post._id)}>Like</button>
+                <div key={post._id} className="rounded-lg mb-5 bg-gray-light p-4 py-[2vh]">
+                    <div className="flex items-center mb-2">
+                        {post.authorObject && (
+                            <Image
+                                src={`https://ecohero.q1000q.me/api/v1/avatar/${post.authorObject.id}/${post.authorObject.avatarHash}`}
+                                alt={post.authorObject.username.charAt(0).toUpperCase()}
+                                width={64}
+                                height={64}
+                                className="w-12 h-12 bg-gray-light rounded-full flex-shrink-0" 
+                            />
                         )}
+                        <div className="ml-3">
+                            <h2 className="font-bold">{post.authorObject?.username ?? "Unknown user"}</h2>
+                            {post.authorObject && post.authorObject.title && <h3 className="font-light">{post.authorObject.title}</h3>}
+                        </div>
+                        <div className="ml-auto">
+                            <span className="text-gray-500 text-sm">{formatDate(post.createdAt)}</span>
+                        </div>
+                    </div>
+                    <p>{post.content}</p>
+                    <div className="flex">
+                        <div>
+                            {(post.tags ?? []).map(tag => (
+                                <span className="text-gray font-bold text-sm rounded mr-3" key={tag}>#{tag}</span>
+                            ))}
+                        </div>
+                        <div className="ml-auto space-x-3">
+                            {post.author == userId && <button onClick={() => onDelete(post._id)}><FontAwesomeIcon className="text-red w-6 h-6 hover:text-red-hover" icon={faRecycle}></FontAwesomeIcon></button>}
+                            {(post.likes ?? []).includes(userId) || post.liked ? (
+                                <button onClick={() => onUnlike(post._id)}><FontAwesomeIcon icon={faHeart} className="text-green-green w-6 h-6 hover:text-green-hover"></FontAwesomeIcon></button>
+                            ) : (
+                                <button onClick={() => onLike(post._id)}><FontAwesomeIcon icon={faHeartRegular} className="text-green-green w-6 h-6 hover:text-green-hover"></FontAwesomeIcon></button>
+                            )}
+                        </div>
                     </div>
                 </div>
             ))}

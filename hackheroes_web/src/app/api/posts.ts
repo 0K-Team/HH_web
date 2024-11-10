@@ -1,7 +1,7 @@
 import { Post } from '@/app/types/post';
 
 // api/posts.ts
-const baseUrl = 'https://ecohero.q1000q.me/api/v1/posts';
+const baseUrl = '/api/v1/posts';
 
 export const createPost = async (content: string) => {
     const response = await fetch(baseUrl, {
@@ -43,10 +43,16 @@ export const unlikePost = async (id: string, userId: string) => {
     }
 };
 
-export const fetchPosts = async (): Promise<Post[]> => {
-    const response = await fetch(baseUrl);
+export const fetchPosts = async (page = 1): Promise<{
+    page: number,
+    limit: number,
+    data: Post[],
+    total: number,
+    pages: number
+}> => {
+    const response = await fetch(baseUrl + "?page=" + page);
     const result = await response.json();
-    return result.data; // Access the data array
+    return result; // Access the data array
 };
 
 export const getCurrentUserPosts = async (id: string) => {

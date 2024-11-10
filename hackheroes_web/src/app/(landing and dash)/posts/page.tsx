@@ -6,13 +6,19 @@ import { fetchLoggedUser } from "@/app/api/user";
 
 const Page = () => {
     const [user, setUser] = useState<User | null>(null);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        fetchLoggedUser().then((user) => setUser(user));
+        fetchLoggedUser()
+            .then((user) => {
+                console.log(user);
+                setLoading(false);
+                setUser(user);
+            });
     }, []);
 
     return (
-        user ? <PostPage user={user}/> : <div>Loading...</div>
+        loading ? <div>Loading...</div> : <PostPage user={user as User}/>
     );
 };
 

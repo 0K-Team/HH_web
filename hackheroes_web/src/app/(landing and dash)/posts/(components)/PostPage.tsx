@@ -9,6 +9,8 @@ import { createPost, deletePost, likePost, unlikePost, fetchPosts } from '../../
 import { getUserData } from '../../../api/user';
 import { User } from '@/app/types/user';
 import Sidebar from '../../dash/Sidebar';
+import { PaginationRoot, PaginationPrevTrigger, PaginationItems, PaginationNextTrigger } from '@/components/ui/pagination';
+import { HStack } from '@chakra-ui/react';
 
 interface PostPageProps {
     user: User;
@@ -16,43 +18,48 @@ interface PostPageProps {
 
 const PostPage: React.FC<PostPageProps> = ({ user }) => {
     const [posts, setPosts] = useState<Post[]>([]);
+    const [page, setPage] = useState(1);
+    const [total, setTotal] = useState(1);
 
     useEffect(() => {
+        console.log("Page changed to " + page);
         const loadPosts = async () => {
-            const allPosts = await fetchPosts();
-            if (Array.isArray(allPosts)) {
-                const userIds = allPosts.map(post => post.author);
+            const { data, total } = await fetchPosts(page);
+            setTotal(total);
+            if (Array.isArray(data)) {
+                const userIds = Array.from(new Set(data.map(post => post.author)));
                 const userData = await Promise.all(userIds.map(id => getUserData(id)));
-                const updatedPosts = allPosts.map(post => {
+                const updatedPosts = data.map(post => {
                     const user = userData.find((user: User) => user.id === post.author);
-                    return user ? { ...post, author: user.username } : post;
+                    return user ? { ...post, authorObject: user } : post;
                 });
                 setPosts(updatedPosts);
             } else {
-                console.error('Fetched posts are not an array:', allPosts);
+                console.error('Fetched posts are not an array:', data);
             }
         };
         loadPosts();
-    }, []);
+    }, [page]);
 
     const handlePost = async (content: string) => {
         const newPost = await createPost(content);
-        newPost.author = user.username;
+        newPost.author = user.id;
+        newPost.authorObject = user;
         setPosts([newPost, ...posts]);
     };
 
     const handleDelete = async (id: string) => {
-        await deletePost(id);
+        deletePost(id);
         setPosts(posts.filter(post => post._id !== id));
     };
 
     const handleLike = async (id: string) => {
-        await likePost(id, user.id);
+        likePost(id, user.id);
         setPosts(posts.map(post => post._id === id ? { ...post, liked: true } : post));
     };
 
     const handleUnlike = async (id: string) => {
-        await unlikePost(id, user.id);
+        unlikePost(id, user.id);
         setPosts(posts.map(post => post._id === id ? { ...post, liked: false } : post));
     };
 
@@ -62,6 +69,21 @@ const PostPage: React.FC<PostPageProps> = ({ user }) => {
                 <Header />
                 <PostInput onPost={handlePost} />
                 <PostFeed posts={posts} userId={user.id} onDelete={handleDelete} onLike={handleLike} onUnlike={handleUnlike}/>
+                {posts.length > 0 && <div className="flex justify-center mt-4">
+                    <PaginationRoot 
+                        count={total}
+                        page={page}
+                        pageSize={10}
+                        onPageChange={(details) => setPage(details.page)}
+                        defaultPage={1}
+                    >
+                        <HStack>
+                            <PaginationPrevTrigger />
+                            <PaginationItems />
+                            <PaginationNextTrigger />
+                        </HStack>
+                    </PaginationRoot>
+                </div>}
                 <Sidebar />
             </div>
         </div>
