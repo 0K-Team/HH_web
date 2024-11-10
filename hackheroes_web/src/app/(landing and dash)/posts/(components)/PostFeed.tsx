@@ -32,7 +32,7 @@ const PostFeed: React.FC<PostFeedProps> = ({ posts = [], userId, onDelete, onLik
                     <div className="flex items-center mb-2">
                         {post.authorObject && (
                             <Image
-                                src={`https://ecohero.q1000q.me/api/v1/avatar/${post.authorObject.id}/${post.authorObject.avatarHash}`}
+                                src={`/avatar/${post.authorObject.id}/${post.authorObject.avatarHash}`}
                                 alt={post.authorObject.username.charAt(0).toUpperCase()}
                                 width={64}
                                 height={64}
