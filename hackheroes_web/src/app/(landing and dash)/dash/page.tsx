@@ -37,7 +37,7 @@ const Dashboard = () => {
                 <div className="flex items-center justify-between mb-8 bg-gray-dark p-4 rounded-lg">
                     <div className="flex items-center">
                         <Image
-                            src={`https://ecohero.q1000q.me/api/v1/avatar/${user.id}/${user.avatarHash}`}
+                            src={`/api/v1/avatar/${user.id}/${user.avatarHash}`}
                             alt={user.username.charAt(0).toUpperCase()}
                             width={256}
                             height={256}
