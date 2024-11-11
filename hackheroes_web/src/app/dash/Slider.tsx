@@ -1,6 +1,6 @@
 "use client";
 import React, { useEffect, useState } from 'react';
-import { getCurrentUserPosts } from "@/app/api/posts";
+import { fetchUserPosts } from "@/app/api/posts";
 import { Post } from '../types/post';
 import { fetchLoggedUser, getUserData } from "@/app/api/user";
 import { User } from '../types/user';
@@ -12,7 +12,7 @@ const Slider = () => {
         const fetchData = async () => {
             const loggedUser = await fetchLoggedUser();
             if (loggedUser) {
-                const userPosts = await getCurrentUserPosts(loggedUser.id);
+                const userPosts = await fetchUserPosts(loggedUser.id);
                 // Sort posts by creation date in descending order and get the last 3 posts
                 const sortedPosts = userPosts.sort((a: Post, b: Post) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
                 const latestPosts = sortedPosts.slice(0, 3);

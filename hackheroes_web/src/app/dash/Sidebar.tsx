@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {faHouse, faSeedling, faUser, faCalculator, faMap, faQuestion} from "@fortawesome/free-solid-svg-icons";
+import { faHouse, faSeedling, faUser, faCalculator, faMap, faQuestion } from "@fortawesome/free-solid-svg-icons";
 import Link from "next/link";
 import { logout } from "@/app/api/user";
 

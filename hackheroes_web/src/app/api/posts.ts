@@ -55,9 +55,10 @@ export const fetchPosts = async (page = 1): Promise<{
     return result; // Access the data array
 };
 
-export const getCurrentUserPosts = async (id: string) => {
-    const response = await fetch(`${baseUrl}/user/${id}`, {
+export const fetchUserPosts = async (id: string) => {
+    const response = await fetch(`${baseUrl}?user=${id}`, {
         method: 'GET'
     });
-    return await response.json();
+    const result = await response.json();
+    return result.data;
 };
