@@ -1,227 +1,26 @@
 "use client"
-import React, {useEffect} from "react";
-import {fetchLoggedUser} from "@/app/api/user";
-import {redirect} from "next/navigation";
+import React, { useEffect, useState } from "react";
+import { fetchLoggedUser } from "@/app/api/user";
+import * as Admin from "@/app/api/admin";
+import { redirect } from "next/navigation";
 import { FaPlus, FaTrash, FaUpload, FaEdit, FaList, FaCheck, FaTimes } from 'react-icons/fa'
 
 const AdminPanel = () => {
+    const [loading, setLoading] = useState(true);
+
     useEffect(() => {
         fetchLoggedUser().then(user => {
-            if (user?.admin === false) {
+            if (!user || !user.admin) {
                 redirect("/auth");
-            }
-        })
-    }, [])
-
-    const handleSubmitBlogCreation = async (event: React.FormEvent) => {
-        event.preventDefault();
-        const form = event.target as HTMLFormElement;
-        const image = (form.elements[0] as HTMLInputElement).value;
-        const title = (form.elements[1] as HTMLInputElement).value;
-        const author = (form.elements[2] as HTMLInputElement).value;
-        const content = (form.elements[3] as HTMLTextAreaElement).value;
-
-        await fetch('/api/v1/admin/blog', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({image, title, author, content}),
+            } else setLoading(false);
+        }).catch(() => {
+            redirect("/auth");
         });
-    };
+    }, []);
 
-    const handleDeleteBlog = async (id: string) => {
-        await fetch(`/api/v1/admin/blog/${id}`, {
-            method: 'DELETE',
-        });
-    };
-
-    const handleUploadToCDN = async (fileName: string, file: File) => {
-        const formData = new FormData();
-        formData.append('file', file);
-
-        await fetch(`/api/v1/admin/CDN/${fileName}`, {
-            method: 'POST',
-            body: formData,
-        });
-    };
-
-    const handleAddTopic = async (name: string) => {
-        await fetch('/api/v1/admin/topics', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({name}),
-        });
-    };
-
-    const handleAddProduct = async (product: {
-        name: string;
-        category: string;
-        brand: string;
-        price: number;
-        currency: string;
-        productUrl: string;
-        description: string;
-        carbonFootprint: {
-            co2Emission: string;
-            unit: string;
-        };
-        durability: string;
-        recyclingInfo: string;
-        imageUrl: string;
-        ecoCertification: string;
-        ecoFriendly: boolean;
-    }) => {
-        await fetch('/api/v1/admin/products', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(product),
-        });
-    };
-
-    const handleModifyProduct = async (id: string, product: {
-        name: string;
-        category: string;
-        brand: string;
-        price: number;
-        currency: string;
-        productUrl: string;
-        description: string;
-        carbonFootprint: {
-            co2Emission: string;
-            unit: string;
-        };
-        durability: string;
-        recyclingInfo: string;
-        imageUrl: string;
-        ecoCertification: string;
-        ecoFriendly: boolean;
-    }) => {
-        await fetch(`/api/v1/admin/products/${id}`, {
-            method: 'PUT',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(product),
-        });
-    };
-
-    const handleDeleteProduct = async (id: string) => {
-        await fetch(`/api/v1/admin/products/${id}`, {
-            method: 'DELETE',
-        });
-    };
-
-    const handleAddDiscount = async (discount: {
-        discountCode: string;
-        description: string;
-        validUntil: Date;
-        partnerBrand: string;
-        productRestrictions: string;
-        termsAndConditions: string;
-        url: string;
-    }) => {
-        await fetch('/api/v1/admin/products/discount', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(discount),
-        });
-    };
-
-    const handleModifyDiscount = async (id: string, discount: {
-        discountCode: string;
-        description: string;
-        validUntil: Date;
-        partnerBrand: string;
-        productRestrictions: string;
-        termsAndConditions: string;
-        url: string;
-    }) => {
-        await fetch(`/api/v1/admin/products/discount/${id}`, {
-            method: 'PUT',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(discount),
-        });
-    };
-
-    const handleDeleteDiscount = async (id: string) => {
-        await fetch(`/api/v1/admin/products/discount/${id}`, {
-            method: 'DELETE',
-        });
-    };
-
-    const handleGetEvents = async () => {
-        const response = await fetch('/api/v1/admin/events');
-        return response.json();
-    };
-
-    const handleUpdateEvent = async (id: string, event: {
-        title: string;
-        description: string;
-        category: string;
-        isOffline: boolean;
-        location: {
-            address: string;
-            latitude: number;
-            longitude: number;
-        };
-        date: Date;
-        duration: string;
-        organizer: string;
-        image: string;
-        additionalInfo: {
-            whatToBring: string;
-            eventRules: string;
-        };
-        members: string[];
-        awaiting: boolean;
-    }) => {
-        await fetch(`/api/v1/admin/events/${id}`, {
-            method: 'PATCH',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(event),
-        });
-    };
-
-    const handleDeleteEvent = async (id: string) => {
-        await fetch(`/api/v1/admin/events/${id}`, {
-            method: 'DELETE',
-        });
-    };
-
-    const handleApproveEvent = async (id: string) => {
-        await fetch(`/api/v1/admin/events/approve/${id}`, {
-            method: 'POST',
-        });
-    };
-
-    const handleRejectEvent = async (id: string) => {
-        await fetch(`/api/v1/admin/events/approve/${id}`, {
-            method: 'DELETE',
-        });
-    };
-
-    const handleAddPlant = async (plant: { name: string; type: string; price: number; description: string; }) => {
-        await fetch('/api/v1/admin/plants', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(plant),
-        });
-    };
-
-    return (
+    return loading ? (
+        <div>Loading...</div>
+    ) : (
         <div className={'w-[50%] mx-auto'}>
             <nav className="my-6">
                 <h2 className="text-2xl font-semibold text-white mb-4 border-b pb-2">Table of Contents</h2>
@@ -296,7 +95,7 @@ const AdminPanel = () => {
             {/* Create Blog */}
             <section id="create-blog" className="mb-8">
             <h2 className="text-lg font-bold mb-4">Create Blog</h2>
-                <form onSubmit={handleSubmitBlogCreation} className="space-y-4">
+                <form onSubmit={Admin.handleSubmitBlogCreation} className="space-y-4">
                     <input type="text" name="image" placeholder="Image link"
                            className="w-full p-2 bg-gray-800 text-white border border-blue-500 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 mt-2"/>
                     <input type="text" name="title" placeholder="Title"
@@ -319,7 +118,7 @@ const AdminPanel = () => {
                 <h2 className="text-lg font-bold mb-4">Delete Blog</h2>
                 <form onSubmit={(e) => {
                     e.preventDefault();
-                    handleDeleteBlog(((e.target as HTMLFormElement).elements[0] as HTMLInputElement).value);
+                    Admin.handleDeleteBlog(((e.target as HTMLFormElement).elements[0] as HTMLInputElement).value);
                 }} className="space-y-4">
                     <input type="text" name="blogId" placeholder="Blog ID"
                            className="w-full p-2 bg-gray-800 text-white border border-red-500 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500"/>
@@ -340,7 +139,7 @@ const AdminPanel = () => {
                     const fileName = ((e.target as HTMLFormElement).elements[0] as HTMLInputElement).value;
                     const fileInput = (e.target as HTMLFormElement).elements[1] as HTMLInputElement;
                     if (fileInput.files && fileInput.files[0]) {
-                        handleUploadToCDN(fileName, fileInput.files[0]);
+                        Admin.handleUploadToCDN(fileName, fileInput.files[0]);
                     }
                 }} className="space-y-4">
                     <input type="text" name="fileName" placeholder="File Name"
@@ -362,7 +161,7 @@ const AdminPanel = () => {
                 <form onSubmit={(e) => {
                     e.preventDefault();
                     const topicName = ((e.target as HTMLFormElement).elements[0] as HTMLInputElement).value;
-                    handleAddTopic(topicName);
+                    Admin.handleAddTopic(topicName);
                 }}>
                     <input
                         type="text"
@@ -402,7 +201,7 @@ const AdminPanel = () => {
                         ecoCertification: (form.elements[12] as HTMLInputElement).value,
                         ecoFriendly: (form.elements[13] as HTMLInputElement).checked,
                     };
-                    handleAddProduct(product);
+                    Admin.handleAddProduct(product);
                 }}>
                     <input type="text" placeholder="Name"
                            className="w-full p-2 bg-gray-800 text-white border border-green-500 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 mt-2"/>
@@ -482,7 +281,7 @@ const AdminPanel = () => {
                         ecoCertification: (form.elements[13] as HTMLInputElement).value,
                         ecoFriendly: (form.elements[14] as HTMLInputElement).checked,
                     };
-                    await handleModifyProduct(id, product);
+                    await Admin.handleModifyProduct(id, product);
                 }}>
                     <input type="text" placeholder="Product ID"
                            className="w-full p-2 bg-gray-800 text-white border border-yellow-500 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500 mt-2"/>
@@ -569,7 +368,7 @@ const AdminPanel = () => {
                 <h2 className="text-lg font-bold mb-4">Delete product</h2>
                 <form onSubmit={(e) => {
                     e.preventDefault();
-                    handleDeleteProduct(((e.target as HTMLFormElement).elements[0] as HTMLInputElement).value);
+                    Admin.handleDeleteProduct(((e.target as HTMLFormElement).elements[0] as HTMLInputElement).value);
                 }}>
                     <input
                         type="text"
@@ -600,7 +399,7 @@ const AdminPanel = () => {
                         termsAndConditions: (form.elements[5] as HTMLInputElement).value,
                         url: (form.elements[6] as HTMLInputElement).value,
                     };
-                    handleAddDiscount(discount);
+                    Admin.handleAddDiscount(discount);
                 }}>
                     <input type="text" placeholder="Discount Code"
                            className="w-full p-2 bg-gray-800 text-white border border-green-500 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"/>
@@ -648,7 +447,7 @@ const AdminPanel = () => {
                         termsAndConditions: (form.elements[6] as HTMLInputElement).value,
                         url: (form.elements[7] as HTMLInputElement).value,
                     };
-                    handleModifyDiscount(id, discount);
+                    Admin.handleModifyDiscount(id, discount);
                 }}>
                     <input type="text" placeholder="Discount ID"
                            className="w-full p-2 bg-gray-800 text-white border border-yellow-500 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500 mt-2"/>
@@ -708,7 +507,7 @@ const AdminPanel = () => {
                 <h2 className="text-lg font-bold mb-4">Delete discount</h2>
                 <form onSubmit={(e) => {
                     e.preventDefault();
-                    handleDeleteDiscount(((e.target as HTMLFormElement).elements[0] as HTMLInputElement).value);
+                    Admin.handleDeleteDiscount(((e.target as HTMLFormElement).elements[0] as HTMLInputElement).value);
                 }}>
                     <input
                         type="text"
@@ -729,7 +528,7 @@ const AdminPanel = () => {
                 <h2 className="text-lg font-bold mb-4">Get Events (in browser console)</h2>
                 <div className="flex justify-center">
                     <button onClick={async () => {
-                        const events = await handleGetEvents();
+                        const events = await Admin.handleGetEvents();
                         console.log(events);
                     }} className="w-3/4 h-10 bg-slate-500 rounded mt-4 hover:bg-slate-600 transition duration-200">Get
                         Events
@@ -766,7 +565,7 @@ const AdminPanel = () => {
                         members: JSON.parse((form.elements[14] as HTMLTextAreaElement).value),
                         awaiting: (form.elements[15] as HTMLInputElement).checked,
                     };
-                    await handleUpdateEvent(id, event);
+                    await Admin.handleUpdateEvent(id, event);
                 }}>
                     <input type="text" placeholder="Event ID"
                            className="w-full p-2 bg-gray-800 text-white border border-yellow-500 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500 mt-2"/>
@@ -842,7 +641,7 @@ const AdminPanel = () => {
                 <h2 className="text-lg font-bold mb-4">Reject Event</h2>
                 <form onSubmit={(e) => {
                     e.preventDefault();
-                    handleDeleteEvent(((e.target as HTMLFormElement).elements[0] as HTMLInputElement).value);
+                    Admin.handleDeleteEvent(((e.target as HTMLFormElement).elements[0] as HTMLInputElement).value);
                 }}>
                     <input
                         type="text"
@@ -863,7 +662,7 @@ const AdminPanel = () => {
                 <h2 className="text-lg font-bold mb-4">Approve Event</h2>
                 <form onSubmit={(e) => {
                     e.preventDefault();
-                    handleApproveEvent(((e.target as HTMLFormElement).elements[0] as HTMLInputElement).value);
+                    Admin.handleApproveEvent(((e.target as HTMLFormElement).elements[0] as HTMLInputElement).value);
                 }}>
                     <input
                         type="text"
@@ -884,7 +683,7 @@ const AdminPanel = () => {
                 <h2 className="text-lg font-bold mb-4">Reject Event</h2>
                 <form onSubmit={(e) => {
                     e.preventDefault();
-                    handleRejectEvent(((e.target as HTMLFormElement).elements[0] as HTMLInputElement).value);
+                    Admin.handleRejectEvent(((e.target as HTMLFormElement).elements[0] as HTMLInputElement).value);
                 }}>
                     <input
                         type="text"
@@ -912,7 +711,7 @@ const AdminPanel = () => {
                         price: parseFloat((form.elements[2] as HTMLInputElement).value),
                         description: (form.elements[3] as HTMLInputElement).value,
                     };
-                    handleAddPlant(plant);
+                    Admin.handleAddPlant(plant);
                 }}>
                     <input
                         type="text"

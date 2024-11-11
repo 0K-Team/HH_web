@@ -3,8 +3,12 @@ const baseUrl = '/api/v1/user';
 
 export const fetchLoggedUser = async (): Promise<User> => {
     const response = await fetch(`${baseUrl}/me`);
+    if (!response.ok) {
+        return Promise.reject(new Error(`Failed to fetch user: ${response.statusText}`));
+    }
     return await response.json() as User;
 };
+
 export const getUserData = async (id: string): Promise<User> => {
     const response = await fetch(`${baseUrl}/${id}`, {
         method: 'GET'
