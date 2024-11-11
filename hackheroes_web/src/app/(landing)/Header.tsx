@@ -4,12 +4,14 @@ import Link from 'next/link';
 const Header = () => {
     return (
         <header className="flex justify-between items-center p-4 md:px-8 lg:px-16 bg-[#1E1E1E] shadow-md">
-            <div className="text-2xl md:text-3xl text-white font-bold ml-4 lg:ml-0">
-                EcoHero
-            </div>
+            <Link href={'/'}>
+                <div className="text-2xl md:text-3xl text-white font-bold ml-4 lg:ml-0">
+                    EcoHero
+                </div>
+            </Link>
             <nav className="hidden md:flex">
                 <ul className="flex space-x-4 lg:space-x-8">
-                    <li>
+                <li>
                         <Link href="/projects">
                             <span
                                 className="text-white text-lg lg:text-xl hover:text-[#29FF77] transition duration-300">Projekty</span>
