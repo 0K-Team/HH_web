@@ -1,87 +1,80 @@
 "use client";
 import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-    faHouse,
-    faSeedling,
-    faUser,
-    faCalculator,
-    faMap,
-    faQuestion,
-    IconDefinition
-} from "@fortawesome/free-solid-svg-icons";
+import {faHouse, faSeedling, faUser, faCalculator, faMap, faQuestion} from "@fortawesome/free-solid-svg-icons";
 import Link from "next/link";
 import { logout } from "@/app/api/user";
 
 export default function Sidebar() {
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
-    const handleToggleSidebar = () => setIsSidebarOpen(!isSidebarOpen);
+    const handleMouseEnter = () => {
+        setIsSidebarOpen(true);
+    };
+
+    const handleMouseLeave = () => {
+        setIsSidebarOpen(false);
+    };
 
     return (
-        <div
-            className={`fixed top-0 left-0 h-full bg-gray-800 text-white transition-all duration-300 ease-in-out z-50 ${
-                isSidebarOpen ? "w-64" : "w-16"
-            } flex flex-col items-start p-4 rounded-r-xl shadow-lg`}
-        >
-            <div className="flex items-center justify-between w-full mb-6">
-                <span className={`text-xl font-bold text-green-500 transition-opacity duration-300 ${isSidebarOpen ? "opacity-100" : "opacity-0"}`}>
-                    EcoHero
-                </span>
-                <button
-                    onClick={handleToggleSidebar}
-                    className="text-green-500 focus:outline-none text-2xl hover:text-green-300 transition duration-300"
-                >
-                    ☰
+        <div onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} className={`fixed top-0 left-0 h-full bg-gray-light rounded-r-xl text-white transition-all duration-500 ${isSidebarOpen ? "w-86" : "w-20"} flex flex-col items-start p-4 z-50 shadow-lg`}>
+            <nav className="flex flex-col space-y-4 mt-10">
+                <Link href="../(landing%20and%20dash)/dash">
+                    <button className={`relative flex items-center rounded-lg transition-all duration-300 ${isSidebarOpen ? "pl-10 pr-4 py-3 bg-gray-dark w-full" : "justify-center w-10 h-10"} text-green-green hover:bg-gray-lighter hover:shadow-lg`}>
+                        <FontAwesomeIcon icon={faHouse} className="absolute left-4 text-2xl text-green-green"/>
+                        <span className={`ml-12 font-bold transition-opacity duration-300 ${isSidebarOpen ? "opacity-100" : "opacity-0"} whitespace-nowrap`}>
+                           Panel użytkownika
+                        </span>
+                    </button>
+                </Link>
+
+                <Link href="../garden">
+                    <button className={`relative flex items-center rounded-lg transition-all duration-300 ${isSidebarOpen ? "pl-10 pr-4 py-3 bg-gray-dark w-full" : "justify-center w-10 h-10"} text-green-green hover:bg-gray-lighter hover:shadow-lg`}>
+                        <FontAwesomeIcon icon={faSeedling} className="absolute left-4 text-2xl text-green-green"/>
+                        <span className={`ml-12 font-bold transition-opacity duration-300 ${isSidebarOpen ? "opacity-100" : "opacity-0"} whitespace-nowrap`}>
+                           Wirtualny ogródek
+                        </span>
+                    </button>
+                </Link>
+
+                <Link href="../(landing%20and%20dash)/posts">
+                    <button className={`relative flex items-center rounded-lg transition-all duration-300 ${isSidebarOpen ? "pl-10 pr-4 py-3 bg-gray-dark w-full" : "justify-center w-10 h-10"} text-green-green hover:bg-gray-lighter hover:shadow-lg`}>
+                        <FontAwesomeIcon icon={faUser} className="absolute left-4 text-2xl text-green-green"/>
+                        <span className={`ml-12 font-bold transition-opacity duration-300 ${isSidebarOpen ? "opacity-100" : "opacity-0"} whitespace-nowrap`}>
+                           Sociale
+                        </span>
+                    </button>
+                </Link>
+
+                <Link href="../quiz">
+                    <button className={`relative flex items-center rounded-lg transition-all duration-300 ${isSidebarOpen ? "pl-10 pr-4 py-3 bg-gray-dark w-full" : "justify-center w-10 h-10"} text-green-green hover:bg-gray-lighter hover:shadow-lg`}>
+                        <FontAwesomeIcon icon={faQuestion} className="absolute left-4 text-2xl text-green-green"/>
+                        <span className={`ml-12 font-bold transition-opacity duration-300 ${isSidebarOpen ? "opacity-100" : "opacity-0"} whitespace-nowrap`}>
+                           Quiz
+                        </span>
+                    </button>
+                </Link>
+
+                <button className={`relative flex items-center rounded-lg transition-all duration-300 ${isSidebarOpen ? "pl-10 pr-4 py-3 bg-gray-dark w-full" : "justify-center w-10 h-10"} text-green-green hover:bg-gray-lighter hover:shadow-lg`}>
+                    <FontAwesomeIcon icon={faCalculator} className="absolute left-4 text-2xl text-green-green" />
+                    <span className={`ml-12 font-bold transition-opacity duration-300 ${isSidebarOpen ? "opacity-100" : "opacity-0"} whitespace-nowrap`}>
+                        EcoCalculator
+                    </span>
                 </button>
-            </div>
 
-            <nav className="flex flex-col space-y-4 w-full">
-                <SidebarLink href="../dash" icon={faHouse} label="Panel" isSidebarOpen={isSidebarOpen} />
-                <SidebarLink href="../garden" icon={faSeedling} label="Ogródek" isSidebarOpen={isSidebarOpen} />
-                <SidebarLink href="../posts" icon={faUser} label="Społeczność" isSidebarOpen={isSidebarOpen} />
-                <SidebarLink href="../quiz" icon={faQuestion} label="Quiz" isSidebarOpen={isSidebarOpen} />
-                <SidebarLink href="#" icon={faCalculator} label="EcoCalc" isSidebarOpen={isSidebarOpen} />
-                <SidebarLink href="#" icon={faMap} label="EcoMap" isSidebarOpen={isSidebarOpen} />
+                <button className={`relative flex items-center rounded-lg transition-all duration-300 ${isSidebarOpen ? "pl-10 pr-4 py-3 bg-gray-dark w-full" : "justify-center w-10 h-10"} text-green-green hover:bg-gray-lighter hover:shadow-lg`}>
+                    <FontAwesomeIcon icon={faMap} className="absolute left-4 text-2xl text-green-green" />
+                    <span className={`ml-12 font-bold transition-opacity duration-300 ${isSidebarOpen ? "opacity-100" : "opacity-0"} whitespace-nowrap`}>
+                        EcoMaps
+                    </span>
+                </button>
 
-                <button
-                    onClick={logout}
-                    className={`flex items-center rounded-lg transition-all duration-300 ${
-                        isSidebarOpen ? "pl-10 pr-4 py-3 w-full" : "justify-center w-10 h-10"
-                    } text-red-500 hover:bg-gray-700 hover:shadow-lg`}
-                >
-                    <FontAwesomeIcon icon={faUser} className="text-2xl" />
-                    <span className={`ml-12 font-bold transition-opacity duration-300 ${isSidebarOpen ? "opacity-100" : "opacity-0"}`}>
+                <button onClick={logout} className={`relative flex items-center rounded-lg transition-all duration-300 ${isSidebarOpen ? "pl-10 pr-4 py-3 bg-gray-dark w-full" : "justify-center w-10 h-10"} text-green-green hover:bg-gray-lighter hover:shadow-lg`}>
+                    <span className={`ml-12 font-bold transition-opacity duration-300  ${isSidebarOpen ? "opacity-100" : "opacity-0"} whitespace-nowrap`}>
                         Logout
                     </span>
                 </button>
             </nav>
         </div>
-    );
-}
-
-interface SidebarLinkProps {
-    href: string;
-    icon: IconDefinition;
-    label: string;
-    isSidebarOpen: boolean;
-}
-
-const SidebarLink: React.FC<SidebarLinkProps> = ({ href, icon, label, isSidebarOpen }) => {
-    return (
-        <Link href={href}>
-            <a
-                className={`relative flex items-center rounded-lg transition-all duration-300 ${
-                    isSidebarOpen ? "pl-10 pr-4 py-3 w-full" : "justify-center w-10 h-10"
-                } text-green-500 hover:bg-gray-700 hover:shadow-lg`}
-            >
-                <FontAwesomeIcon icon={icon} className="absolute left-4 text-2xl" />
-                <span
-                    className={`ml-12 font-bold transition-opacity duration-300 ${isSidebarOpen ? "opacity-100" : "opacity-0"} whitespace-nowrap`}
-                >
-                    {label}
-                </span>
-            </a>
-        </Link>
     );
 }
