@@ -1,24 +1,13 @@
-import Head from 'next/head';
 import Header from './Header';
 import Banner from './Banner';
-import ContentSections from './ContentSections';
-import ProjectCards from './ProjectCards';
-import GetInvolved from './GetInvolved';
 
 export default function Home() {
     return (
-        <>
-            <Head>
-                <title>Environmental Campaign</title>
-            </Head>
+        <div className="bg-[#1E1E1E] min-h-screen flex flex-col">
             <Header />
-            <main>
+            <div className="flex-1 flex items-center justify-center">
                 <Banner />
-                <ContentSections />
-                <ProjectCards />
-                <GetInvolved />
-
-            </main>
-        </>
+            </div>
+        </div>
     );
 }
