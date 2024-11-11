@@ -13,7 +13,10 @@ const nextConfig: NextConfig = {
       {
         source: '/api/:path*',
         destination: 'http://192.168.0.10:8812/:path*'
-
+      },
+      {
+        source: '/cdn/:path*',
+        destination: 'http://192.168.0.10:8812/v1/cdn/:path*'
       },
     ]
   }
