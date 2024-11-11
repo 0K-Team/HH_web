@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect, useState } from 'react';
 import Head from 'next/head';
-import { User } from '../../types/user';
+import { User } from '../types/user';
 import { fetchLoggedUser } from "@/app/api/user";
 import Link from "next/link";
 import Image from "next/image";
@@ -60,7 +60,7 @@ const Dashboard = () => {
 
                 <div className="grid md:grid-cols-2 gap-6 mb-8">
                     <div className="space-y-4 bg-gray-dark rounded-lg h-[15vh]">
-                        <Link href="hall" className="p-6 rounded-lg text-center">
+                        <Link href="/hall" className="p-6 rounded-lg text-center">
                             <div className="text-green-green text-3xl font-bold">15%</div>
                             <p className="text-xl font-bold ml-2"> Dzienne wyzwanie</p>
                             <div className="text-center mt-2">Kontynuuj codzienne wyzwanie -&gt;</div>
@@ -73,12 +73,12 @@ const Dashboard = () => {
                             drzew</p>
                     </div>
                     <div className="bg-gray-dark rounded-lg h-[15vh]">
-                        <Link href="/do_kalkulatora" className="p-6 rounded-lg text-center">
+                        <Link href="/calculator" className="p-6 rounded-lg text-center">
                             <p className="text-xl font-bold ml-2">Eco Kalculator</p>
                         </Link>
                     </div>
                     <div className="bg-gray-dark rounded-lg h-[15vh]">
-                        <Link href="/do_mapy" className="p-6 rounded-lg text-center">
+                        <Link href="/maps" className="p-6 rounded-lg text-center">
                             <p className="text-xl font-bold ml-2">Eco Mapy</p>
                         </Link>
                     </div>

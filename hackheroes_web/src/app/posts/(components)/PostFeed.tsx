@@ -1,7 +1,7 @@
 // PostFeed.tsx
 "use client";
 import React from 'react';
-import { Post } from '../../../types/post';
+import { Post } from '../../types/post';
 import Image from "next/image"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart, faRecycle } from '@fortawesome/free-solid-svg-icons';

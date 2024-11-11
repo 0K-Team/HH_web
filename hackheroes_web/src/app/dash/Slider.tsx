@@ -1,9 +1,9 @@
 "use client";
 import React, { useEffect, useState } from 'react';
 import { getCurrentUserPosts } from "@/app/api/posts";
-import { Post } from '../../types/post';
+import { Post } from '../types/post';
 import { fetchLoggedUser, getUserData } from "@/app/api/user";
-import { User } from '../../types/user';
+import { User } from '../types/user';
 
 const Slider = () => {
     const [posts, setPosts] = useState<Post[]>([]);

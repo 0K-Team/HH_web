@@ -1,7 +1,7 @@
 import React from 'react';
 import Garden from './(components)/(Garden)/Garden';
 import { UserProvider } from '@/app/garden/(context)/UserContext';
-import Sidebar from "@/app/(landing and dash)/dash/Sidebar";
+import Sidebar from "@/app/dash/Sidebar";
 const GardenPage: React.FC = () => {
     return (
         <UserProvider>
