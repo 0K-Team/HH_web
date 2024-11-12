@@ -56,7 +56,8 @@ const PostFeed: React.FC<PostFeedProps> = ({ posts = [], userId, isAdmin, onDele
                             ))}
                         </div>
                         <div className="ml-auto space-x-3">
-                            {( post.author == userId || isAdmin ) && <button onClick={() => onDelete(post._id)}><FontAwesomeIcon className="text-red w-6 h-6 hover:text-red-hover" icon={faRecycle}></FontAwesomeIcon></button>}
+                            {( post.author == userId || isAdmin ) && <button onClick={() => onDelete(post._id)}><FontAwesomeIcon className="text-red w-6 h-6 mr-4 hover:text-red-hover" icon={faRecycle}></FontAwesomeIcon></button>}
+                            <span className='text-2xl text-textColor'>{post.likes?.length ?? 0}</span>
                             {(post.likes ?? []).includes(userId) || post.liked ? (
                                 <button onClick={() => onUnlike(post._id)}><FontAwesomeIcon icon={faHeart} className="text-green-green w-6 h-6 hover:text-green-hover"></FontAwesomeIcon></button>
                             ) : (
