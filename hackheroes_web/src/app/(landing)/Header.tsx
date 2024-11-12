@@ -21,27 +21,27 @@ const Header: React.FC<HeaderProps> = ({
             <nav className="hidden md:flex">
                 <ul className="flex space-x-4 lg:space-x-8">
                 <li>
-                        <Link href="/projects">
+                        <Link href="/project">
                             <span
-                                className="text-white text-lg lg:text-xl hover:text-[#29FF77] transition duration-300">Projekty</span>
+                                className="text-white text-lg lg:text-xl hover:text-[#29FF77] transition duration-300">O projekcie</span>
                         </Link>
                     </li>
                     <li>
-                        <Link href="/about">
+                        <Link href="/backend">
                             <span
-                                className="text-white text-lg lg:text-xl hover:text-[#29FF77] transition duration-300">O nas</span>
+                                className="text-white text-lg lg:text-xl hover:text-[#29FF77] transition duration-300">Backend</span>
                         </Link>
                     </li>
                     <li>
-                        <Link href="/campaigns">
+                        <Link href="/web">
                             <span
-                                className="text-white text-lg lg:text-xl hover:text-[#29FF77] transition duration-300">Kampanie</span>
+                                className="text-white text-lg lg:text-xl hover:text-[#29FF77] transition duration-300">Web</span>
                         </Link>
                     </li>
                     <li>
-                        <Link href="/life">
+                        <Link href="/mobile">
                             <span
-                                className="text-white text-lg lg:text-xl hover:text-[#29FF77] transition duration-300">Życie</span>
+                                className="text-white text-lg lg:text-xl hover:text-[#29FF77] transition duration-300">Mobile</span>
                         </Link>
                     </li>
                 </ul>
