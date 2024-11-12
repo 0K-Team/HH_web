@@ -31,9 +31,9 @@ const Garden: React.FC = () => {
     return (
         <div>
             <h1>User: {gardenData.user}</h1>
-            <div className="p-6 grid grid-cols-2 flex-wrap space-x-2 space-y-2">
+            <div className="p-6 grid grid-cols-3 gap-4">
                 {gardenData.plants.map((plant: Plant) => (
-                    <div key={plant._id} className="text-green-green rounded bg-gray-dark pt-8 w-1/2 m-0">
+                    <div key={plant._id} className="text-green-green rounded bg-gray-dark pt-8 w-full m-0 flex flex-col items-center">
                         <h2 >{plant.name}</h2>
                         <p>Growth Stage: {plant.growthStage}</p>
                     </div>
