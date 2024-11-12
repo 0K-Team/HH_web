@@ -205,3 +205,42 @@ export const handleAddPlant = async (plant: { name: string; type: string; price:
         body: JSON.stringify(plant),
     });
 };
+
+export const handleAddLocation = async (location: {
+    name: string;
+    coordinates: {
+        latitude: number;
+        longitude: number;
+    };
+    address: string;
+    type: string;
+    description: string;
+    image?: string;
+    opening_hours: {
+        monday: string;
+        tuesday: string;
+        wednesday: string;
+        thursday: string;
+        friday: string;
+        saturday: string;
+        sunday: string;
+    };
+}) => {
+    await fetch('/api/v1/admin/locations', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(location),
+    });
+};
+
+export const handleDeleteLocation = async (id: string) => {
+    await fetch('/api/v1/admin/locations', {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ _id: id }),
+    });
+};

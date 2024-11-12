@@ -742,6 +742,71 @@ const AdminPanel = () => {
                 </form>
                 <hr className="my-4"/>
             </div>
+
+            {/* Add Location */}
+            <div id="add-location" className="mb-8">
+                <h2 className="text-lg font-bold mb-4">Add Location</h2>
+                <form onSubmit={(e) => {
+                    e.preventDefault();
+                    const form = e.target as HTMLFormElement;
+                    const location = {
+                        name: (form.elements[0] as HTMLInputElement).value,
+                        coordinates: {
+                            latitude: parseFloat((form.elements[1] as HTMLInputElement).value),
+                            longitude: parseFloat((form.elements[2] as HTMLInputElement).value),
+                        },
+                        address: (form.elements[3] as HTMLInputElement).value,
+                        type: (form.elements[4] as HTMLInputElement).value,
+                        description: (form.elements[5] as HTMLInputElement).value,
+                        image: (form.elements[6] as HTMLInputElement).value,
+                        opening_hours: {
+                            monday: (form.elements[7] as HTMLInputElement).value,
+                            tuesday: (form.elements[8] as HTMLInputElement).value,
+                            wednesday: (form.elements[9] as HTMLInputElement).value,
+                            thursday: (form.elements[10] as HTMLInputElement).value,
+                            friday: (form.elements[11] as HTMLInputElement).value,
+                            saturday: (form.elements[12] as HTMLInputElement).value,
+                            sunday: (form.elements[13] as HTMLInputElement).value,
+                        },
+                    };
+                    Admin.handleAddLocation(location);
+                }}>
+                    <input type="text" placeholder="Name" className="w-full p-2 bg-gray-800 text-white border border-green-500 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 mt-2"/>
+                    <input type="number" step={0.0000001} placeholder="Latitude" className="w-full p-2 bg-gray-800 text-white border border-green-500 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 mt-2"/>
+                    <input type="number" step={0.0000001} placeholder="Longitude" className="w-full p-2 bg-gray-800 text-white border border-green-500 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 mt-2"/>
+                    <input type="text" placeholder="Address" className="w-full p-2 bg-gray-800 text-white border border-green-500 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 mt-2"/>
+                    <input type="text" placeholder="Type" className="w-full p-2 bg-gray-800 text-white border border-green-500 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 mt-2"/>
+                    <input type="text" placeholder="Description" className="w-full p-2 bg-gray-800 text-white border border-green-500 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 mt-2"/>
+                    <input type="text" placeholder="Image URL" className="w-full p-2 bg-gray-800 text-white border border-green-500 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 mt-2"/>
+                    <input type="text" placeholder="Monday Opening Hours" className="w-full p-2 bg-gray-800 text-white border border-green-500 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 mt-2"/>
+                    <input type="text" placeholder="Tuesday Opening Hours" className="w-full p-2 bg-gray-800 text-white border border-green-500 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 mt-2"/>
+                    <input type="text" placeholder="Wednesday Opening Hours" className="w-full p-2 bg-gray-800 text-white border border-green-500 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 mt-2"/>
+                    <input type="text" placeholder="Thursday Opening Hours" className="w-full p-2 bg-gray-800 text-white border border-green-500 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 mt-2"/>
+                    <input type="text" placeholder="Friday Opening Hours" className="w-full p-2 bg-gray-800 text-white border border-green-500 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 mt-2"/>
+                    <input type="text" placeholder="Saturday Opening Hours" className="w-full p-2 bg-gray-800 text-white border border-green-500 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 mt-2"/>
+                    <input type="text" placeholder="Sunday Opening Hours" className="w-full p-2 bg-gray-800 text-white border border-green-500 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 mt-2"/>
+                    <div className="flex justify-center mt-4">
+                        <button type="submit" className="w-3/4 h-10 bg-green-600 text-white rounded-lg hover:bg-green-700 transition duration-200">Add</button>
+                    </div>
+                </form>
+                <hr className="my-4"/>
+            </div>
+
+            {/* Delete Location */}
+            <div id="delete-location" className="mb-8">
+                <h2 className="text-lg font-bold mb-4">Delete Location</h2>
+                <form onSubmit={(e) => {
+                    e.preventDefault();
+                    Admin.handleDeleteLocation(((e.target as HTMLFormElement).elements[0] as HTMLInputElement).value);
+                }}>
+                    <input type="text" placeholder="Location ID" className="w-full p-2 bg-gray-800 text-white border border-red-500 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 mt-2"/>
+                    <div className="flex justify-center">
+                        <button type="submit" className="w-3/4 h-10 bg-red-600 text-white rounded-lg mt-4 hover:bg-red-700 transition duration-200">Delete</button>
+                    </div>
+                </form>
+                <hr className="my-4"/>
+            </div>
+            
         </div>
     )
 };
