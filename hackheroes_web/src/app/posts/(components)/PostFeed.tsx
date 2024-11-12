@@ -10,6 +10,7 @@ import { faHeart as faHeartRegular } from '@fortawesome/free-regular-svg-icons';
 interface PostFeedProps {
     posts: Post[];
     userId: string;
+    isAdmin: boolean;
     onDelete: (id: string) => void;
     onLike: (id: string) => void;
     onUnlike: (id: string) => void;
@@ -24,7 +25,7 @@ const formatDate = (dateString: string) => {
     return `${date.toLocaleDateString()} ${time}`;
 }
 
-const PostFeed: React.FC<PostFeedProps> = ({ posts = [], userId, onDelete, onLike, onUnlike }) => {
+const PostFeed: React.FC<PostFeedProps> = ({ posts = [], userId, isAdmin, onDelete, onLike, onUnlike }) => {
     return (
         <div className="p-4 px-[20vh]">
             {posts.map((post) => (
@@ -55,7 +56,7 @@ const PostFeed: React.FC<PostFeedProps> = ({ posts = [], userId, onDelete, onLik
                             ))}
                         </div>
                         <div className="ml-auto space-x-3">
-                            {post.author == userId && <button onClick={() => onDelete(post._id)}><FontAwesomeIcon className="text-red w-6 h-6 hover:text-red-hover" icon={faRecycle}></FontAwesomeIcon></button>}
+                            {( post.author == userId || isAdmin ) && <button onClick={() => onDelete(post._id)}><FontAwesomeIcon className="text-red w-6 h-6 hover:text-red-hover" icon={faRecycle}></FontAwesomeIcon></button>}
                             {(post.likes ?? []).includes(userId) || post.liked ? (
                                 <button onClick={() => onUnlike(post._id)}><FontAwesomeIcon icon={faHeart} className="text-green-green w-6 h-6 hover:text-green-hover"></FontAwesomeIcon></button>
                             ) : (

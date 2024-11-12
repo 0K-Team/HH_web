@@ -68,7 +68,7 @@ const PostPage: React.FC<PostPageProps> = ({ user }) => {
             <div className="w-[80%] text-[#E0E0E0]">
                 <Header />
                 <PostInput onPost={handlePost} />
-                <PostFeed posts={posts} userId={user.id} onDelete={handleDelete} onLike={handleLike} onUnlike={handleUnlike}/>
+                <PostFeed posts={posts} userId={user.id} isAdmin={user.admin ? user.admin : false} onDelete={handleDelete} onLike={handleLike} onUnlike={handleUnlike}/>
                 {posts.length > 0 && <div className="flex justify-center mt-4">
                     <PaginationRoot 
                         count={total}
