@@ -29,12 +29,12 @@ const Garden: React.FC = () => {
     if (!gardenData) return <p>Loading...</p>;
 
     return (
-        <div className="grid flex-col">
+        <div className="grid grid-cols-3">
             <h1>User: {gardenData.user}</h1>
-            <div className="">
+            <div>
                 {gardenData.plants.map((plant: Plant) => (
-                    <div key={plant._id}>
-                        <h2 className="text-green-green rounded bg-gray-dark">{plant.name}</h2>
+                    <div key={plant._id} className="text-green-green rounded bg-gray-dark">
+                        <h2 >{plant.name}</h2>
                         <p>Growth Stage: {plant.growthStage}</p>
                     </div>
                 ))}
