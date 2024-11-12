@@ -7,7 +7,7 @@ const GardenPage: React.FC = () => {
         <UserProvider>
             <Sidebar/>
             <div className="container mx-auto p-4">
-                <h1 className="text-2xl font-bold mb-4 text-center">Mój Wirtualny Ogródek</h1>
+                <h1 className="text-2xl text-green-green mb-4 text-center">Mój Wirtualny Ogródek</h1>
                 <Garden />
             </div>
         </UserProvider>
