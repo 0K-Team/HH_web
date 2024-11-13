@@ -5,6 +5,7 @@ import logoTransparent from './(content)/logoTransparent.svg';
 import React, { useEffect, useState } from "react";
 import { qrConnection } from "../api/qr";
 import { useQRCode } from "next-qrcode";
+import { redirect } from "next/navigation";
 
 const Login = () => {
     const [ilt, setIlt] = useState("");
@@ -14,6 +15,8 @@ const Login = () => {
     useEffect(() => {
         qrConnection((token) => {
             setIlt(token)
+        }, () => {
+            redirect("/dash");
         });
     }, []);
 
