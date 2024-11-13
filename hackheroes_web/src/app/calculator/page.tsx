@@ -127,7 +127,7 @@ const Calculator = () => {
                             className="flex bg-green w-11/12"
                             >
                                 <ToggleButton value={0} className="flex-1">
-                                    Żadko
+                                    Rzadko
                                 </ToggleButton>
                                 <ToggleButton value={1} className="flex-1">
                                     Raz w tygoniu
@@ -172,7 +172,7 @@ const Calculator = () => {
                     </div>
                     <br /><hr /><br />
                     <div className="w-full flex flex-col text-center">
-                        <label className="text-2xl mb-2">Tygodniowe KM</label>
+                        <label className="text-2xl mb-2">Tygodniowe km</label>
                         <div className="flex justify-center w-full">
                             <ToggleButtonGroup
                             title="transport.weekly_km"
