@@ -18,7 +18,7 @@ const PostInput: React.FC<PostInputProps> = ({ onPost }) => {
     return (
         <div className="p-4 px-[20vh]">
             <textarea
-                className="w-full p-2 border border-green-green rounded bg-gray-light focus:outline-none focus:ring-2 focus:ring-green-green"
+                className="w-full p-2 border border-green-green rounded bg-gray-dark focus:outline-none focus:ring-2 focus:ring-green-green resize-none"
                 rows={3}
                 value={content}
                 onChange={(e) => setContent(e.target.value)}

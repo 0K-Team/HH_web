@@ -1,9 +1,20 @@
+"use client";
 import Link from "next/link";
 import Image from 'next/image';
 import logoTransparent from './(content)/logoTransparent.svg';
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { qrConnection } from "../api/qr";
+import { useQRCode } from "next-qrcode";
 
 const Login = () => {
+    const [itl, setItl] = useState("");
+
+    const { Canvas } = useQRCode();
+
+    useEffect(() => {
+        qrConnection((token) => setItl(token));
+    }, []);
+
     return (
         <section className="flex justify-center items-center bg-[#1E1E1E] min-h-screen relative overflow-hidden">
             <div className="absolute w-[55vh] h-[55vh] bg-[#29FF77] opacity-10 rounded-full top-[-20vh] right-[13%] blur-3xl"></div>
@@ -34,6 +45,9 @@ const Login = () => {
                         Meta (Facebook)
                     </span>
                 </Link>
+                {itl && <Canvas
+                    text={itl}
+                />}
             </div>
         </section>
     );
