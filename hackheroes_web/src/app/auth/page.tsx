@@ -5,14 +5,19 @@ import logoTransparent from './(content)/logoTransparent.svg';
 import React, { useEffect, useState } from "react";
 import { qrConnection } from "../api/qr";
 import { useQRCode } from "next-qrcode";
+import { redirect } from "next/navigation";
 
 const Login = () => {
-    const [itl, setItl] = useState("");
+    const [ilt, setIlt] = useState("");
 
     const { Canvas } = useQRCode();
 
     useEffect(() => {
-        qrConnection((token) => setItl(token));
+        qrConnection((token) => {
+            setIlt(token)
+        }, () => {
+            redirect("/dash");
+        });
     }, []);
 
     return (
@@ -45,8 +50,8 @@ const Login = () => {
                         Meta (Facebook)
                     </span>
                 </Link>
-                {itl && <Canvas
-                    text={itl}
+                {ilt && <Canvas
+                    text={ilt}
                 />}
             </div>
         </section>
