@@ -9,7 +9,8 @@ export function qrConnection(iltCallback: TokenCallback) {
         const token = message.slice(1);
         if (message.startsWith("0")) iltCallback(token);
         else if (message.startsWith("1")) {
-            await fetch(baseURL + "jwt", {
+            console.log(token);
+            await fetch(baseURL + "/jwt", {
                 method: "POST",
                 headers: {
                     Authorization: "Bearer " + token

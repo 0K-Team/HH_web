@@ -7,12 +7,14 @@ import { qrConnection } from "../api/qr";
 import { useQRCode } from "next-qrcode";
 
 const Login = () => {
-    const [itl, setItl] = useState("");
+    const [ilt, setIlt] = useState("");
 
     const { Canvas } = useQRCode();
 
     useEffect(() => {
-        qrConnection((token) => setItl(token));
+        qrConnection((token) => {
+            setIlt(token)
+        });
     }, []);
 
     return (
@@ -45,8 +47,8 @@ const Login = () => {
                         Meta (Facebook)
                     </span>
                 </Link>
-                {itl && <Canvas
-                    text={itl}
+                {ilt && <Canvas
+                    text={ilt}
                 />}
             </div>
         </section>
