@@ -50,9 +50,11 @@ const Login = () => {
                         Meta (Facebook)
                     </span>
                 </Link>
-                {ilt && <Canvas
-                    text={ilt}
-                />}
+                <div className="flex justify-center py-3">
+                    {ilt && <Canvas
+                        text={ilt}
+                    />}
+                </div>
             </div>
         </section>
     );
