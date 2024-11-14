@@ -2,9 +2,16 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "i.imgur.com",
+        pathname: "/**"
+      },
+    ],
     localPatterns: [
       {
-        pathname: "/api/v1/**"
+        pathname: "/api/v1/**",
       }
     ]
   },

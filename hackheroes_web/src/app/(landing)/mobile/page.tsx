@@ -1,4 +1,5 @@
 import Header from "@/app/(landing)/Header";
+import Image from "next/image";
 
 export default function Home() {
 
@@ -8,14 +9,27 @@ export default function Home() {
             <div className="flex-grow flex justify-center">
                 <div className="max-w-4xl px-4 mt-4">
                     <div className="space-y-6">
-                        <img src="https://i.imgur.com/Q1W6Hbe.png" alt="Screen 1"
-                             className="w-full h-auto rounded-lg border border-gray-300 shadow-lg"/>
-                        <img src="https://i.imgur.com/3WOSpEx.png" alt="Screen 2"
-                             className="w-full h-auto rounded-lg border border-gray-300 shadow-lg"/>
-                        <img src="https://i.imgur.com/f62JeDA.png" alt="Screen 3"
-                             className="w-full h-auto rounded-lg border border-gray-300 shadow-lg"/>
-                        <img src="https://i.imgur.com/8gxRtkX.png" alt="Screen 4"
-                             className="w-full h-auto rounded-lg border border-gray-300 shadow-lg"/>
+                        <video
+                            src="https://i.imgur.com/HzNj7yN.mp4"
+                            controls
+                            className="w-full h-auto rounded-lg border border-gray-300 shadow-lg"
+                        />
+                        <Image src="https://i.imgur.com/Q1W6Hbe.png" alt="Screen 1"
+                               width={800}
+                               height={600}
+                               className="w-full h-auto rounded-lg border border-gray-300 shadow-lg"/>
+                        <Image src="https://i.imgur.com/3WOSpEx.png" alt="Screen 2"
+                               width={800}
+                               height={600}
+                               className="w-full h-auto rounded-lg border border-gray-300 shadow-lg"/>
+                        <Image src="https://i.imgur.com/f62JeDA.png" alt="Screen 3"
+                               width={800}
+                               height={600}
+                               className="w-full h-auto rounded-lg border border-gray-300 shadow-lg"/>
+                        <Image src="https://i.imgur.com/8gxRtkX.png" alt="Screen 4"
+                               width={800}
+                               height={600}
+                               className="w-full h-auto rounded-lg border border-gray-300 shadow-lg"/>
                     </div>
                     <hr className={"my-4"}/>
 
@@ -59,7 +73,8 @@ export default function Home() {
                     </ul>
                     <p>
                         W naszej wersji modelu wygenerowany kod modelu eliminuje potrzebę definiowania odrębnych
-                        <span className="font-semibold"> Entities</span>, a dla usprawnienia i przyspieszenia testowania,
+                        <span className="font-semibold"> Entities</span>, a dla usprawnienia i przyspieszenia
+                        testowania,
                         zgodnie
                         z praktykami Agile, zrezygnowaliśmy z katalogu <span className="font-semibold">UseCases</span>,
                         co pozwala
@@ -132,7 +147,46 @@ export default function Home() {
                     </ul>
 
                     <hr className={"my-4"}/>
+                    <h3 className="text-lg font-semibold">Kod źródłowy aplikacji</h3>
+                    <img src="https://img.shields.io/github/stars/0K-Team/HH_mobile?style=social"
+                         alt="GitHub stars"/>
+                    <img src="https://img.shields.io/github/forks/0K-Team/HH_mobile?style=social" alt="GitHub forks"/>
+                    <img src="https://img.shields.io/github/v/release/0K-Team/HH_mobile" alt="Latest release"/>
 
+                    <a href="https://github.com/0K-Team/HH_mobile" target="_blank"
+                       className="flex items-center space-x-2 text-blue-600 hover:text-blue-800 my-2">
+
+                        <span>Dostępny tutaj</span>
+                    </a>
+
+                    <hr className={"my-4"}/>
+                    <h3 className="text-lg font-semibold">Zdjęcia aplikacji</h3>
+                    <div className="flex flex-wrap justify-evenly">
+                        {[
+                            "https://i.imgur.com/GG522YT.png",
+                            "https://i.imgur.com/D1BheLr.png",
+                            "https://i.imgur.com/k20Iote.png",
+                            "https://i.imgur.com/Rt34xC0.png",
+                            "https://i.imgur.com/Ab7cVkC.png",
+                            "https://i.imgur.com/D0J9mpz.png",
+                            "https://i.imgur.com/L5TTlX2.png",
+                            "https://i.imgur.com/MXgkHLB.png",
+                            "https://i.imgur.com/5gw2zbx.png",
+                            "https://i.imgur.com/eom5oie.png",
+                            "https://i.imgur.com/8aI0xFU.png",
+                            "https://i.imgur.com/FCfLDoz.png"
+                        ].map((src, index) => (
+                            <div key={index} className="w-full md:w-1/3 p-2">
+                                <Image
+                                    src={src}
+                                    alt="App"
+                                    width={800}
+                                    height={600}
+                                    className="rounded-lg border border-gray-300 shadow-lg w-full h-auto"
+                                />
+                            </div>
+                        ))}
+                    </div>
                 </div>
             </div>
         </div>
