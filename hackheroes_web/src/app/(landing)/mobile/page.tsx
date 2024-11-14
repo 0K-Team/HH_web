@@ -152,6 +152,7 @@ export default function Home() {
                          alt="GitHub stars"/>
                     <img src="https://img.shields.io/github/forks/0K-Team/HH_mobile?style=social" alt="GitHub forks"/>
                     <img src="https://img.shields.io/github/v/release/0K-Team/HH_mobile" alt="Latest release"/>
+                    <img src="https://github.com/0K-Team/HH_mobile/actions/workflows/dart.yml/badge.svg" alt="Passing"/>
 
                     <a href="https://github.com/0K-Team/HH_mobile" target="_blank"
                        className="flex items-center space-x-2 text-blue-600 hover:text-blue-800 my-2">
