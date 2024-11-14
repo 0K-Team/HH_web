@@ -30,7 +30,7 @@ export default function Blog() {
             <div className="p-8">
                 <img src={blog.image} alt={blog.title} className="w-full h-80 object-cover my-4 rounded-lg" />
                 <article className="prose lg:prose-xl mx-auto dark:prose-invert">
-                    <ReactMarkdown children={blog.content} />
+                    <ReactMarkdown>{blog.content}</ReactMarkdown>
                 </article>
             </div>
         </div>
