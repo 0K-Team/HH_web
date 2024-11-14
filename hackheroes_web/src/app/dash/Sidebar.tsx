@@ -42,9 +42,9 @@ export default function Sidebar() {
             <SidebarButton href="../quiz" icon={faQuestion} label="Quiz" isSidebarOpen={isSidebarOpen} />
             <SidebarButton href="../calculator" icon={faCalculator} label="EcoCalculator" isSidebarOpen={isSidebarOpen} />
             <SidebarButton href="#" icon={faMap} label="EcoMaps" isSidebarOpen={isSidebarOpen} />
-            <a onClick={logout}>
+            <span onClick={logout}>
                 <SidebarButton href="#" icon={faSignOutAlt} label="Logout" isSidebarOpen={isSidebarOpen} />
-            </a>
+            </span>
         </div>
     );
 }

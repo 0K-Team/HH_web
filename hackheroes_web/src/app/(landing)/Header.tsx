@@ -1,16 +1,22 @@
-import React from 'react';
+"use client";
+import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { User } from '../types/user';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCaretRight } from "@fortawesome/free-solid-svg-icons";
+import { fetchLoggedUser } from '../api/user';
 
-interface HeaderProps {
-    user?: User
-}
+const Header = () => {
+    const [user, setUser] = useState<User | undefined>(undefined);
 
-const Header: React.FC<HeaderProps> = ({
-    user
-}) => {
+    useEffect(() => {
+        fetchLoggedUser().then(user => {
+            if (user) setUser(user);
+        }).catch(() => {
+            setUser(undefined);
+        });
+    }, []);
+
     return (
         <header className="flex justify-between items-center p-4 md:px-8 lg:px-16 bg-[#1E1E1E] shadow-md">
             <Link href={'/'}>
