@@ -27,7 +27,7 @@ const Footer = () => {
                         </Link>
                     </li>
                     <li>
-                        <Link href="/perrivacy">
+                        <Link href="/privacy">
                             <span className="text-gray-500 text-lg lg:text-xl hover:text-[#29FF77] transition duration-300">
                                 Polityka prywatności
                             </span>
