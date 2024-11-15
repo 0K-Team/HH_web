@@ -18,14 +18,7 @@ export default function Home() {
                     <hr className={"my-4"}/>
                     <h3 className="text-lg font-semibold">W jakich językach programowania, jakich technologiach powstała aplikacja/narzędzie</h3>
                     <br />
-                    <ul className="list-disc list-inside mb-8">
-                        <li>Typescript</li>
-                        <li>ExpressJS</li>
-                        <li>NextJS</li>
-                        <li>React</li>
-                        <li>Dart</li>
-                        <li>Flutter</li>
-                    </ul>
+                    <p>Backend projektu EcoHero został zbudowany w języku TypeScript z wykorzystaniem Express.js i MongoDB, hostowanego na platformie MongoDB Atlas. System bezpieczeństwa oparto na PassportJS z JWT oraz logowaniu przy użyciu kodu QR. Cała infrastruktura działa w kontenerach Docker, a dedykowana maszyna serwerowa zapewnia niezależność i pełną kontrolę nad środowiskiem. Wersja webowa, stworzona w TypeScript z użyciem Reacta i Next.js, korzysta z Tailwind CSS do elastycznego stylowania, co pozwala na szybkie dostosowanie interfejsu do potrzeb użytkownika. Aplikacja mobilna powstała w języku Dart z użyciem Fluttera i modelu Clean Architecture, a zarządzanie stanem realizuje architektura BLoC. Nawigację obsługuje GoRouter, Freezed generuje niezmienne modele danych, a Dio umożliwia komunikację z backendem. Projekt wzbogacono o funkcje takie jak AI z modelem Llama 3.0 do spersonalizowanych sugestii, OpenStreetMap i OpenLayers do obsługi map oraz Microsoft Azure Communication Services do wysyłania e-maili, co czyni go nowoczesnym narzędziem wspierającym zrównoważony styl życia. </p>
 
                     <hr className={"my-4"}/>
                     <h3 className="text-lg font-semibold">Opisz działanie Waszej aplikacji/narzędzia
