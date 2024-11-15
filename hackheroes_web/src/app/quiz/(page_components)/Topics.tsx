@@ -16,7 +16,6 @@ const CategoryPage = () => {
         const loadQuizQuestions = async () => {
             try {
                 const data = await fetchQuizData(id as string);
-                console.log("Fetched data:", data); // Debugging log
                 setQuizQuestions(data);
             } catch (err) {
                 console.error("Error fetching quiz questions:", err); // Debugging log

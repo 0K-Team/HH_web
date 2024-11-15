@@ -17,7 +17,6 @@ const CategoryPage = () => {
             try {
                 const data = await fetchQuizData(id as string);
                 setQuizQuestions(data);
-                console.log(data);
             } catch {
                 setError('Failed to fetch quiz questions');
             } finally {
