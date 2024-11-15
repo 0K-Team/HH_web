@@ -31,7 +31,7 @@ export default function Product() {
             <Header />
             <div className="p-8 flex flex-col md:flex-row lg:flex-row">
                 <img src={product.imageUrl} alt={product.name} className="w-full md:w-1/2 lg:w-1/2 h-auto object-cover my-4 rounded-lg" />
-                <div className="pl-8 md:pt-8 lg:pt-8">
+                <div className="md:pl-8 lg:pl-8 md:pt-8 lg:pt-8">
                     <div className="flex gap-3 items-center">
                         <span className="text-green-green py-1 px-3 bg-[#2A2A2A] rounded-lg">{product.category}</span>
                         <span>{product.brand}</span>
