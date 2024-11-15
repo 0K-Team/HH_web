@@ -56,7 +56,7 @@ const Dashboard = () => {
 
                 <div className="grid md:grid-cols-2 gap-6 mb-8">
                     <div className="bg-gray-dark rounded-lg h-[15vh] flex items-center justify-center">
-                        <Link href="/garden" className="bg-gray-dark p-6 text-green-green rounded-lg text-center h-[15vh] flex flex-col items-center justify-center">
+                        <Link href="/(landing)/not-web" className="bg-gray-dark p-6 text-green-green rounded-lg text-center h-[15vh] flex flex-col items-center justify-center">
                             <FontAwesomeIcon icon={faTree} className="text-3xl text-green-green"/>
                             <p className="font-bold text-xl">Wirtualny ogródek</p>
                         </Link>
