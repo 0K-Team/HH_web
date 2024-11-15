@@ -588,12 +588,15 @@ const Calculator = () => {
                 </form>
             
                 <div className="flex-1">
-                    <div className="flex justify-center"><button onClick={handleSubmit} className="bg-green px-6 py-2 w-10/12 rounded h-20 mt-20 text-4xl text-black/70 hover:text-black hover:bg-green/90"><strong>OBLICZ ŚLAD WĘGLOWY</strong></button></div>
+                    <div className="flex justify-center sticky top-0 z-10"><button onClick={handleSubmit}
+                                                                                   className="bg-green px-6 py-2 w-10/12 rounded h-20 mt-20 text-4xl text-black/70 hover:text-black hover:bg-green/90">
+                        <strong>OBLICZ ŚLAD WĘGLOWY</strong></button>
+                    </div>
                     {result && (
                         <div>
                             <div className="flex justify-center mt-24">
                                 <div className="bg-green h-64 w-10/12 rounded">
-                                    <p className="sticky flex w-full justify-center mt-10 text-3xl text-black"><strong>Twój ślad węglowy [kg CO2 / tydz.]</strong></p>
+                                    <p className="flex w-full justify-center mt-10 text-3xl text-black"><strong>Twój ślad węglowy [kg CO2 / tydz.]</strong></p>
                                     <div className="flex justify-center">
                                         <div className="w-11/12 flex">
                                             <Slider
