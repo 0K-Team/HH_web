@@ -33,7 +33,7 @@ const Dashboard = () => {
 
             <Sidebar />
 
-            <main className="flex flex-col flex-grow container mx-auto px-4 py-8 pt-[2vh] bg-gray-light rounded-2xl w-[60%]">
+            <main className="flex flex-col flex-grow container mx-auto px-4 py-4 pt-[2vh] bg-gray-light rounded-2xl w-[60%]">
                 <div className="flex items-center justify-between mb-8 bg-gray-dark p-4 rounded-lg">
                     <div className="flex items-center">
                         <Image
@@ -57,11 +57,11 @@ const Dashboard = () => {
                 <div className="grid md:grid-cols-2 gap-6 mb-8">
                     <div className="bg-gray-dark p-6 rounded-lg text-center h-[15vh]">
                         <div className="text-orange-500 text-3xl font-bold">🌳</div>
-                        <p className="font-bold">Wirtualny ogródek</p>
+                        <p className="font-bold text-xl">Wirtualny ogródek</p>
                     </div>
                     <div className="bg-gray-dark rounded-lg h-[15vh] flex items-center justify-center">
                         <Link href="/calculator" className="p-6 rounded-lg text-center">
-                            <p className="text-xl font-bold ml-2">Eco Kalculator</p>
+                            <p className="text-xl font-bold ml-2">Eco Kalkulator</p>
                             <FontAwesomeIcon icon={faCalculator} className="text-2xl text-green-green"/>
                         </Link>
                     </div>
