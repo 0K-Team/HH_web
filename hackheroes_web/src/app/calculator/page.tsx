@@ -4,7 +4,6 @@ import ChoiceSlider from "./(component)/ChoiceSlider";
 import Sidebar from "../dash/Sidebar";
 import { fetchLoggedUser } from "../api/user";
 import fetchCalculation from "../api/calc";
-import Header from "../(landing)/Header";
 
 interface FormData {
     transport: {
