@@ -25,16 +25,9 @@ export default function Home() {
                         W jaki sposób działa Wasza aplikacja? Co może dzięki niej osiągnąć użytkownik? Jaką ma
                         funkcjonalność?</h3>
                     <br />
-                    <ul className="list-disc list-inside mb-8">
-                        <li>Śledzenie aktywności ekologicznych: transport, zużycie energii, woda, odpady.</li>
-                        <li>Kalkulatory śladu węglowego i wodnego.</li>
-                        <li>Quizy i edukacja: system lekcji i codziennych wyzwań, w stylu Duolingo.</li>
-                        <li>Mapa ekologiczna: zielone miejsca, jakość powietrza, wydarzenia ekologiczne.</li>
-                        <li>Wyzwania lokalne i globalne: rywalizacja między użytkownikami lub społecznościami.</li>
-                        <li>Funkcje społecznościowe: posty.</li>
-                        <li>Analizy kosztów ekologicznych: porównanie opcji i oszczędności.</li>
-                        <li>Wirtualny ogród użytkownika (mini-gra) z systemem punktów i roślin.</li>
-                    </ul>
+                    <p>
+                        Aplikacja angażuje użytkowników w codzienne działania proekologiczne, umożliwiając śledzenie aktywności związanych z transportem, energią, wodą i odpadami. Dzięki kalkulatorom śladu węglowego i wodnego oraz raportom z rekomendacjami pomaga w podejmowaniu świadomych decyzji. Edukację wspiera system quizów, wyzwań i lekcji, inspirowany formatem Duolingo. Użytkownicy mogą korzystać z map ekologicznych, które wskazują zielone miejsca, jakość powietrza i wydarzenia, oraz brać udział w lokalnych i globalnych wyzwaniach. Funkcje społecznościowe pozwalają na publikowanie postów, a analiza kosztów ekologicznych ułatwia porównanie opcji i oszczędności. Dodatkową motywację zapewnia wirtualny ogród, który użytkownicy rozwijają, zdobywając punkty za działania ekologiczne.
+                    </p>
 
                     <hr className={"my-4"}/>
                     <h3 className="text-lg font-semibold">Jak widzicie dalszy rozwój Waszego rozwiązania?
@@ -42,21 +35,8 @@ export default function Home() {
                         zaangażować w jego rozwój?
                     </h3>
                     <br />
-                    <ul className="list-disc list-inside mb-8">
-                        <li>Integracja z urządzeniami IoT (liczniki energii, czujniki wody).</li>
-                        <li>Wdrożenie bardziej zaawansowanych algorytmów AI do analizy danych i predykcji.</li>
-                        <li>Dodanie funkcji AR, np. interaktywne wizualizacje zmian klimatycznych w danym regionie.</li>
-                        <li>Współpraca z partnerami:</li>
-                        <ul className="list-disc list-inside ml-4">
-                            <li>Organizacje ekologiczne (WWF, Greenpeace) i miasta.</li>
-                            <li>Firmy produkujące urządzenia IoT i partnerzy oferujący zniżki na produkty ekologiczne.</li>
-                        </ul>
-                        <li>Nowe funkcje:</li>
-                        <ul className="list-disc list-inside ml-4">
-                            <li>Platforma wymiany przedmiotów.</li>
-                            <li>Alerty dotyczące lokalnych zagrożeń ekologicznych.</li>
-                        </ul>
-                    </ul>
+                    <p>Dalszy rozwój naszego rozwiązania widzimy w integracji z urządzeniami IoT, takimi jak liczniki energii czy czujniki wody, co pozwoliłoby na automatyczne i dokładniejsze monitorowanie aktywności użytkowników. Planujemy również wdrożenie zaawansowanych algorytmów AI, które mogłyby lepiej analizować dane i przewidywać ekologiczne trendy, a także wprowadzenie funkcji AR, umożliwiających interaktywne wizualizacje zmian klimatycznych w określonych regionach. Współpraca z organizacjami ekologicznymi, takimi jak WWF czy Greenpeace, oraz z miastami mogłaby wspierać lokalne i globalne inicjatywy, a firmy produkujące urządzenia IoT oraz oferujące zniżki na produkty ekologiczne mogłyby wzbogacić projekt o nowe możliwości. Dodatkowo, chcemy rozwijać platformę o funkcje takie jak wymiana przedmiotów czy alerty o lokalnych zagrożeniach ekologicznych, co jeszcze bardziej zaangażuje użytkowników i poszerzy funkcjonalność aplikacji.</p>
+
 
                     <hr className={"my-4"}/>
                     <h3 className="text-lg font-semibold">Jakie widzicie zagrożenia/ryzyka dla Waszego rozwiązania?
