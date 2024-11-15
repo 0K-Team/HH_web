@@ -55,12 +55,16 @@ const Dashboard = () => {
                 </div>
 
                 <div className="grid md:grid-cols-2 gap-6 mb-8">
-                    <Link href="/garden" className="bg-gray-dark p-6 rounded-lg text-center h-[15vh]">
-                        <FontAwesomeIcon icon={faTree} className="text-3xl font-bold" />
-                        <p className="font-bold text-xl">Wirtualny ogródek</p>
-                    </Link>
                     <div className="bg-gray-dark rounded-lg h-[15vh] flex items-center justify-center">
-                        <Link href="/calculator" className="p-6 rounded-lg text-green-green">
+                        <Link href="/garden"
+                              className="bg-gray-dark p-6 rounded-lg text-center h-[15vh] flex flex-col items-center justify-center">
+                            <FontAwesomeIcon icon={faTree} className="text-3xl font-bold"/>
+                            <p className="font-bold text-xl">Wirtualny ogródek</p>
+                        </Link>
+                    </div>
+                    <div className="bg-gray-dark rounded-lg h-[15vh] flex items-center justify-center">
+                        <Link href="/calculator"
+                              className="p-6 rounded-lg text-green-green flex flex-col items-center justify-center">
                             <FontAwesomeIcon icon={faCalculator} className="text-3xl text-green-green"/>
                             <p className="text-xl font-bold ml-2">Eco Kalkulator</p>
                         </Link>
