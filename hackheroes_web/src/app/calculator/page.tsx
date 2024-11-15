@@ -126,15 +126,26 @@ const Calculator = () => {
                     <div className="w-full flex flex-col text-center mt-6">
                         <label className="text-2xl mb-2">Jak często korzystasz z samochodu?</label>
                         <div className="flex justify-center w-full">
-                            <Slider 
-                                title="transport.car_usage"
-                                width="full"
-                                defaultValue={[0]}
-                                thumbSize={{width: 8, height: 8}}
-                                min={0}
-                                max={3}
-                                marks={[{value: 0, label: "Rzadko"}, {value: 1, label: "Raz w tygodniu"}, {value: 2, label: "Kilka razy w tygodniu"}, {value: 3, label: "Codziennie"}]}
-                            />
+                            <ToggleButtonGroup
+                            title="transport.weekly_km"
+                            value={formData.transport.weekly_km}
+                            exclusive
+                            onChange={handleChange}
+                            className="flex bg-green-green w-11/12"
+                            >
+                                <ToggleButton value={0} className="flex-1 ToggleButton">
+                                    0-25
+                                </ToggleButton>
+                                <ToggleButton value={1} className="flex-1 ToggleButton">
+                                    26-100
+                                </ToggleButton>
+                                <ToggleButton value={2} className="flex-1 ToggleButton">
+                                    101-225
+                                </ToggleButton>
+                                <ToggleButton value={3} className="flex-1 ToggleButton">
+                                    226-500
+                                </ToggleButton>
+                            </ToggleButtonGroup>
                         </div>
                     </div>
                     <br /><hr /><br />
