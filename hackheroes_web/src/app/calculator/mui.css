@@ -1,0 +1,9 @@
+.ToggleButton.Mui-selected {
+    background: rgba(0, 0, 0, 0.2);
+}
+.ToggleButton:hover {
+    background: rgba(0, 0, 0, 0.1);
+}
+.ToggleButton.Mui-selected:hover {
+    background: rgba(0, 0, 0, 0.3);
+}

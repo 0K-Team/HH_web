@@ -5,6 +5,7 @@ import ToggleButton from '@mui/material/ToggleButton';
 import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
 import Sidebar from "../dash/Sidebar";
 import { Slider } from "@mui/material";
+import './mui.css'
 
 interface FormData {
     transport: {
@@ -129,18 +130,18 @@ const Calculator = () => {
                             value={formData.transport.car_usage}
                             exclusive
                             onChange={handleChange}
-                            className="flex bg-green w-11/12"
+                            className="flex bg-green-green w-11/12"
                             >
-                                <ToggleButton value={0} className="flex-1">
+                                <ToggleButton value={0} className="flex-1 ToggleButton">
                                     Rzadko
                                 </ToggleButton>
-                                <ToggleButton value={1} className="flex-1">
+                                <ToggleButton value={1} className="flex-1 ToggleButton">
                                     Raz w tygoniu
                                 </ToggleButton>
-                                <ToggleButton value={2} className="flex-1">
+                                <ToggleButton value={2} className="flex-1 ToggleButton">
                                     Kilka razy w tygodniu
                                 </ToggleButton>
-                                <ToggleButton value={3} className="flex-1">
+                                <ToggleButton value={3} className="flex-1 ToggleButton">
                                     Codziennie
                                 </ToggleButton>
                             </ToggleButtonGroup>
@@ -155,21 +156,21 @@ const Calculator = () => {
                             value={formData.transport.fuel_type}
                             exclusive
                             onChange={handleChange}
-                            className="flex bg-green w-11/12"
+                            className="flex bg-green-green w-11/12"
                             >
-                                <ToggleButton value={0} className="flex-1">
-                                    Benzyna
+                                <ToggleButton value={0} className="flex-1 ToggleButton">
+                                    Rzadko
                                 </ToggleButton>
-                                <ToggleButton value={1} className="flex-1">
-                                    Diesel
+                                <ToggleButton value={1} className="flex-1 ToggleButton">
+                                    Raz w tygoniu
                                 </ToggleButton>
-                                <ToggleButton value={2} className="flex-1">
-                                    Elektryczny
+                                <ToggleButton value={2} className="flex-1 ToggleButton">
+                                    Kilka razy w tygodniu
                                 </ToggleButton>
-                                <ToggleButton value={3} className="flex-1">
-                                    Hybryda
+                                <ToggleButton value={3} className="flex-1 ToggleButton">
+                                    Codziennie
                                 </ToggleButton>
-                                <ToggleButton value={4} className="flex-1">
+                                <ToggleButton value={4} className="flex-1 ToggleButton">
                                     Inne
                                 </ToggleButton>
                             </ToggleButtonGroup>
@@ -184,18 +185,18 @@ const Calculator = () => {
                             value={formData.transport.weekly_km}
                             exclusive
                             onChange={handleChange}
-                            className="flex bg-green w-11/12"
+                            className="flex bg-green-green w-11/12"
                             >
-                                <ToggleButton value={0} className="flex-1">
+                                <ToggleButton value={0} className="flex-1 ToggleButton">
                                     0-25
                                 </ToggleButton>
-                                <ToggleButton value={1} className="flex-1">
+                                <ToggleButton value={1} className="flex-1 ToggleButton">
                                     26-100
                                 </ToggleButton>
-                                <ToggleButton value={2} className="flex-1">
+                                <ToggleButton value={2} className="flex-1 ToggleButton">
                                     101-225
                                 </ToggleButton>
-                                <ToggleButton value={3} className="flex-1">
+                                <ToggleButton value={3} className="flex-1 ToggleButton">
                                     226-500
                                 </ToggleButton>
                             </ToggleButtonGroup>
@@ -210,18 +211,18 @@ const Calculator = () => {
                             value={formData.transport.flight_frequency}
                             exclusive
                             onChange={handleChange}
-                            className="flex bg-green w-11/12"
+                            className="flex bg-green-green w-11/12"
                             >
-                                <ToggleButton value={0} className="flex-1">
+                                <ToggleButton value={0} className="flex-1 ToggleButton">
                                     Nigdy
                                 </ToggleButton>
-                                <ToggleButton value={1} className="flex-1">
+                                <ToggleButton value={1} className="flex-1 ToggleButton">
                                     Rzadko
                                 </ToggleButton>
-                                <ToggleButton value={2} className="flex-1">
+                                <ToggleButton value={2} className="flex-1 ToggleButton">
                                     Często
                                 </ToggleButton>
-                                <ToggleButton value={3} className="flex-1">
+                                <ToggleButton value={3} className="flex-1 ToggleButton">
                                     Bardzo często
                                 </ToggleButton>
                             </ToggleButtonGroup>
@@ -236,18 +237,18 @@ const Calculator = () => {
                             value={formData.transport.public_transport_usage}
                             exclusive
                             onChange={handleChange}
-                            className="flex bg-green w-11/12"
+                            className="flex bg-green-green w-11/12"
                             >
-                                <ToggleButton value={0} className="flex-1">
+                                <ToggleButton value={0} className="flex-1 ToggleButton">
                                     Nigdy
                                 </ToggleButton>
-                                <ToggleButton value={1} className="flex-1">
+                                <ToggleButton value={1} className="flex-1 ToggleButton">
                                     Rzadko
                                 </ToggleButton>
-                                <ToggleButton value={2} className="flex-1">
+                                <ToggleButton value={2} className="flex-1 ToggleButton">
                                     Często
                                 </ToggleButton>
-                                <ToggleButton value={3} className="flex-1">
+                                <ToggleButton value={3} className="flex-1 ToggleButton">
                                     Bardzo często
                                 </ToggleButton>
                             </ToggleButtonGroup>
@@ -262,18 +263,18 @@ const Calculator = () => {
                             value={formData.energy.energy_source}
                             exclusive
                             onChange={handleChange}
-                            className="flex bg-green w-11/12"
+                            className="flex bg-green-green w-11/12"
                             >
-                                <ToggleButton value={0} className="flex-1">
+                                <ToggleButton value={0} className="flex-1 ToggleButton">
                                     Węgiel
                                 </ToggleButton>
-                                <ToggleButton value={1} className="flex-1">
+                                <ToggleButton value={1} className="flex-1 ToggleButton">
                                     Gaz
                                 </ToggleButton>
-                                <ToggleButton value={2} className="flex-1">
+                                <ToggleButton value={2} className="flex-1 ToggleButton">
                                     Prąd z sieci
                                 </ToggleButton>
-                                <ToggleButton value={3} className="flex-1">
+                                <ToggleButton value={3} className="flex-1 ToggleButton">
                                     OZE
                                 </ToggleButton>
                             </ToggleButtonGroup>
@@ -288,18 +289,18 @@ const Calculator = () => {
                             value={formData.energy.water_heating_source}
                             exclusive
                             onChange={handleChange}
-                            className="flex bg-green w-11/12"
+                            className="flex bg-green-green w-11/12"
                             >
-                                <ToggleButton value={0} className="flex-1">
+                                <ToggleButton value={0} className="flex-1 ToggleButton">
                                     Elektryczność
                                 </ToggleButton>
-                                <ToggleButton value={1} className="flex-1">
+                                <ToggleButton value={1} className="flex-1 ToggleButton">
                                     Gaz
                                 </ToggleButton>
-                                <ToggleButton value={2} className="flex-1">
+                                <ToggleButton value={2} className="flex-1 ToggleButton">
                                     Węgiel
                                 </ToggleButton>
-                                <ToggleButton value={3} className="flex-1">
+                                <ToggleButton value={3} className="flex-1 ToggleButton">
                                     OZE
                                 </ToggleButton>
                             </ToggleButtonGroup>
@@ -314,18 +315,18 @@ const Calculator = () => {
                             value={formData.energy.monthly_kWh}
                             exclusive
                             onChange={handleChange}
-                            className="flex bg-green w-11/12"
+                            className="flex bg-green-green w-11/12"
                             >
-                                <ToggleButton value={0} className="flex-1">
+                                <ToggleButton value={0} className="flex-1 ToggleButton">
                                     0-20
                                 </ToggleButton>
-                                <ToggleButton value={1} className="flex-1">
+                                <ToggleButton value={1} className="flex-1 ToggleButton">
                                     21-40
                                 </ToggleButton>
-                                <ToggleButton value={2} className="flex-1">
+                                <ToggleButton value={2} className="flex-1 ToggleButton">
                                     41-60
                                 </ToggleButton>
-                                <ToggleButton value={3} className="flex-1">
+                                <ToggleButton value={3} className="flex-1 ToggleButton">
                                     61-80
                                 </ToggleButton>
                             </ToggleButtonGroup>
@@ -340,15 +341,15 @@ const Calculator = () => {
                             value={formData.energy.energy_efficiency}
                             exclusive
                             onChange={handleChange}
-                            className="flex bg-green w-11/12"
+                            className="flex bg-green-green w-11/12"
                             >
-                                <ToggleButton value={0} className="flex-1">
+                                <ToggleButton value={0} className="flex-1 ToggleButton">
                                     Niska
                                 </ToggleButton>
-                                <ToggleButton value={1} className="flex-1">
+                                <ToggleButton value={1} className="flex-1 ToggleButton">
                                     Średnia
                                 </ToggleButton>
-                                <ToggleButton value={2} className="flex-1">
+                                <ToggleButton value={2} className="flex-1 ToggleButton">
                                     Wysoka
                                 </ToggleButton>
                             </ToggleButtonGroup>
@@ -363,18 +364,18 @@ const Calculator = () => {
                             value={formData.water.shower_time}
                             exclusive
                             onChange={handleChange}
-                            className="flex bg-green w-11/12"
+                            className="flex bg-green-green w-11/12"
                             >
-                                <ToggleButton value={0} className="flex-1">
+                                <ToggleButton value={0} className="flex-1 ToggleButton">
                                     0-5 min
                                 </ToggleButton>
-                                <ToggleButton value={1} className="flex-1">
+                                <ToggleButton value={1} className="flex-1 ToggleButton">
                                     6-10 min
                                 </ToggleButton>
-                                <ToggleButton value={2} className="flex-1">
+                                <ToggleButton value={2} className="flex-1 ToggleButton">
                                     11-15 min
                                 </ToggleButton>
-                                <ToggleButton value={3} className="flex-1">
+                                <ToggleButton value={3} className="flex-1 ToggleButton">
                                     16+ min
                                 </ToggleButton>
                             </ToggleButtonGroup>
@@ -389,18 +390,18 @@ const Calculator = () => {
                             value={formData.water.bathtub_usage}
                             exclusive
                             onChange={handleChange}
-                            className="flex bg-green w-11/12"
+                            className="flex bg-green-green w-11/12"
                             >
-                                <ToggleButton value={0} className="flex-1">
+                                <ToggleButton value={0} className="flex-1 ToggleButton">
                                     Nigdy
                                 </ToggleButton>
-                                <ToggleButton value={1} className="flex-1">
+                                <ToggleButton value={1} className="flex-1 ToggleButton">
                                     Rzadko
                                 </ToggleButton>
-                                <ToggleButton value={2} className="flex-1">
+                                <ToggleButton value={2} className="flex-1 ToggleButton">
                                     Często
                                 </ToggleButton>
-                                <ToggleButton value={3} className="flex-1">
+                                <ToggleButton value={3} className="flex-1 ToggleButton">
                                     Bardzo często
                                 </ToggleButton>
                             </ToggleButtonGroup>
@@ -415,15 +416,15 @@ const Calculator = () => {
                             value={formData.waste.waste_segregation}
                             exclusive
                             onChange={handleChange}
-                            className="flex bg-green w-11/12"
+                            className="flex bg-green-green w-11/12"
                             >
-                                <ToggleButton value={0} className="flex-1">
+                                <ToggleButton value={0} className="flex-1 ToggleButton">
                                     Niska
                                 </ToggleButton>
-                                <ToggleButton value={1} className="flex-1">
+                                <ToggleButton value={1} className="flex-1 ToggleButton">
                                     Średnia
                                 </ToggleButton>
-                                <ToggleButton value={2} className="flex-1">
+                                <ToggleButton value={2} className="flex-1 ToggleButton">
                                     Wysoka
                                 </ToggleButton>
                             </ToggleButtonGroup>
@@ -438,18 +439,18 @@ const Calculator = () => {
                             value={formData.waste.food_waste}
                             exclusive
                             onChange={handleChange}
-                            className="flex bg-green w-11/12"
+                            className="flex bg-green-green w-11/12"
                             >
-                                <ToggleButton value={0} className="flex-1">
+                                <ToggleButton value={0} className="flex-1 ToggleButton">
                                     Niskie
                                 </ToggleButton>
-                                <ToggleButton value={1} className="flex-1">
+                                <ToggleButton value={1} className="flex-1 ToggleButton">
                                     Średnie
                                 </ToggleButton>
-                                <ToggleButton value={2} className="flex-1">
+                                <ToggleButton value={2} className="flex-1 ToggleButton">
                                     Wysokie
                                 </ToggleButton>
-                                <ToggleButton value={3} className="flex-1">
+                                <ToggleButton value={3} className="flex-1 ToggleButton">
                                     Bardzo wysokie
                                 </ToggleButton>
                             </ToggleButtonGroup>
@@ -464,18 +465,18 @@ const Calculator = () => {
                             value={formData.waste.plastic_usage}
                             exclusive
                             onChange={handleChange}
-                            className="flex bg-green w-11/12"
+                            className="flex bg-green-green w-11/12"
                             >
-                                <ToggleButton value={0} className="flex-1">
+                                <ToggleButton value={0} className="flex-1 ToggleButton">
                                     Wysokie
                                 </ToggleButton>
-                                <ToggleButton value={1} className="flex-1">
+                                <ToggleButton value={1} className="flex-1 ToggleButton">
                                     Średnie
                                 </ToggleButton>
-                                <ToggleButton value={2} className="flex-1">
+                                <ToggleButton value={2} className="flex-1 ToggleButton">
                                     Niskie
                                 </ToggleButton>
-                                <ToggleButton value={3} className="flex-1">
+                                <ToggleButton value={3} className="flex-1 ToggleButton">
                                     Brak
                                 </ToggleButton>
                             </ToggleButtonGroup>
@@ -490,21 +491,21 @@ const Calculator = () => {
                             value={formData.food.meat_consumption}
                             exclusive
                             onChange={handleChange}
-                            className="flex bg-green w-11/12"
+                            className="flex bg-green-green w-11/12"
                             >
-                                <ToggleButton value={0} className="flex-1">
+                                <ToggleButton value={0} className="flex-1 ToggleButton">
                                     Bardzo wysokie
                                 </ToggleButton>
-                                <ToggleButton value={1} className="flex-1">
+                                <ToggleButton value={1} className="flex-1 ToggleButton">
                                     Wysokie
                                 </ToggleButton>
-                                <ToggleButton value={2} className="flex-1">
+                                <ToggleButton value={2} className="flex-1 ToggleButton">
                                     Średnie
                                 </ToggleButton>
-                                <ToggleButton value={3} className="flex-1">
+                                <ToggleButton value={3} className="flex-1 ToggleButton">
                                     Niskie
                                 </ToggleButton>
-                                <ToggleButton value={4} className="flex-1">
+                                <ToggleButton value={4} className="flex-1 ToggleButton">
                                     Brak
                                 </ToggleButton>
                             </ToggleButtonGroup>
@@ -519,18 +520,18 @@ const Calculator = () => {
                             value={formData.food.local_food_preference}
                             exclusive
                             onChange={handleChange}
-                            className="flex bg-green w-11/12"
+                            className="flex bg-green-green w-11/12"
                             >
-                                <ToggleButton value={0} className="flex-1">
+                                <ToggleButton value={0} className="flex-1 ToggleButton">
                                     Niskie
                                 </ToggleButton>
-                                <ToggleButton value={1} className="flex-1">
+                                <ToggleButton value={1} className="flex-1 ToggleButton">
                                     Średnie
                                 </ToggleButton>
-                                <ToggleButton value={2} className="flex-1">
+                                <ToggleButton value={2} className="flex-1 ToggleButton">
                                     Wysokie
                                 </ToggleButton>
-                                <ToggleButton value={3} className="flex-1">
+                                <ToggleButton value={3} className="flex-1 ToggleButton">
                                     Bardzo wysokie
                                 </ToggleButton>
                             </ToggleButtonGroup>
@@ -545,18 +546,18 @@ const Calculator = () => {
                             value={formData.leisure.movie_watch_time}
                             exclusive
                             onChange={handleChange}
-                            className="flex bg-green w-11/12"
+                            className="flex bg-green-green w-11/12"
                             >
-                                <ToggleButton value={0} className="flex-1">
+                                <ToggleButton value={0} className="flex-1 ToggleButton">
                                     0-1 godz.
                                 </ToggleButton>
-                                <ToggleButton value={1} className="flex-1">
+                                <ToggleButton value={1} className="flex-1 ToggleButton">
                                     1-2 godz.
                                 </ToggleButton>
-                                <ToggleButton value={2} className="flex-1">
+                                <ToggleButton value={2} className="flex-1 ToggleButton">
                                     2-3 godz.
                                 </ToggleButton>
-                                <ToggleButton value={3} className="flex-1">
+                                <ToggleButton value={3} className="flex-1 ToggleButton">
                                     3+ godz.
                                 </ToggleButton>
                             </ToggleButtonGroup>
@@ -571,15 +572,15 @@ const Calculator = () => {
                             value={formData.leisure.shopping_frequency}
                             exclusive
                             onChange={handleChange}
-                            className="flex bg-green w-11/12"
+                            className="flex bg-green-green w-11/12"
                             >
-                                <ToggleButton value={0} className="flex-1">
+                                <ToggleButton value={0} className="flex-1 ToggleButton">
                                     Rzadko
                                 </ToggleButton>
-                                <ToggleButton value={1} className="flex-1">
+                                <ToggleButton value={1} className="flex-1 ToggleButton">
                                     Okazjonalnie
                                 </ToggleButton>
-                                <ToggleButton value={2} className="flex-1">
+                                <ToggleButton value={2} className="flex-1 ToggleButton">
                                     Często
                                 </ToggleButton>
                             </ToggleButtonGroup>
@@ -589,13 +590,13 @@ const Calculator = () => {
             
                 <div className="flex-1">
                     <div className="flex justify-center sticky top-0 z-10"><button onClick={handleSubmit}
-                                                                                   className="bg-green px-6 py-2 w-10/12 rounded h-20 mt-20 text-4xl text-black/70 hover:text-black hover:bg-green/90">
+                                                                                   className="bg-green-green px-6 py-2 w-10/12 rounded h-20 mt-20 text-4xl text-black/70 hover:text-black hover:bg-green/90">
                         <strong>OBLICZ ŚLAD WĘGLOWY</strong></button>
                     </div>
                     {result && (
                         <div>
                             <div className="flex justify-center mt-24">
-                                <div className="bg-green h-64 w-10/12 rounded">
+                                <div className="bg-green-green h-64 w-10/12 rounded">
                                     <p className="flex w-full justify-center mt-10 text-3xl text-black"><strong>Twój ślad węglowy [kg CO2 / tydz.]</strong></p>
                                     <div className="flex justify-center">
                                         <div className="w-11/12 flex">
@@ -623,7 +624,7 @@ const Calculator = () => {
                                 </div>
                             </div>
                             <div className="flex justify-center mt-24">
-                                <div className="bg-green w-10/12 rounded p-10 text-black">
+                                <div className="bg-green-green w-10/12 rounded p-10 text-black">
                                     <h2 className="text-5xl flex justify-center"><strong>Sugestia AI</strong></h2>
                                     <p className="text-2xl mt-8">{result.AI_suggestion}</p>
                                 </div>
