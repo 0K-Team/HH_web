@@ -33,7 +33,10 @@ module.exports = {
         red: {
           DEFAULT: "#FF3336",
           hover: "#d62225"
-        }
+        },
+        mixBlendMode: {
+          'multiply': 'multiply',
+        },
       },
     },
   },
