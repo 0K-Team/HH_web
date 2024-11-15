@@ -120,8 +120,7 @@ const Calculator = () => {
 
     return (
         <div className="bg-[#1E1E1E] min-h-screen w-full py-3">
-            {loggedIn && <Sidebar />}
-            {!loggedIn && <Header />}
+            <Sidebar></Sidebar>
             <div className={`flex flex-col text-center gap-3 px-auto pt-3 ${loggedIn ? "pl-20" : ""}`}>
                 <div className="flex flex-col">
                     <p className="font-bold text-lg">Transport</p>
@@ -185,7 +184,7 @@ const Calculator = () => {
                 <button onClick={handleSubmit} className="w-[80%] py-2 rounded-lg bg-green-green text-[#1E1E1E] mx-auto">Prześlij</button>
                 {result && <div className="text-center">
                     <p className="font-bold">Rekomendacje AI</p>
-                    <p className="mx-auto prose dark:prose-invert">{result.AI_suggestion}</p>    
+                    <p className="mx-auto prose dark:prose-invert">{result.AI_suggestion}</p>
                 </div>}
             </div>
         </div>
