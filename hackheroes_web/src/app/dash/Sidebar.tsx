@@ -27,13 +27,13 @@ export default function Sidebar() {
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
     const hoverTimeout = useRef<NodeJS.Timeout | null>(null);
 
-    const handleMouseEnter = () => {
+    const handleMouseEnterSidebarTrigger = () => {
         hoverTimeout.current = setTimeout(() => {
             setIsSidebarOpen(true);
-        }, 300);
+        }, 300); // Możesz dostosować opóźnienie
     };
 
-    const handleMouseLeave = () => {
+    const handleMouseLeaveSidebarTrigger = () => {
         if (hoverTimeout.current) {
             clearTimeout(hoverTimeout.current);
         }
@@ -41,19 +41,20 @@ export default function Sidebar() {
     };
 
     return (
-        <div className="fixed top-0 left-0 h-full z-50">
+        <div className="fixed top-0 left-0 h-full z-50 flex" onMouseLeave={handleMouseLeaveSidebarTrigger}>
+            {/* Lewy pasek z ikonami (sidebar trigger) */}
             <div
-                onMouseEnter={handleMouseEnter}
-                onMouseLeave={handleMouseLeave}
+                onMouseEnter={handleMouseEnterSidebarTrigger}
                 className="bg-gray-light rounded-r-xl text-white flex items-center justify-center w-20 shadow-lg"
             >
                 <FontAwesomeIcon icon={faHouse} className="text-2xl text-green-green" />
             </div>
 
+            {/* Rozwijany sidebar */}
             <div
                 className={`bg-gray-light rounded-r-xl text-white transition-all duration-300 ${isSidebarOpen ? "w-86" : "w-0"} flex-col items-start p-4 shadow-lg overflow-hidden`}
-                onMouseEnter={handleMouseEnter}
-                onMouseLeave={handleMouseLeave}
+                onMouseEnter={() => setIsSidebarOpen(true)} // Utrzymuje rozwinięty sidebar po najechaniu na niego
+                onMouseLeave={handleMouseLeaveSidebarTrigger} // Zamknie sidebar po opuszczeniu
             >
                 <SidebarButton href="../dash" icon={faHouse} label="Panel użytkownika" isSidebarOpen={isSidebarOpen} />
                 <SidebarButton href="../garden" icon={faSeedling} label="Wirtualny ogródek" isSidebarOpen={isSidebarOpen} />
