@@ -16,7 +16,7 @@ const SidebarButton: React.FC<SidebarButtonProps> = ({ href, icon, label, isSide
     <Link href={href}>
         <button className={`relative flex items-center rounded-lg transition-all duration-300 mt-2 h-14 ${isSidebarOpen ? "pl-10 pr-4 bg-gray-dark w-full" : "justify-center"} text-green-green hover:bg-gray-lighter hover:shadow-lg`}>
             <FontAwesomeIcon icon={icon} className="absolute left-4 text-2xl text-green-green" />
-            <span className={`ml-12 font-bold transition-opacity w-48 flex duration-300 ${isSidebarOpen ? "opacity-100" : "opacity-0"} whitespace-nowrap`}>
+            <span className={`ml-12 font-bold w-48 flex duration-300 ${isSidebarOpen ? "opacity-100" : "opacity-0"} whitespace-nowrap`}>
                 {label}
             </span>
         </button>
@@ -30,7 +30,7 @@ export default function Sidebar() {
     const handleMouseEnter = () => {
         hoverTimeout.current = setTimeout(() => {
             setIsSidebarOpen(true);
-        }, 300); // Adjust the delay as needed
+        }, 300);
     };
 
     const handleMouseLeave = () => {
@@ -41,16 +41,19 @@ export default function Sidebar() {
     };
 
     return (
-        <div className="fixed top-0 left-0 h-full flex z-50">
+        <div className="fixed top-0 left-0 h-full z-50">
             <div
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
-                className="bg-gray-light rounded-r-xl text-white transition-all duration-300 flex items-center justify-center w-20 shadow-lg"
+                className="bg-gray-light rounded-r-xl text-white flex items-center justify-center w-20 shadow-lg"
             >
                 <FontAwesomeIcon icon={faHouse} className="text-2xl text-green-green" />
             </div>
+
             <div
                 className={`bg-gray-light rounded-r-xl text-white transition-all duration-300 ${isSidebarOpen ? "w-86" : "w-0"} flex-col items-start p-4 shadow-lg overflow-hidden`}
+                onMouseEnter={handleMouseEnter}
+                onMouseLeave={handleMouseLeave}
             >
                 <SidebarButton href="../dash" icon={faHouse} label="Panel użytkownika" isSidebarOpen={isSidebarOpen} />
                 <SidebarButton href="../garden" icon={faSeedling} label="Wirtualny ogródek" isSidebarOpen={isSidebarOpen} />
