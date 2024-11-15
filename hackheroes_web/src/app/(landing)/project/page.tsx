@@ -37,6 +37,7 @@ export default function Home() {
                     <br />
                     <p>Dalszy rozwój naszego rozwiązania widzimy w integracji z urządzeniami IoT, takimi jak liczniki energii czy czujniki wody, co pozwoliłoby na automatyczne i dokładniejsze monitorowanie aktywności użytkowników. Planujemy również wdrożenie zaawansowanych algorytmów AI, które mogłyby lepiej analizować dane i przewidywać ekologiczne trendy, a także wprowadzenie funkcji AR, umożliwiających interaktywne wizualizacje zmian klimatycznych w określonych regionach. Współpraca z organizacjami ekologicznymi, takimi jak WWF czy Greenpeace, oraz z miastami mogłaby wspierać lokalne i globalne inicjatywy, a firmy produkujące urządzenia IoT oraz oferujące zniżki na produkty ekologiczne mogłyby wzbogacić projekt o nowe możliwości. Dodatkowo, chcemy rozwijać platformę o funkcje takie jak wymiana przedmiotów czy alerty o lokalnych zagrożeniach ekologicznych, co jeszcze bardziej zaangażuje użytkowników i poszerzy funkcjonalność aplikacji.</p>
 
+
                     <hr className={"my-4"}/>
                     <h3 className="text-lg font-semibold">Jakie widzicie zagrożenia/ryzyka dla Waszego rozwiązania?
                         Opisz zdiagnozowane zagrożenia jak np. problemy technologiczne czy konieczność zaangażowania
