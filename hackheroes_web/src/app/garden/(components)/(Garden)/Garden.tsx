@@ -41,7 +41,7 @@ const Garden: React.FC = () => {
                             alt={plant.name}
                         />
                         <h2 className="font-bold">{plant.name}</h2>
-                        <p className="font-bold">Growth Stage: {plant.growthStage}</p>
+                        <p className="font-bold mb-4">Growth Stage: {plant.growthStage}</p>
                     </div>
                 ))}
             </div>

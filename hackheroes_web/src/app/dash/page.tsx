@@ -7,7 +7,7 @@ import Link from "next/link";
 import Image from "next/image";
 import Sidebar from "./Sidebar";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faGear } from '@fortawesome/free-solid-svg-icons'
+import {faCalculator, faGear} from '@fortawesome/free-solid-svg-icons'
 import Slider from "./Slider";
 import { redirect } from 'next/navigation';
 
@@ -44,7 +44,7 @@ const Dashboard = () => {
                             className="w-16 h-16 bg-gray-light rounded-full flex items-center justify-center text-2xl font-bold">
                         </Image>
                         <div className="ml-4">
-                            <h1 className="text-2xl font-bold">{user.fullName.givenName}{user.fullName.familyName}</h1>
+                            <h1 className="text-2xl font-bold">{user.fullName.givenName} {user.fullName.familyName}</h1>
                             <p className="mt-1 text-base">{user.bio}</p>
                         </div>
                     </div>
@@ -57,11 +57,12 @@ const Dashboard = () => {
                 <div className="grid md:grid-cols-2 gap-6 mb-8">
                     <div className="bg-gray-dark p-6 rounded-lg text-center h-[15vh]">
                         <div className="text-orange-500 text-3xl font-bold">🌳</div>
-                        <p>Wirtualny ogródek</p>
+                        <p className="font-bold">Wirtualny ogródek</p>
                     </div>
                     <div className="bg-gray-dark rounded-lg h-[15vh]">
                         <Link href="/calculator" className="p-6 rounded-lg text-center">
                             <p className="text-xl font-bold ml-2">Eco Kalculator</p>
+                            <FontAwesomeIcon icon={faCalculator} className="text-green-green"/>
                         </Link>
                     </div>
                 </div>

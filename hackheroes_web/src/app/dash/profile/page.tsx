@@ -3,7 +3,6 @@ import React, { useEffect, useState } from "react";
 import {
     changeFirstName,
     changeLastName,
-    changeUsername,
     changeLocation,
     fetchLoggedUser,
     changeBio,
@@ -12,7 +11,6 @@ import {
 const ProfileOptions = () => {
     useEffect(() => {
         fetchLoggedUser().then((user) => {
-            setUsername(user?.username || "");
             setFirstName(user?.fullName.givenName || "");
             setLastName(user?.fullName.familyName || "");
             setLocation(user?.location || "");
@@ -20,7 +18,6 @@ const ProfileOptions = () => {
         });
     }, []);
 
-    const [username, setUsername] = useState<string>("");
     const [firstName, setFirstName] = useState<string>("");
     const [lastName, setLastName] = useState<string>("");
     const [location, setLocation] = useState<string>("");
@@ -36,7 +33,6 @@ const ProfileOptions = () => {
         setError("");
         setSuccess("");
         try {
-            await changeUsername(username);
             await changeFirstName(firstName);
             await changeLastName(lastName);
             await changeLocation(location);
@@ -66,18 +62,7 @@ const ProfileOptions = () => {
                 className="bg-gray-light text-white p-6 rounded-lg shadow-lg max-w-md mx-auto">
                 <h1 className="text-2xl font-bold mb-4 text-green-green">Zaktualizuj informacje</h1>
 
-                {/* Username Field */}
-                <div className="mb-4">
-                    <label className="block text-sm font-medium mb-2">Nazwa użytkownika:</label>
-                    <div className="flex items-center">
-                        <input
-                            type="text"
-                            value={username}
-                            onChange={(e) => setUsername(e.target.value)}
-                            className="w-full p-2 bg-gray-light text-white border border-green-green rounded-lg focus:outline-none focus:ring-2 focus:ring-green-green"
-                        />
-                    </div>
-                </div>
+
 
                 {/* First Name Field */}
                 <div className="mb-4">
