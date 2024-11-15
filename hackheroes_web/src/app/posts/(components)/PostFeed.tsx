@@ -34,14 +34,14 @@ const PostFeed: React.FC<PostFeedProps> = ({ posts = [], userId, isAdmin, onDele
                         {post.authorObject && (
                             <Image
                                 src={`/api/v1/avatar/${post.authorObject.id}/${post.authorObject.avatarHash}`}
-                                alt={post.authorObject.username.charAt(0).toUpperCase()}
+                                alt={post.authorObject.fullName.givenName.charAt(0).toUpperCase()}
                                 width={64}
                                 height={64}
                                 className="w-12 h-12 bg-gray-light rounded-full flex-shrink-0" 
                             />
                         )}
                         <div className="ml-3">
-                            <h2 className="font-bold">{post.authorObject?.username ?? "Unknown user"}</h2>
+                            <h2 className="font-bold">{post.authorObject?.fullName.givenName ?? "Unknown user"} {post.authorObject?.fullName.familyName ?? "Unknown user"}</h2>
                             {post.authorObject && post.authorObject.title && <h3 className="font-light">{post.authorObject.title}</h3>}
                         </div>
                         <div className="ml-auto">

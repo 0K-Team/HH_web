@@ -55,7 +55,7 @@ const Header = () => {
             <Link href="/dash">
                 {user ? (
                     <div className="ml-4 flex items-center space-x-1 lg:space-x-2 text-green-green hover:text-green-hover">
-                        <span className="text-lg lg:text-xl">
+                        <span className="text-lg lg:text-xl font-bold">
                             {user.fullName.givenName} {user.fullName.familyName}&apos;s Dashboard
                         </span>
                         <FontAwesomeIcon icon={ faCaretRight } />

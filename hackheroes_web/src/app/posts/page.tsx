@@ -11,7 +11,6 @@ const Page = () => {
     useEffect(() => {
         fetchLoggedUser()
             .then((user) => {
-                console.log(user);
                 setLoading(false);
                 setUser(user);
             });
