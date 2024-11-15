@@ -1,7 +1,7 @@
 "use client";
 import React, { useState, useRef } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHouse, faUser, faCalculator, faMap, faSignOutAlt, faShoppingCart } from "@fortawesome/free-solid-svg-icons";
+import { faHouse, faUser, faCalculator, faMap, faSignOutAlt, faShoppingCart, faBookOpen } from "@fortawesome/free-solid-svg-icons";
 import Link from "next/link";
 import { logout } from "@/app/api/user";
 
@@ -53,6 +53,7 @@ export default function Sidebar() {
                 <SidebarButton href="../calculator" icon={faCalculator} label="EcoCalculator" isSidebarOpen={isSidebarOpen} />
                 <SidebarButton href="../map" icon={faMap} label="EcoMaps" isSidebarOpen={isSidebarOpen} />
                 <SidebarButton href="../products" icon={faShoppingCart} label="EcoProducts" isSidebarOpen={isSidebarOpen} />
+                <SidebarButton href="../blogs" icon={faBookOpen} label="EkoBlogi" isSidebarOpen={isSidebarOpen} />
                 <span onClick={logout}>
                     <SidebarButton href="#" icon={faSignOutAlt} label="Logout" isSidebarOpen={isSidebarOpen} />
                 </span>
