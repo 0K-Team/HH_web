@@ -22,7 +22,6 @@ const PostPage: React.FC<PostPageProps> = ({ user }) => {
     const [total, setTotal] = useState(1);
 
     useEffect(() => {
-        console.log("Page changed to " + page);
         const loadPosts = async () => {
             const { data, total } = await fetchPosts(page);
             setTotal(total);

@@ -3,7 +3,7 @@ import Header from "@/app/(landing)/Header";
 export default function Home() {
 
     return (
-        <div className="bg-[#1E1E1E] min-h-screen flex flex-col">
+        <div className="bg-[#1E1E1E] min-h-screen flex flex-col text-white">
             <Header />
             <div className="flex-grow flex justify-center">
                 <div className="max-w-4xl px-4 mt-4">
@@ -29,7 +29,7 @@ export default function Home() {
                         <li><strong>Posts:</strong> Sekcja społecznościowa dla użytkowników do dzielenia się postami.
                         </li>
                         <li><strong>Products:</strong> Zarządza produktami ekologicznymi.</li>
-                        <li><strong>Quizzes:</strong> Zapewnia edukacyjne quizy o ekologii.</li>
+                        <li><strong>Quizzes:</strong> Zapewnia edukacyjne quizy o ekologii w aplikacji mobilnej.</li>
                         <li><strong>User:</strong> Zarządza profilami użytkowników.</li>
                         <li><strong>Virtual Garden:</strong> Interaktywna gra, w której użytkownicy mogą kolekcjonować i
                             zarządzać wirtualnymi roślinami.
