@@ -7,8 +7,9 @@ export default function Home() {
             <Header />
             <div className="flex-grow flex justify-center">
                 <div className="max-w-4xl px-4 mt-4">
+                    <h2 className="text-2xl font-bold text-[#29FF77]">Aplikacja webowa EcoHero</h2>
                     <p className="text-white text-lg leading-relaxed mb-4">
-                        <strong>Technologia:</strong>
+                        <h3 className="text-lg font-semibold">Technologia</h3>
                     </p>
                     <p className="text-white text-lg leading-relaxed mb-4">
                         Front-end strony Eco Hero został opracowany w języku TypeScript z użyciem frameworku React oraz
@@ -16,7 +17,7 @@ export default function Home() {
                         zapewnia Tailwind CSS, pozwalając na szybkie i elastyczne projektowanie.
                     </p>
                     <p className="text-white text-lg leading-relaxed">
-                        <strong>Moduły aplikacji webowej:</strong>
+                        <h3 className="text-lg font-semibold">Moduły aplikacji webowej</h3>
                     </p>
                     <ul className="text-white text-lg leading-relaxed list-disc list-inside mb-4">
                         <li><strong>Auth:</strong> Obsługuje uwierzytelnianie użytkowników przez Google oraz logowanie
