@@ -4,6 +4,7 @@ import { fetchUserPosts } from "@/app/api/posts";
 import { Post } from '../types/post';
 import { fetchLoggedUser, getUserData } from "@/app/api/user";
 import { User } from '../types/user';
+import Link from "next/link";
 
 const Slider = () => {
     const [posts, setPosts] = useState<Post[]>([]);
@@ -39,7 +40,7 @@ const Slider = () => {
     };
 
     return (
-        <div className="bg-gray-dark p-6 rounded-lg">
+        <Link href="../posts" className="bg-gray-dark p-6 rounded-lg">
             <h2 className="text-2xl font-bold mb-4">Twoje ostatnie posty:</h2>
             <div {...sliderSettings}>
                 {posts.map((post) => (
@@ -50,7 +51,7 @@ const Slider = () => {
                     </div>
                 ))}
             </div>
-        </div>
+        </Link>
     );
 }
 
