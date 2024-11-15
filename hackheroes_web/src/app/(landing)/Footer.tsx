@@ -20,21 +20,21 @@ const Footer = () => {
             <nav className="flex items-center justify-center">
                 <ul className="flex space-x-7">
                     <li>
-                        <Link href="/Tos">
+                        <Link href="/tos">
                             <span className="text-gray-500 text-lg lg:text-xl hover:text-[#29FF77] transition duration-300">
                                 Terms of Service
                             </span>
                         </Link>
                     </li>
                     <li>
-                        <Link href="/Privacy">
+                        <Link href="/perrivacy">
                             <span className="text-gray-500 text-lg lg:text-xl hover:text-[#29FF77] transition duration-300">
                                 Polityka prywatności
                             </span>
                         </Link>
                     </li>
                     <li>
-                        <Link href="/Cookies">
+                        <Link href="/cookies">
                             <span className="text-gray-500 text-lg lg:text-xl hover:text-[#29FF77] transition duration-300">
                                 Informacje o cookies
                             </span>
