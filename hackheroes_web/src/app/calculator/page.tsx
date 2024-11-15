@@ -94,9 +94,9 @@ const Calculator = () => {
     const handleChange = (name: string, path: string, value: number) => {
         const prev = formData;
         const obj = {};
-        // @ts-expect-error
+        // @ts-expect-error any type allowed
         obj[name] = value;
-        // @ts-expect-error
+        // @ts-expect-error any type allowed
         prev[path] = {...prev[path], ...obj};
         setFormData(prev);
     };
