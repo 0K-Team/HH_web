@@ -38,7 +38,7 @@ const Dashboard = () => {
                     <div className="flex items-center">
                         <Image
                             src={`/api/v1/avatar/${user.id}/${user.avatarHash}`}
-                            alt={user.id}
+                            alt={user.fullName.givenName[0]}
                             width={256}
                             height={256}
                             className="w-16 h-16 bg-gray-light rounded-full flex items-center justify-center text-2xl font-bold">
