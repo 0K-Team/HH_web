@@ -19,12 +19,8 @@ const SidebarButton: React.FC<SidebarButtonProps> = ({ href, icon, label, isSide
                 isSidebarOpen ? "pl-6 pr-4 bg-gray-dark w-full" : "justify-center w-20"
             } text-green-green hover:bg-gray-lighter hover:shadow-lg mt-2`}
         >
-            <FontAwesomeIcon icon={icon} className="text-2xl" />
-            <span
-                className={`ml-4 font-bold ${
-                    isSidebarOpen ? "opacity-100" : "opacity-0"
-                } transition-opacity w-48 whitespace-nowrap`}
-            >
+            <FontAwesomeIcon icon={icon} className={`text-2xl ${isSidebarOpen ? "ml-0 absolute left-4" : "absolute left-4 ml-0"}`} />
+            <span className={`ml-4 font-bold ${isSidebarOpen ? "opacity-100" : "opacity-0"} transition-opacity w-48 whitespace-nowrap`}>
                 {label}
             </span>
         </button>
@@ -35,13 +31,7 @@ export default function Sidebar() {
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
     const hoverTimeout = useRef<NodeJS.Timeout | null>(null);
 
-    const handleMouseEnterSidebar = () => {
-        hoverTimeout.current = setTimeout(() => {
-            setIsSidebarOpen(true);
-        }, 300);
-    };
-
-    const handleMouseLeaveSidebar = () => {
+    const handleMouseLeaveSidebarTrigger = () => {
         if (hoverTimeout.current) {
             clearTimeout(hoverTimeout.current);
         }
@@ -49,28 +39,13 @@ export default function Sidebar() {
     };
 
     return (
-        <div
-            className="fixed top-0 left-0 h-full z-50 flex"
-            onMouseEnter={handleMouseEnterSidebar}
-            onMouseLeave={handleMouseLeaveSidebar}
-        >
-            <div
-                className={`bg-gray-light text-white flex flex-col items-center w-20 shadow-lg py-4 space-y-4 ${
-                    isSidebarOpen ? "rounded-r-xl" : ""
-                }`}
-            >
-                <FontAwesomeIcon icon={faHouse} className="text-2xl text-green-green" />
-                <FontAwesomeIcon icon={faSeedling} className="text-2xl text-green-green" />
-                <FontAwesomeIcon icon={faUser} className="text-2xl text-green-green" />
-                <FontAwesomeIcon icon={faCalculator} className="text-2xl text-green-green" />
-                <FontAwesomeIcon icon={faMap} className="text-2xl text-green-green" />
-                <FontAwesomeIcon icon={faSignOutAlt} className="text-2xl text-green-green" />
-            </div>
-
+        <div className="fixed top-0 left-0 h-full z-50 flex" onMouseLeave={handleMouseLeaveSidebarTrigger}>
             <div
                 className={`bg-gray-light rounded-r-xl text-white transition-all duration-300 ${
                     isSidebarOpen ? "w-64" : "w-[88px]"
                 } flex-col items-start p-4 shadow-lg overflow-hidden`}
+                onMouseEnter={() => setIsSidebarOpen(true)}
+                onMouseLeave={handleMouseLeaveSidebarTrigger}
             >
                 <SidebarButton href="../dash" icon={faHouse} label="Panel użytkownika" isSidebarOpen={isSidebarOpen} />
                 <SidebarButton href="../garden" icon={faSeedling} label="Wirtualny ogródek" isSidebarOpen={isSidebarOpen} />
