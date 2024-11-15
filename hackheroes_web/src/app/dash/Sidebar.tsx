@@ -41,15 +41,26 @@ export default function Sidebar() {
     };
 
     return (
-        <div onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} className={`fixed top-0 left-0 h-full bg-gray-light rounded-r-xl text-white transition-all duration-300 ${isSidebarOpen ? "w-86" : "w-20"} flex-col items-start p-4 z-50 shadow-lg`}>
-            <SidebarButton href="../dash" icon={faHouse} label="Panel użytkownika" isSidebarOpen={isSidebarOpen} />
-            <SidebarButton href="../garden" icon={faSeedling} label="Wirtualny ogródek" isSidebarOpen={isSidebarOpen} />
-            <SidebarButton href="../posts" icon={faUser} label="Sociale" isSidebarOpen={isSidebarOpen} />
-            <SidebarButton href="../calculator" icon={faCalculator} label="EcoCalculator" isSidebarOpen={isSidebarOpen} />
-            <SidebarButton href="../map" icon={faMap} label="EcoMaps" isSidebarOpen={isSidebarOpen} />
-            <span onClick={logout}>
-                <SidebarButton href="#" icon={faSignOutAlt} label="Logout" isSidebarOpen={isSidebarOpen} />
-            </span>
+        <div className="fixed top-0 left-0 h-full flex z-50">
+            <div
+                onMouseEnter={handleMouseEnter}
+                onMouseLeave={handleMouseLeave}
+                className="bg-gray-light rounded-r-xl text-white transition-all duration-300 flex items-center justify-center w-20 shadow-lg"
+            >
+                <FontAwesomeIcon icon={faHouse} className="text-2xl text-green-green" />
+            </div>
+            <div
+                className={`bg-gray-light rounded-r-xl text-white transition-all duration-300 ${isSidebarOpen ? "w-86" : "w-0"} flex-col items-start p-4 shadow-lg overflow-hidden`}
+            >
+                <SidebarButton href="../dash" icon={faHouse} label="Panel użytkownika" isSidebarOpen={isSidebarOpen} />
+                <SidebarButton href="../garden" icon={faSeedling} label="Wirtualny ogródek" isSidebarOpen={isSidebarOpen} />
+                <SidebarButton href="../posts" icon={faUser} label="Sociale" isSidebarOpen={isSidebarOpen} />
+                <SidebarButton href="../calculator" icon={faCalculator} label="EcoCalculator" isSidebarOpen={isSidebarOpen} />
+                <SidebarButton href="../map" icon={faMap} label="EcoMaps" isSidebarOpen={isSidebarOpen} />
+                <span onClick={logout}>
+                    <SidebarButton href="#" icon={faSignOutAlt} label="Logout" isSidebarOpen={isSidebarOpen} />
+                </span>
+            </div>
         </div>
     );
 }
