@@ -1,11 +1,10 @@
-"use client"
-import { useState } from "react";
-import fetchCalculation from "../api/calc";
-import ToggleButton from '@mui/material/ToggleButton';
-import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
+"use client";
+import { useEffect, useState } from "react";
+import ChoiceSlider from "./(component)/ChoiceSlider";
 import Sidebar from "../dash/Sidebar";
-import { Slider } from "@mui/material";
-import './mui.css'
+import { fetchLoggedUser } from "../api/user";
+import fetchCalculation from "../api/calc";
+import Header from "../(landing)/Header";
 
 interface FormData {
     transport: {
@@ -38,6 +37,22 @@ interface FormData {
         movie_watch_time: number;
         shopping_frequency: number;
     };
+}
+
+interface CalculationResult {
+    total_emission_week: number;
+    specific_emission: {
+        car: number;
+        plane: number;
+        public_transport: number;
+        energy: number;
+        water: number;
+        garbage: number;
+        food: number;
+        watch_time: number;
+        shopping: number;
+    };
+    AI_suggestion: string;
 }
 
 const Calculator = () => {
@@ -74,34 +89,17 @@ const Calculator = () => {
         },
     });
 
-    const handleChange = (event: React.MouseEvent<HTMLElement>) => {
-        const { parentElement, value } = event.target as HTMLInputElement;
-        const title = parentElement?.title;
-        const [category, field] = title ? title.split(".") : ["", ""];
-        setFormData((prevData) => ({
-            ...prevData,
-            [category]: {
-                ...prevData[category as keyof FormData],
-                [field]: Number(value),
-            },
-        }));
-    };
+    const [loggedIn, setLoggedIn] = useState(false);
 
-    interface CalculationResult {
-        total_emission_week: number;
-        specific_emission: {
-            car: number;
-            plane: number;
-            public_transport: number;
-            energy: number;
-            water: number;
-            garbage: number;
-            food: number;
-            watch_time: number;
-            shopping: number;
-        };
-        AI_suggestion: string;
-    }
+    const handleChange = (name: string, path: string, value: number) => {
+        const prev = formData;
+        const obj = {};
+        // @ts-ignore
+        obj[name] = value;
+        // @ts-ignore
+        prev[path] = {...prev[path], ...obj};
+        setFormData(prev);
+    };
 
     const [result, setResult] = useState<CalculationResult | null>(null);
     
@@ -111,547 +109,87 @@ const Calculator = () => {
         setResult(result);
     };
 
-    return (
-        <div className="bg-gray-dark font-bold">
-            <style jsx>{`
-                hr {
-                    border-top: 1px solid gray;
-                }
-            `}</style>
-            <div className="flex flex-row">
-                <Sidebar></Sidebar>
-                <div className="w-1/12"></div>
-                <form onSubmit={handleSubmit} className="flex-1 border-x border-gray/50 w-11/12">
-                    <div className="w-full flex flex-col text-center mt-6">
-                        <label className="text-2xl mb-2">Jak często korzystasz z samochodu?</label>
-                        <div className="flex justify-center w-full">
-                            <ToggleButtonGroup
-                            title="transport.car_usage"
-                            value={formData.transport.car_usage}
-                            exclusive
-                            onChange={handleChange}
-                            className="flex bg-green-green w-11/12"
-                            >
-                                <ToggleButton value={0} className="flex-1 ToggleButton">
-                                    Rzadko
-                                </ToggleButton>
-                                <ToggleButton value={1} className="flex-1 ToggleButton">
-                                    Raz w tygoniu
-                                </ToggleButton>
-                                <ToggleButton value={2} className="flex-1 ToggleButton">
-                                    Kilka razy w tygodniu
-                                </ToggleButton>
-                                <ToggleButton value={3} className="flex-1 ToggleButton">
-                                    Codziennie
-                                </ToggleButton>
-                            </ToggleButtonGroup>
-                        </div>
-                    </div>
-                    <br /><hr /><br />
-                    <div className="w-full flex flex-col text-center">
-                        <label className="text-2xl mb-2">Rodzaj paliwa</label>
-                        <div className="flex justify-center w-full">
-                            <ToggleButtonGroup
-                            title="transport.fuel_type"
-                            value={formData.transport.fuel_type}
-                            exclusive
-                            onChange={handleChange}
-                            className="flex bg-green-green w-11/12"
-                            >
-                                <ToggleButton value={0} className="flex-1 ToggleButton">
-                                    Rzadko
-                                </ToggleButton>
-                                <ToggleButton value={1} className="flex-1 ToggleButton">
-                                    Raz w tygoniu
-                                </ToggleButton>
-                                <ToggleButton value={2} className="flex-1 ToggleButton">
-                                    Kilka razy w tygodniu
-                                </ToggleButton>
-                                <ToggleButton value={3} className="flex-1 ToggleButton">
-                                    Codziennie
-                                </ToggleButton>
-                                <ToggleButton value={4} className="flex-1 ToggleButton">
-                                    Inne
-                                </ToggleButton>
-                            </ToggleButtonGroup>
-                        </div>
-                    </div>
-                    <br /><hr /><br />
-                    <div className="w-full flex flex-col text-center">
-                        <label className="text-2xl mb-2">Tygodniowe km</label>
-                        <div className="flex justify-center w-full">
-                            <ToggleButtonGroup
-                            title="transport.weekly_km"
-                            value={formData.transport.weekly_km}
-                            exclusive
-                            onChange={handleChange}
-                            className="flex bg-green-green w-11/12"
-                            >
-                                <ToggleButton value={0} className="flex-1 ToggleButton">
-                                    0-25
-                                </ToggleButton>
-                                <ToggleButton value={1} className="flex-1 ToggleButton">
-                                    26-100
-                                </ToggleButton>
-                                <ToggleButton value={2} className="flex-1 ToggleButton">
-                                    101-225
-                                </ToggleButton>
-                                <ToggleButton value={3} className="flex-1 ToggleButton">
-                                    226-500
-                                </ToggleButton>
-                            </ToggleButtonGroup>
-                        </div>
-                    </div>
-                    <br /><hr /><br />
-                    <div className="w-full flex flex-col text-center">
-                        <label className="text-2xl mb-2">Częstotliwość lotów</label>
-                        <div className="flex justify-center w-full">
-                            <ToggleButtonGroup
-                            title="transport.flight_frequency"
-                            value={formData.transport.flight_frequency}
-                            exclusive
-                            onChange={handleChange}
-                            className="flex bg-green-green w-11/12"
-                            >
-                                <ToggleButton value={0} className="flex-1 ToggleButton">
-                                    Nigdy
-                                </ToggleButton>
-                                <ToggleButton value={1} className="flex-1 ToggleButton">
-                                    Rzadko
-                                </ToggleButton>
-                                <ToggleButton value={2} className="flex-1 ToggleButton">
-                                    Często
-                                </ToggleButton>
-                                <ToggleButton value={3} className="flex-1 ToggleButton">
-                                    Bardzo często
-                                </ToggleButton>
-                            </ToggleButtonGroup>
-                        </div>
-                    </div>
-                    <br /><hr /><br />
-                    <div className="w-full flex flex-col text-center">
-                        <label className="text-2xl mb-2">Korzystanie z transportu publicznego</label>
-                        <div className="flex justify-center w-full">
-                            <ToggleButtonGroup
-                            title="transport.public_transport_usage"
-                            value={formData.transport.public_transport_usage}
-                            exclusive
-                            onChange={handleChange}
-                            className="flex bg-green-green w-11/12"
-                            >
-                                <ToggleButton value={0} className="flex-1 ToggleButton">
-                                    Nigdy
-                                </ToggleButton>
-                                <ToggleButton value={1} className="flex-1 ToggleButton">
-                                    Rzadko
-                                </ToggleButton>
-                                <ToggleButton value={2} className="flex-1 ToggleButton">
-                                    Często
-                                </ToggleButton>
-                                <ToggleButton value={3} className="flex-1 ToggleButton">
-                                    Bardzo często
-                                </ToggleButton>
-                            </ToggleButtonGroup>
-                        </div>
-                    </div>
-                    <br /><hr /><br />
-                    <div className="w-full flex flex-col text-center">
-                        <label className="text-2xl mb-2">Źródło energii</label>
-                        <div className="flex justify-center w-full">
-                            <ToggleButtonGroup
-                            title="energy.energy_source"
-                            value={formData.energy.energy_source}
-                            exclusive
-                            onChange={handleChange}
-                            className="flex bg-green-green w-11/12"
-                            >
-                                <ToggleButton value={0} className="flex-1 ToggleButton">
-                                    Węgiel
-                                </ToggleButton>
-                                <ToggleButton value={1} className="flex-1 ToggleButton">
-                                    Gaz
-                                </ToggleButton>
-                                <ToggleButton value={2} className="flex-1 ToggleButton">
-                                    Prąd z sieci
-                                </ToggleButton>
-                                <ToggleButton value={3} className="flex-1 ToggleButton">
-                                    OZE
-                                </ToggleButton>
-                            </ToggleButtonGroup>
-                        </div>
-                    </div>
-                    <br /><hr /><br />
-                    <div className="w-full flex flex-col text-center">
-                        <label className="text-2xl mb-2">Źródło ogrzewania wody</label>
-                        <div className="flex justify-center w-full">
-                            <ToggleButtonGroup
-                            title="energy.water_heating_source"
-                            value={formData.energy.water_heating_source}
-                            exclusive
-                            onChange={handleChange}
-                            className="flex bg-green-green w-11/12"
-                            >
-                                <ToggleButton value={0} className="flex-1 ToggleButton">
-                                    Elektryczność
-                                </ToggleButton>
-                                <ToggleButton value={1} className="flex-1 ToggleButton">
-                                    Gaz
-                                </ToggleButton>
-                                <ToggleButton value={2} className="flex-1 ToggleButton">
-                                    Węgiel
-                                </ToggleButton>
-                                <ToggleButton value={3} className="flex-1 ToggleButton">
-                                    OZE
-                                </ToggleButton>
-                            </ToggleButtonGroup>
-                        </div>
-                    </div>
-                    <br /><hr /><br />
-                    <div className="w-full flex flex-col text-center">
-                        <label className="text-2xl mb-2">Miesięczne kWh</label>
-                        <div className="flex justify-center w-full">
-                            <ToggleButtonGroup
-                            title="energy.monthly_kWh"
-                            value={formData.energy.monthly_kWh}
-                            exclusive
-                            onChange={handleChange}
-                            className="flex bg-green-green w-11/12"
-                            >
-                                <ToggleButton value={0} className="flex-1 ToggleButton">
-                                    0-20
-                                </ToggleButton>
-                                <ToggleButton value={1} className="flex-1 ToggleButton">
-                                    21-40
-                                </ToggleButton>
-                                <ToggleButton value={2} className="flex-1 ToggleButton">
-                                    41-60
-                                </ToggleButton>
-                                <ToggleButton value={3} className="flex-1 ToggleButton">
-                                    61-80
-                                </ToggleButton>
-                            </ToggleButtonGroup>
-                        </div>
-                    </div>
-                    <br /><hr /><br />
-                    <div className="w-full flex flex-col text-center">
-                        <label className="text-2xl mb-2">Efektywność energetyczna</label>
-                        <div className="flex justify-center w-full">
-                            <ToggleButtonGroup
-                            title="energy.energy_efficiency"
-                            value={formData.energy.energy_efficiency}
-                            exclusive
-                            onChange={handleChange}
-                            className="flex bg-green-green w-11/12"
-                            >
-                                <ToggleButton value={0} className="flex-1 ToggleButton">
-                                    Niska
-                                </ToggleButton>
-                                <ToggleButton value={1} className="flex-1 ToggleButton">
-                                    Średnia
-                                </ToggleButton>
-                                <ToggleButton value={2} className="flex-1 ToggleButton">
-                                    Wysoka
-                                </ToggleButton>
-                            </ToggleButtonGroup>
-                        </div>
-                    </div>
-                    <br /><hr /><br />
-                    <div className="w-full flex flex-col text-center">
-                        <label className="text-2xl mb-2">Czas prysznica</label>
-                        <div className="flex justify-center w-full">
-                            <ToggleButtonGroup
-                            title="water.shower_time"
-                            value={formData.water.shower_time}
-                            exclusive
-                            onChange={handleChange}
-                            className="flex bg-green-green w-11/12"
-                            >
-                                <ToggleButton value={0} className="flex-1 ToggleButton">
-                                    0-5 min
-                                </ToggleButton>
-                                <ToggleButton value={1} className="flex-1 ToggleButton">
-                                    6-10 min
-                                </ToggleButton>
-                                <ToggleButton value={2} className="flex-1 ToggleButton">
-                                    11-15 min
-                                </ToggleButton>
-                                <ToggleButton value={3} className="flex-1 ToggleButton">
-                                    16+ min
-                                </ToggleButton>
-                            </ToggleButtonGroup>
-                        </div>
-                    </div>
-                    <br /><hr /><br />
-                    <div className="w-full flex flex-col text-center">
-                        <label className="text-2xl mb-2">Korzystanie z wanny</label>
-                        <div className="flex justify-center w-full">
-                            <ToggleButtonGroup
-                            title="water.bathtub_usage"
-                            value={formData.water.bathtub_usage}
-                            exclusive
-                            onChange={handleChange}
-                            className="flex bg-green-green w-11/12"
-                            >
-                                <ToggleButton value={0} className="flex-1 ToggleButton">
-                                    Nigdy
-                                </ToggleButton>
-                                <ToggleButton value={1} className="flex-1 ToggleButton">
-                                    Rzadko
-                                </ToggleButton>
-                                <ToggleButton value={2} className="flex-1 ToggleButton">
-                                    Często
-                                </ToggleButton>
-                                <ToggleButton value={3} className="flex-1 ToggleButton">
-                                    Bardzo często
-                                </ToggleButton>
-                            </ToggleButtonGroup>
-                        </div>
-                    </div>
-                    <br /><hr /><br />
-                    <div className="w-full flex flex-col text-center">
-                        <label className="text-2xl mb-2">Segregacja odpadów</label>
-                        <div className="flex justify-center w-full">
-                            <ToggleButtonGroup
-                            title="waste.waste_segregation"
-                            value={formData.waste.waste_segregation}
-                            exclusive
-                            onChange={handleChange}
-                            className="flex bg-green-green w-11/12"
-                            >
-                                <ToggleButton value={0} className="flex-1 ToggleButton">
-                                    Niska
-                                </ToggleButton>
-                                <ToggleButton value={1} className="flex-1 ToggleButton">
-                                    Średnia
-                                </ToggleButton>
-                                <ToggleButton value={2} className="flex-1 ToggleButton">
-                                    Wysoka
-                                </ToggleButton>
-                            </ToggleButtonGroup>
-                        </div>
-                    </div>
-                    <br /><hr /><br />
-                    <div className="w-full flex flex-col text-center">
-                        <label className="text-2xl mb-2">Marnowanie jedzenia</label>
-                        <div className="flex justify-center w-full">
-                            <ToggleButtonGroup
-                            title="waste.food_waste"
-                            value={formData.waste.food_waste}
-                            exclusive
-                            onChange={handleChange}
-                            className="flex bg-green-green w-11/12"
-                            >
-                                <ToggleButton value={0} className="flex-1 ToggleButton">
-                                    Niskie
-                                </ToggleButton>
-                                <ToggleButton value={1} className="flex-1 ToggleButton">
-                                    Średnie
-                                </ToggleButton>
-                                <ToggleButton value={2} className="flex-1 ToggleButton">
-                                    Wysokie
-                                </ToggleButton>
-                                <ToggleButton value={3} className="flex-1 ToggleButton">
-                                    Bardzo wysokie
-                                </ToggleButton>
-                            </ToggleButtonGroup>
-                        </div>
-                    </div>
-                    <br /><hr /><br />
-                    <div className="w-full flex flex-col text-center">
-                        <label className="text-2xl mb-2">Użycie plastiku</label>
-                        <div className="flex justify-center w-full">
-                            <ToggleButtonGroup
-                            title="waste.plastic_usage"
-                            value={formData.waste.plastic_usage}
-                            exclusive
-                            onChange={handleChange}
-                            className="flex bg-green-green w-11/12"
-                            >
-                                <ToggleButton value={0} className="flex-1 ToggleButton">
-                                    Wysokie
-                                </ToggleButton>
-                                <ToggleButton value={1} className="flex-1 ToggleButton">
-                                    Średnie
-                                </ToggleButton>
-                                <ToggleButton value={2} className="flex-1 ToggleButton">
-                                    Niskie
-                                </ToggleButton>
-                                <ToggleButton value={3} className="flex-1 ToggleButton">
-                                    Brak
-                                </ToggleButton>
-                            </ToggleButtonGroup>
-                        </div>
-                    </div>
-                    <br /><hr /><br />
-                    <div className="w-full flex flex-col text-center">
-                        <label className="text-2xl mb-2">Spożycie mięsa</label>
-                        <div className="flex justify-center w-full">
-                            <ToggleButtonGroup
-                            title="food.meat_consumption"
-                            value={formData.food.meat_consumption}
-                            exclusive
-                            onChange={handleChange}
-                            className="flex bg-green-green w-11/12"
-                            >
-                                <ToggleButton value={0} className="flex-1 ToggleButton">
-                                    Bardzo wysokie
-                                </ToggleButton>
-                                <ToggleButton value={1} className="flex-1 ToggleButton">
-                                    Wysokie
-                                </ToggleButton>
-                                <ToggleButton value={2} className="flex-1 ToggleButton">
-                                    Średnie
-                                </ToggleButton>
-                                <ToggleButton value={3} className="flex-1 ToggleButton">
-                                    Niskie
-                                </ToggleButton>
-                                <ToggleButton value={4} className="flex-1 ToggleButton">
-                                    Brak
-                                </ToggleButton>
-                            </ToggleButtonGroup>
-                        </div>
-                    </div>
-                    <br /><hr /><br />
-                    <div className="w-full flex flex-col text-center">
-                        <label className="text-2xl mb-2">Preferencje lokalnej żywności</label>
-                        <div className="flex justify-center w-full">
-                            <ToggleButtonGroup
-                            title="food.local_food_preference"
-                            value={formData.food.local_food_preference}
-                            exclusive
-                            onChange={handleChange}
-                            className="flex bg-green-green w-11/12"
-                            >
-                                <ToggleButton value={0} className="flex-1 ToggleButton">
-                                    Niskie
-                                </ToggleButton>
-                                <ToggleButton value={1} className="flex-1 ToggleButton">
-                                    Średnie
-                                </ToggleButton>
-                                <ToggleButton value={2} className="flex-1 ToggleButton">
-                                    Wysokie
-                                </ToggleButton>
-                                <ToggleButton value={3} className="flex-1 ToggleButton">
-                                    Bardzo wysokie
-                                </ToggleButton>
-                            </ToggleButtonGroup>
-                        </div>
-                    </div>
-                    <br /><hr /><br />
-                    <div className="w-full flex flex-col text-center">
-                        <label className="text-2xl mb-2">Czas oglądania filmów</label>
-                        <div className="flex justify-center w-full">
-                            <ToggleButtonGroup
-                            title="leisure.movie_watch_time"
-                            value={formData.leisure.movie_watch_time}
-                            exclusive
-                            onChange={handleChange}
-                            className="flex bg-green-green w-11/12"
-                            >
-                                <ToggleButton value={0} className="flex-1 ToggleButton">
-                                    0-1 godz.
-                                </ToggleButton>
-                                <ToggleButton value={1} className="flex-1 ToggleButton">
-                                    1-2 godz.
-                                </ToggleButton>
-                                <ToggleButton value={2} className="flex-1 ToggleButton">
-                                    2-3 godz.
-                                </ToggleButton>
-                                <ToggleButton value={3} className="flex-1 ToggleButton">
-                                    3+ godz.
-                                </ToggleButton>
-                            </ToggleButtonGroup>
-                        </div>
-                    </div>
-                    <br /><hr /><br />
-                    <div className="w-full flex flex-col text-center mb-10">
-                        <label className="text-2xl mb-2">Częstotliwość zakupów</label>
-                        <div className="flex justify-center w-full">
-                            <ToggleButtonGroup
-                            title="leisure.shopping_frequency"
-                            value={formData.leisure.shopping_frequency}
-                            exclusive
-                            onChange={handleChange}
-                            className="flex bg-green-green w-11/12"
-                            >
-                                <ToggleButton value={0} className="flex-1 ToggleButton">
-                                    Rzadko
-                                </ToggleButton>
-                                <ToggleButton value={1} className="flex-1 ToggleButton">
-                                    Okazjonalnie
-                                </ToggleButton>
-                                <ToggleButton value={2} className="flex-1 ToggleButton">
-                                    Często
-                                </ToggleButton>
-                            </ToggleButtonGroup>
-                        </div>
-                    </div>
-                </form>
-            
-                <div className="flex-1">
-                    <div className="flex justify-center sticky top-0 z-10"><button onClick={handleSubmit}
-                                                                                   className="bg-green-green px-6 py-2 w-10/12 rounded h-20 mt-20 text-4xl text-black/70 hover:text-black hover:bg-green-hover">
-                        <strong>OBLICZ ŚLAD WĘGLOWY</strong></button>
-                    </div>
-                    {result && (
-                        <div>
-                            <div className="flex justify-center mt-24">
-                                <div className="bg-green-green h-64 w-10/12 rounded">
-                                    <p className="flex w-full justify-center mt-10 text-3xl text-black"><strong>Twój ślad węglowy [kg CO2 / tydz.]</strong></p>
-                                    <div className="flex justify-center">
-                                        <div className="w-11/12 flex">
-                                            <Slider
-                                            className="mt-20"
-                                            disabled
-                                            value={result.total_emission_week}
-                                            defaultValue={0}
-                                            min={10}
-                                            max={500}
-                                            valueLabelDisplay="on"
-                                            marks={[
-                                                {
-                                                    value: 110,
-                                                    label: "Average EU citizen"
-                                                },
-                                                {
-                                                    value: 256,
-                                                    label: "Average US citizen"
-                                                }
-                                            ]}
-                                            />
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="flex justify-center mt-24">
-                                <div className="bg-green-green w-10/12 rounded p-10 text-black">
-                                    <h2 className="text-5xl flex justify-center"><strong>Sugestia AI</strong></h2>
-                                    <p className="text-2xl mt-8">{result.AI_suggestion}</p>
-                                </div>
-                            </div>
+    useEffect(() => {
+        fetchLoggedUser().then((user) => {
+            if (user) setLoggedIn(true);
+            setLoggedIn(false);
+        }).catch(() => {
+            setLoggedIn(false);
+        })
+    }, [])
 
-                            {/* <h2>Calculation Result</h2>
-                            <p>Total Emission per Week: {result.total_emission_week} kg CO2</p>
-                            <h3>Specific Emissions</h3>
-                            <ul>
-                                <li>Car: {result.specific_emission.car} kg CO2</li>
-                                <li>Plane: {result.specific_emission.plane} kg CO2</li>
-                                <li>Public Transport: {result.specific_emission.public_transport} kg CO2</li>
-                                <li>Energy: {result.specific_emission.energy} kg CO2</li>
-                                <li>Water: {result.specific_emission.water} kg CO2</li>
-                                <li>Garbage: {result.specific_emission.garbage} kg CO2</li>
-                                <li>Food: {result.specific_emission.food} kg CO2</li>
-                                <li>Watch Time: {result.specific_emission.watch_time} kg CO2</li>
-                                <li>Shopping: {result.specific_emission.shopping} kg CO2</li>
-                            </ul>
-                            <h3>AI Suggestion</h3>
-                            <p>{result.AI_suggestion}</p> */}
-                        </div>
-                    )}
+    return (
+        <div className="bg-[#1E1E1E] min-h-screen w-full py-3">
+            {loggedIn && <Sidebar />}
+            {!loggedIn && <Header />}
+            <div className={`flex flex-col text-center gap-3 px-auto pt-3 ${loggedIn ? "pl-20" : ""}`}>
+                <div className="flex flex-col">
+                    <p className="font-bold text-lg">Transport</p>
+                    <p className="text-sm">Jak często korzystasz z samochodu?</p>
+                    <ChoiceSlider labels={["Rzadko", "Raz w tygodniu", "Kilka razy w tygodniu", "Codziennie"]} setter={handleChange} name="car_usage" path="transport" />
+                    <p className="text-sm">Jaki rodzaj paliwa ma Twój samochód?</p>
+                    <ChoiceSlider labels={["Benzyna", "Diesel", "Elektryczny", "Hybryda", "Inny"]} setter={handleChange} name="fuel_type" path="transport" />
+                    <p className="text-sm">Ile kilometrów średnio pokonujesz samochodem w ciągu tygodnia?</p>
+                    <ChoiceSlider labels={["0-50 km", "51-150 km", "151-300 km", "Powyżej 300 km"]} setter={handleChange} name="weekly_km" path="transport" />
+                    <p className="text-sm">Jak często podróżujesz samolotem?</p>
+                    <ChoiceSlider labels={["Nigdy", "1-2 razy w roku", "3-5 razy w roku", "Powyżej 5 razy w roku"]} setter={handleChange} name="flight_frequency" path="transport" />
+                    <p className="text-sm">Czy używasz transportu publicznego (autobusy, pociągi)?</p>
+                    <ChoiceSlider labels={["Nigdy", "Rzadko", "Kilka razy w tygodniu", "Codziennie"]} setter={handleChange} name="public_transport_usage" path="transport" />
                 </div>
+                <hr className="w-[80%] self-center border-green-green" />
+                <div>
+                    <p className="font-bold text-lg">Energia w domu</p>
+                    <p className="text-sm">Jakie źródło energii używasz w swoim domu?</p>
+                    <ChoiceSlider labels={["Węgiel", "Gaz", "Prąd z sieci", "OZE"]} setter={handleChange} name="energy_source" path="energy" />
+                    <p className="text-sm">Jakie masz źródło ciepłej wody?</p>
+                    <ChoiceSlider labels={["Elektryczność", "Gaz", "Węgiel", "OZE"]} setter={handleChange} name="water_heating_source" path="energy" />
+                    <p className="text-sm">Średnie miesięczne zużycie energii elektrycznej (kWh)?</p>
+                    <ChoiceSlider labels={["0-100 kWh", "101-200 kWh", "201-300 kWh", "Powyżej 300 kWh"]} setter={handleChange} name="weekly_kWh" path="energy" />
+                    <p className="text-sm">Jak ocenisz efektywność energetyczną swojego domu?</p>
+                    <ChoiceSlider labels={["Bardzo efektywny", "Średnio efektywny", "Niezbyt efektywny"]} setter={handleChange} name="energy_efficiency" path="energy" />
+                </div>
+                <hr className="w-[80%] self-center border-green-green" />
+                <div>
+                    <p className="font-bold text-lg">Woda</p>
+                    <p className="text-sm">Jak długo średnio bierzesz prysznic?</p>
+                    <ChoiceSlider labels={["Mniej niż 5 minut", "5-10 minut", "11-20 minut", "Powyżej 20 minut"]} setter={handleChange} name="shower_time" path="water" />
+                    <p className="text-sm">Jak często kąpiesz się w wannie?</p>
+                    <ChoiceSlider labels={["Codziennie", "Kilka razy w tygodniu", "Raz w tygodniu", "Rzadko"]} setter={handleChange} name="bathtub_usage" path="water" />
+                </div>
+                <hr className="w-[80%] self-center border-green-green" />
+                <div>
+                    <p className="font-bold text-lg">Odpady</p>
+                    <p className="text-sm">Czy segregujesz odpady?</p>
+                    <ChoiceSlider labels={["Tak", "Częściowo", "Nie"]} setter={handleChange} name="waste_segregation" path="waste" />
+                    <p className="text-sm">Ile jedzenia marnujesz średnio w ciągu tygodnia?</p>
+                    <ChoiceSlider labels={["0-500 g", "500 g - 1 kg", "1 - 2 kg", "Powyżej 2 kg"]} setter={handleChange} name="food_waste" path="waste" />
+                    <p className="text-sm">Czy używasz plastikowych opakowań?</p>
+                    <ChoiceSlider labels={["Często", "Czasami", "Rzadko", "Nigdy"]} setter={handleChange} name="plastic_usage" path="waste" />
+                </div>
+                <hr className="w-[80%] self-center border-green-green" />
+                <div>
+                    <p className="font-bold text-lg">Jedzenie</p>
+                    <p className="text-sm">Jak często jesz produkty mięsne?</p>
+                    <ChoiceSlider labels={["Codziennie", "Kilka razy w tygodniu", "Raz w tygodniu", "Rzadko", "Nigdy"]} setter={handleChange} name="meat_consumption" path="food" />
+                    <p className="text-sm">Czy preferujesz produkty lokalne i sezonowe?</p>
+                    <ChoiceSlider labels={["Zawsze", "Często", "Rzadko", "Nigdy"]} setter={handleChange} name="local_food_preference" path="food" />
+                </div>
+                <hr className="w-[80%] self-center border-green-green" />
+                <div>
+                    <p className="font-bold text-lg">Czas wolny</p>
+                    <p className="text-sm">Ile godzin dziennie spędzasz oglądając filmy/seriale online?</p>
+                    <ChoiceSlider labels={["Mniej niż godzinę", "1-2 godziny", "2-3 godziny", "Ponad 3 godziny"]} setter={handleChange} name="movie_watch_time" path="leisure" />
+                    <p className="text-sm">Ile razy w miesiącu kupujesz nowe ubrania?</p>
+                    <ChoiceSlider labels={["0-1 raz", "2-3 razy", "4-5 razy", "Ponad 5 razy"]} setter={handleChange} name="shopping_frequency" path="leisure" />
+                </div>
+                <button onClick={handleSubmit} className="w-[80%] py-2 rounded-lg bg-green-green text-[#1E1E1E] mx-auto">Prześlij</button>
+                {result && <div className="text-center">
+                    <p className="font-bold">Rekomendacje AI</p>
+                    <p className="mx-auto prose dark:prose-invert">{result.AI_suggestion}</p>    
+                </div>}
             </div>
         </div>
-    );
-};
+    )
+}
 
 export default Calculator;

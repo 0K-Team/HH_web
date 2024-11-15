@@ -65,10 +65,7 @@ export default function Home() {
                     </h3>
                     <br />
                     <p>
-                        <strong>Technologiczne:</strong> Trudności z integracją różnych urządzeń IoT i skalowalnością infrastruktury.
-                        <strong>Społeczne:</strong> Niski poziom zaangażowania użytkowników, jeśli funkcje nie będą wystarczająco atrakcyjne.
-                        <strong>Partnerzy zewnętrzni:</strong> Zależność od współpracy z miastami, firmami i organizacjami.
-                        <strong>Finansowe:</strong> Koszty utrzymania i rozwoju aplikacji mogą być wysokie na etapie rozwoju
+                        Mamy kilka wyzwań, które musimy wziąć pod uwagę. Po stronie technologicznej pojawia się problem z integracją różnych urządzeń IoT i zapewnieniem skalowalności infrastruktury. Społecznie kluczowe będzie utrzymanie zaangażowania użytkowników, bo jeśli funkcje nie będą wystarczająco atrakcyjne, trudno będzie ich zainteresować na dłuższą metę. Jesteśmy też w dużym stopniu zależni od współpracy z partnerami zewnętrznymi, takimi jak miasta, firmy czy organizacje, co może wpływać na tempo rozwoju. Do tego dochodzi jeszcze kwestia finansów – koszty utrzymania i rozwoju aplikacji na początku mogą być naprawdę wysokie.
                     </p>
 
                     <hr className={"my-4"}/>
