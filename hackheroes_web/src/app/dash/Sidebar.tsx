@@ -14,9 +14,13 @@ interface SidebarButtonProps {
 
 const SidebarButton: React.FC<SidebarButtonProps> = ({ href, icon, label, isSidebarOpen }) => (
     <Link href={href}>
-        <button className={`relative flex items-center rounded-lg transition-all duration-300 mt-2 h-14 ${isSidebarOpen ? "pl-10 pr-4 bg-gray-dark w-full" : "justify-center"} text-green-green hover:bg-gray-lighter hover:shadow-lg`}>
-            <FontAwesomeIcon icon={icon} className="absolute left-4 text-2xl text-green-green" />
-            <span className={`ml-12 font-bold w-48 flex duration-300 ${isSidebarOpen ? "opacity-100" : "opacity-0"} whitespace-nowrap`}>
+        <button
+            className={`relative flex items-center rounded-lg transition-all duration-300 h-14 ${
+                isSidebarOpen ? "pl-10 pr-4 bg-gray-dark w-full" : "justify-center w-20"
+            } text-green-green hover:bg-gray-lighter hover:shadow-lg mt-2`}
+        >
+            <FontAwesomeIcon icon={icon} className={`text-2xl ${isSidebarOpen ? "ml-0" : ""}`} />
+            <span className={`ml-4 font-bold ${isSidebarOpen ? "opacity-100" : "opacity-0"} transition-opacity w-48 whitespace-nowrap`}>
                 {label}
             </span>
         </button>
@@ -30,7 +34,7 @@ export default function Sidebar() {
     const handleMouseEnterSidebarTrigger = () => {
         hoverTimeout.current = setTimeout(() => {
             setIsSidebarOpen(true);
-        }, 300); // Możesz dostosować opóźnienie
+        }, 300);
     };
 
     const handleMouseLeaveSidebarTrigger = () => {
@@ -42,19 +46,24 @@ export default function Sidebar() {
 
     return (
         <div className="fixed top-0 left-0 h-full z-50 flex" onMouseLeave={handleMouseLeaveSidebarTrigger}>
-            {/* Lewy pasek z ikonami (sidebar trigger) */}
             <div
                 onMouseEnter={handleMouseEnterSidebarTrigger}
-                className="bg-gray-light rounded-r-xl text-white flex items-center justify-center w-20 shadow-lg"
+                className="bg-gray-light rounded-r-xl text-white flex flex-col items-center w-20 shadow-lg py-4 space-y-4"
             >
                 <FontAwesomeIcon icon={faHouse} className="text-2xl text-green-green" />
+                <FontAwesomeIcon icon={faSeedling} className="text-2xl text-green-green" />
+                <FontAwesomeIcon icon={faUser} className="text-2xl text-green-green" />
+                <FontAwesomeIcon icon={faCalculator} className="text-2xl text-green-green" />
+                <FontAwesomeIcon icon={faMap} className="text-2xl text-green-green" />
+                <FontAwesomeIcon icon={faSignOutAlt} className="text-2xl text-green-green" />
             </div>
 
-            {/* Rozwijany sidebar */}
             <div
-                className={`bg-gray-light rounded-r-xl text-white transition-all duration-300 ${isSidebarOpen ? "w-86" : "w-0"} flex-col items-start p-4 shadow-lg overflow-hidden`}
-                onMouseEnter={() => setIsSidebarOpen(true)} // Utrzymuje rozwinięty sidebar po najechaniu na niego
-                onMouseLeave={handleMouseLeaveSidebarTrigger} // Zamknie sidebar po opuszczeniu
+                className={`bg-gray-light rounded-r-xl text-white transition-all duration-300 ${
+                    isSidebarOpen ? "w-64" : "w-0"
+                } flex-col items-start p-4 shadow-lg overflow-hidden`}
+                onMouseEnter={() => setIsSidebarOpen(true)}
+                onMouseLeave={handleMouseLeaveSidebarTrigger}
             >
                 <SidebarButton href="../dash" icon={faHouse} label="Panel użytkownika" isSidebarOpen={isSidebarOpen} />
                 <SidebarButton href="../garden" icon={faSeedling} label="Wirtualny ogródek" isSidebarOpen={isSidebarOpen} />
