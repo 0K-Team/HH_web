@@ -129,7 +129,7 @@ const Calculator = () => {
                             value={formData.transport.car_usage}
                             exclusive
                             onChange={handleChange}
-                            className="flex bg-green w-11/12"
+                            className="flex bg-green-green w-11/12"
                             >
                                 <ToggleButton value={0} className="flex-1">
                                     Rzadko
@@ -155,7 +155,7 @@ const Calculator = () => {
                             value={formData.transport.fuel_type}
                             exclusive
                             onChange={handleChange}
-                            className="flex bg-green w-11/12"
+                            className="flex bg-green-green w-11/12"
                             >
                                 <ToggleButton value={0} className="flex-1">
                                     Benzyna
@@ -184,7 +184,7 @@ const Calculator = () => {
                             value={formData.transport.weekly_km}
                             exclusive
                             onChange={handleChange}
-                            className="flex bg-green w-11/12"
+                            className="flex bg-green-green w-11/12"
                             >
                                 <ToggleButton value={0} className="flex-1">
                                     0-25
@@ -210,7 +210,7 @@ const Calculator = () => {
                             value={formData.transport.flight_frequency}
                             exclusive
                             onChange={handleChange}
-                            className="flex bg-green w-11/12"
+                            className="flex bg-green-green w-11/12"
                             >
                                 <ToggleButton value={0} className="flex-1">
                                     Nigdy
@@ -236,7 +236,7 @@ const Calculator = () => {
                             value={formData.transport.public_transport_usage}
                             exclusive
                             onChange={handleChange}
-                            className="flex bg-green w-11/12"
+                            className="flex bg-green-green w-11/12"
                             >
                                 <ToggleButton value={0} className="flex-1">
                                     Nigdy
@@ -262,7 +262,7 @@ const Calculator = () => {
                             value={formData.energy.energy_source}
                             exclusive
                             onChange={handleChange}
-                            className="flex bg-green w-11/12"
+                            className="flex bg-green-green w-11/12"
                             >
                                 <ToggleButton value={0} className="flex-1">
                                     Węgiel
@@ -288,7 +288,7 @@ const Calculator = () => {
                             value={formData.energy.water_heating_source}
                             exclusive
                             onChange={handleChange}
-                            className="flex bg-green w-11/12"
+                            className="flex bg-green-green w-11/12"
                             >
                                 <ToggleButton value={0} className="flex-1">
                                     Elektryczność
@@ -314,7 +314,7 @@ const Calculator = () => {
                             value={formData.energy.monthly_kWh}
                             exclusive
                             onChange={handleChange}
-                            className="flex bg-green w-11/12"
+                            className="flex bg-green-green w-11/12"
                             >
                                 <ToggleButton value={0} className="flex-1">
                                     0-20
@@ -340,7 +340,7 @@ const Calculator = () => {
                             value={formData.energy.energy_efficiency}
                             exclusive
                             onChange={handleChange}
-                            className="flex bg-green w-11/12"
+                            className="flex bg-green-green w-11/12"
                             >
                                 <ToggleButton value={0} className="flex-1">
                                     Niska
@@ -363,7 +363,7 @@ const Calculator = () => {
                             value={formData.water.shower_time}
                             exclusive
                             onChange={handleChange}
-                            className="flex bg-green w-11/12"
+                            className="flex bg-green-green w-11/12"
                             >
                                 <ToggleButton value={0} className="flex-1">
                                     0-5 min
@@ -389,7 +389,7 @@ const Calculator = () => {
                             value={formData.water.bathtub_usage}
                             exclusive
                             onChange={handleChange}
-                            className="flex bg-green w-11/12"
+                            className="flex bg-green-green w-11/12"
                             >
                                 <ToggleButton value={0} className="flex-1">
                                     Nigdy
@@ -415,7 +415,7 @@ const Calculator = () => {
                             value={formData.waste.waste_segregation}
                             exclusive
                             onChange={handleChange}
-                            className="flex bg-green w-11/12"
+                            className="flex bg-green-green w-11/12"
                             >
                                 <ToggleButton value={0} className="flex-1">
                                     Niska
@@ -438,7 +438,7 @@ const Calculator = () => {
                             value={formData.waste.food_waste}
                             exclusive
                             onChange={handleChange}
-                            className="flex bg-green w-11/12"
+                            className="flex bg-green-green w-11/12"
                             >
                                 <ToggleButton value={0} className="flex-1">
                                     Niskie
@@ -464,7 +464,7 @@ const Calculator = () => {
                             value={formData.waste.plastic_usage}
                             exclusive
                             onChange={handleChange}
-                            className="flex bg-green w-11/12"
+                            className="flex bg-green-green w-11/12"
                             >
                                 <ToggleButton value={0} className="flex-1">
                                     Wysokie
@@ -490,7 +490,7 @@ const Calculator = () => {
                             value={formData.food.meat_consumption}
                             exclusive
                             onChange={handleChange}
-                            className="flex bg-green w-11/12"
+                            className="flex bg-green-green w-11/12"
                             >
                                 <ToggleButton value={0} className="flex-1">
                                     Bardzo wysokie
@@ -519,7 +519,7 @@ const Calculator = () => {
                             value={formData.food.local_food_preference}
                             exclusive
                             onChange={handleChange}
-                            className="flex bg-green w-11/12"
+                            className="flex bg-green-green w-11/12"
                             >
                                 <ToggleButton value={0} className="flex-1">
                                     Niskie
@@ -545,7 +545,7 @@ const Calculator = () => {
                             value={formData.leisure.movie_watch_time}
                             exclusive
                             onChange={handleChange}
-                            className="flex bg-green w-11/12"
+                            className="flex bg-green-green w-11/12"
                             >
                                 <ToggleButton value={0} className="flex-1">
                                     0-1 godz.
@@ -571,7 +571,7 @@ const Calculator = () => {
                             value={formData.leisure.shopping_frequency}
                             exclusive
                             onChange={handleChange}
-                            className="flex bg-green w-11/12"
+                            className="flex bg-green-green w-11/12"
                             >
                                 <ToggleButton value={0} className="flex-1">
                                     Rzadko
@@ -589,13 +589,13 @@ const Calculator = () => {
             
                 <div className="flex-1">
                     <div className="flex justify-center sticky top-0 z-10"><button onClick={handleSubmit}
-                                                                                   className="bg-green px-6 py-2 w-10/12 rounded h-20 mt-20 text-4xl text-black/70 hover:text-black hover:bg-green/90">
+                                                                                   className="bg-green-green px-6 py-2 w-10/12 rounded h-20 mt-20 text-4xl text-black/70 hover:text-black hover:bg-green-hover">
                         <strong>OBLICZ ŚLAD WĘGLOWY</strong></button>
                     </div>
                     {result && (
                         <div>
                             <div className="flex justify-center mt-24">
-                                <div className="bg-green h-64 w-10/12 rounded">
+                                <div className="bg-green-green h-64 w-10/12 rounded">
                                     <p className="flex w-full justify-center mt-10 text-3xl text-black"><strong>Twój ślad węglowy [kg CO2 / tydz.]</strong></p>
                                     <div className="flex justify-center">
                                         <div className="w-11/12 flex">
@@ -623,7 +623,7 @@ const Calculator = () => {
                                 </div>
                             </div>
                             <div className="flex justify-center mt-24">
-                                <div className="bg-green w-10/12 rounded p-10 text-black">
+                                <div className="bg-green-green w-10/12 rounded p-10 text-black">
                                     <h2 className="text-5xl flex justify-center"><strong>Sugestia AI</strong></h2>
                                     <p className="text-2xl mt-8">{result.AI_suggestion}</p>
                                 </div>
