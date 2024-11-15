@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHouse, faSeedling, faUser, faCalculator, faMap, faSignOutAlt } from "@fortawesome/free-solid-svg-icons";
 import Link from "next/link";
@@ -25,12 +25,18 @@ const SidebarButton: React.FC<SidebarButtonProps> = ({ href, icon, label, isSide
 
 export default function Sidebar() {
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+    const hoverTimeout = useRef<NodeJS.Timeout | null>(null);
 
     const handleMouseEnter = () => {
-        setIsSidebarOpen(true);
+        hoverTimeout.current = setTimeout(() => {
+            setIsSidebarOpen(true);
+        }, 300); // Adjust the delay as needed
     };
 
     const handleMouseLeave = () => {
+        if (hoverTimeout.current) {
+            clearTimeout(hoverTimeout.current);
+        }
         setIsSidebarOpen(false);
     };
 
