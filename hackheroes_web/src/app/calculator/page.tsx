@@ -5,7 +5,6 @@ import ToggleButton from '@mui/material/ToggleButton';
 import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
 import Sidebar from "../dash/Sidebar";
 import { Slider as MSlider } from "@mui/material";
-import { Slider } from "@/components/ui/slider";
 import './mui.css'
 
 interface FormData {
