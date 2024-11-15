@@ -34,7 +34,7 @@ const Garden: React.FC = () => {
             <div className="mb-8 p-6 grid grid-cols-3 gap-4">
                 {gardenData.plants.map((plant: Plant) => (
 
-                    <div key={plant._id} className=" drop-shadow-lg text-green-green rounded bg-gray-dark pt-8 w-full m-0 flex flex-col items-center jusitfy-center h-full">
+                    <div key={plant._id} className=" mb-4 drop-shadow-lg text-green-green rounded bg-gray-dark pt-8 w-full m-0 flex flex-col items-center jusitfy-center h-full">
                         <Image
                             className="drop-shadow-lg rounded-lg"
                             src={`/api/v1/CDN/${plant.type}`}

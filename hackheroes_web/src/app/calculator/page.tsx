@@ -111,7 +111,7 @@ const Calculator = () => {
     };
 
     return (
-        <div>
+        <div className="bg-gray-dark font-bold">
             <style jsx>{`
                 hr {
                     border-top: 1px solid gray;
@@ -593,7 +593,7 @@ const Calculator = () => {
                         <div>
                             <div className="flex justify-center mt-24">
                                 <div className="bg-green h-64 w-10/12 rounded">
-                                    <p className="flex w-full justify-center mt-10 text-3xl text-black"><strong>Twój ślad węglowy [kg CO2 / tydz.]</strong></p>
+                                    <p className="sticky flex w-full justify-center mt-10 text-3xl text-black"><strong>Twój ślad węglowy [kg CO2 / tydz.]</strong></p>
                                     <div className="flex justify-center">
                                         <div className="w-11/12 flex">
                                             <Slider
