@@ -31,7 +31,6 @@ const Garden: React.FC = () => {
 
     return (
         <div>
-            <h1>User: {gardenData.user}</h1>
             <div className="p-6 grid grid-cols-3 gap-4">
                 {gardenData.plants.map((plant: Plant) => (
 
@@ -41,15 +40,12 @@ const Garden: React.FC = () => {
                             src={`/api/v1/CDN/${plant.type}`}
                             alt={plant.name}
                         />
-                        <h2 >{plant.name}</h2>
-                        <p>Growth Stage: {plant.growthStage}</p>
+                        <h2 className="font-bold">{plant.name}</h2>
+                        <p className="font-bold">Growth Stage: {plant.growthStage}</p>
                     </div>
                 ))}
             </div>
-            <div>
-                <h2>User Actions</h2>
-                <p>Watering Count: {gardenData.userActions.wateringCount}</p>
-            </div>
+
         </div>
     );
 };
