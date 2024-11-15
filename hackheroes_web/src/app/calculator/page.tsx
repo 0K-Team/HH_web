@@ -590,7 +590,7 @@ const Calculator = () => {
             
                 <div className="flex-1">
                     <div className="flex justify-center sticky top-0 z-10"><button onClick={handleSubmit}
-                                                                                   className="bg-green-green px-6 py-2 w-10/12 rounded h-20 mt-20 text-4xl text-black/70 hover:text-black hover:bg-green/90">
+                                                                                   className="bg-green-green px-6 py-2 w-10/12 rounded h-20 mt-20 text-4xl text-black/70 hover:text-black hover:bg-green-hover">
                         <strong>OBLICZ ŚLAD WĘGLOWY</strong></button>
                     </div>
                     {result && (
