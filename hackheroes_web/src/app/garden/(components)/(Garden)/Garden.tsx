@@ -37,7 +37,7 @@ const Garden: React.FC = () => {
 
                     <div key={plant._id} className=" text-green-green rounded bg-gray-dark pt-8 w-full m-0 flex flex-col items-center jusitfy-center h-full">
                         <Image
-                            className=" mix-blend-multiply"
+                            className=" mix-blend-difference bg-gray-light"
                             src={`/api/v1/CDN/${plant.type}`}
                             alt={plant.name}
                         />
