@@ -178,7 +178,9 @@ export default function Home() {
                             "https://i.imgur.com/FCfLDoz.png",
                             "https://i.imgur.com/6X15dGv.png",
                             "https://i.imgur.com/NIgLi6s.png",
-                            "https://i.imgur.com/qkqWE1c.png"
+                            "https://i.imgur.com/qkqWE1c.png",
+                            "https://i.imgur.com/hL4xAVY.png",
+                            "https://i.imgur.com/2Bp3wnU.png"
                         ].map((src, index) => (
                             <div key={index} className="w-full md:w-1/3 p-2">
                                 <Image
