@@ -1,4 +1,5 @@
 import Header from "@/app/(landing)/Header";
+import Footer from "@/app/(landing)/Footer";
 
 export default function Home() {
 
@@ -39,6 +40,7 @@ export default function Home() {
                     </h3>
                 </div>
             </div>
+            <Footer />
         </div>
     );
 }
