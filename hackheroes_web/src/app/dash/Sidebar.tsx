@@ -48,7 +48,7 @@ export default function Sidebar() {
                 onMouseLeave={handleMouseLeaveSidebarTrigger}
             >
                 <SidebarButton href="../dash" icon={faHouse} label="Panel użytkownika" isSidebarOpen={isSidebarOpen} />
-                <SidebarButton href="../garden" icon={faSeedling} label="Wirtualny ogródek" isSidebarOpen={isSidebarOpen} />
+                {/* <SidebarButton href="../garden" icon={faSeedling} label="Wirtualny ogródek" isSidebarOpen={isSidebarOpen} /> */}
                 <SidebarButton href="../posts" icon={faUser} label="Sociale" isSidebarOpen={isSidebarOpen} />
                 <SidebarButton href="../calculator" icon={faCalculator} label="EcoCalculator" isSidebarOpen={isSidebarOpen} />
                 <SidebarButton href="../map" icon={faMap} label="EcoMaps" isSidebarOpen={isSidebarOpen} />

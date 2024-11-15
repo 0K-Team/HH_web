@@ -12,6 +12,7 @@ export default function Home() {
 
                     <hr className={"my-4"}/>
                     <h3 className="text-lg font-semibold">Na jakie potrzeby/problem odpowiada Wasze rozwiązanie?</h3>
+                    <p>W społeczeństwie jest widoczny problem nie tyle co braku zainteresowania ludzi w dobro planety, co ich niewiedzy w temacie ekologii. Nasza strona/aplikacja ma na celu pomóc takim ludziom zobaczyć </p>
 
                     <hr className={"my-4"}/>
                     <h3 className="text-lg font-semibold">W jakich językach programowania, jakich technologiach powstała
