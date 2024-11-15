@@ -3,7 +3,7 @@ import Header from "@/app/(landing)/Header";
 export default function Home() {
 
     return (
-        <div className="bg-[#1E1E1E] min-h-screen flex flex-col">
+        <div className="bg-[#1E1E1E] min-h-screen flex flex-col text-white">
             <Header />
             <div className="flex-grow flex justify-center">
                 <div className="max-w-4xl px-4 mt-4">
