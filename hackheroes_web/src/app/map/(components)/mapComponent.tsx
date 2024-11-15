@@ -43,7 +43,6 @@ const MapComponent = memo(function MapComponent() {
                 // Apply random offset to the coordinates
                 longitude += getRandomOffset();
                 latitude += getRandomOffset();
-                console.log(latitude, longitude);
     
                 const marker = new Feature({
                     geometry: new Point(fromLonLat([longitude, latitude])),

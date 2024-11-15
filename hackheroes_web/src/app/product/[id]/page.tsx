@@ -16,7 +16,6 @@ export default function Product() {
     useEffect(() => {
         if (!id) return;
         fetchProduct(id as string).then((product) => {
-            console.log(product);
             setProduct(product);
             setLoading(false);
         }).catch(() => {

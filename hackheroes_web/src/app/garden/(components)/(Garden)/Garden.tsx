@@ -6,13 +6,10 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 
 // Example function using the imported types
-const exampleFunction = (data: UserGardenData) => {
-    console.log(data.user); // Accessing user property
-    data.plants.forEach((plant: Plant) => {
-        console.log(plant.name); // Accessing plant name
-    });
-    console.log(data.userActions.wateringCount); // Accessing user actions
-};
+// const exampleFunction = (data: UserGardenData) => {
+//     data.plants.forEach((plant: Plant) => {
+//     });
+// };
 
 // Example usage in a React component
 const Garden: React.FC = () => {
