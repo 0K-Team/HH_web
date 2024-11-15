@@ -529,6 +529,7 @@ const AdminPanel = () => {
                 <div className="flex justify-center">
                     <button onClick={async () => {
                         const events = await Admin.handleGetEvents();
+                        console.log(events);
                     }} className="w-3/4 h-10 bg-slate-500 rounded mt-4 hover:bg-slate-600 transition duration-200">Get
                         Events
                     </button>
